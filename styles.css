@@ -1,0 +1,10 @@
+@import url('./styles-base.css');
+@import url('./styles-hero.css');
+@import url('./styles-modal.css');
+
+/* Compatibility bridge for the first uploaded hero markup. */
+.product-art img,
+.avatar img,
+.product-badge img {
+  content: url('./assets/pomegranate.svg');
+}
