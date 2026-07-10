@@ -1,8 +1,9 @@
 @import url('./styles-base.css');
 @import url('./styles-hero.css');
+@import url('./styles-conversion.css');
 @import url('./styles-modal.css');
 
-/* Compatibility bridge for the first uploaded hero markup. */
+/* Compatibility bridge for legacy image paths in the first fold. */
 .product-art img,
 .avatar img,
 .product-badge img {
