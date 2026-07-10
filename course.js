@@ -143,6 +143,76 @@
   qsa('[data-course-close]').forEach((button) => button.addEventListener('click', closeModal));
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && modal?.classList.contains('is-open')) closeModal(); });
 
+  const contactButtons = [...qsa('[data-open="contact"]', section), ...qsa('[data-open="contact"]', modal)];
+  contactButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      closeModal();
+      const contact = qs('#contactModal');
+      if (!contact) return;
+      const product = button.dataset.product || 'Cevora Clínica Próspera';
+      const productField = qs('#productField');
+      const eyebrow = qs('#contactEyebrow');
+      const title = qs('#contactTitle');
+      const description = qs('#contactDescription');
+      if (productField) productField.value = product;
+      if (eyebrow) eyebrow.textContent = 'Formação avançada personalizada';
+      if (title) title.textContent = 'Conheça o Cevora Clínica Próspera.';
+      if (description) description.textContent = 'Preencha os dados para receber os detalhes da formação e do próximo ciclo.';
+      contact.classList.add('is-open');
+      contact.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      window.setTimeout(() => qs('button, input', contact)?.focus(), 80);
+    });
+  });
+
+  if (!reduceMotion && section) {
+    qsa('[data-tilt]', section).forEach((card) => {
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - .5;
+        const y = (event.clientY - rect.top) / rect.height - .5;
+        card.style.transform = `perspective(600px) rotateX(${-y * 6}deg) rotateY(${x * 8}deg) translateY(-2px)`;
+      });
+      card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+    });
+
+    qsa('.magnetic', section).forEach((button) => {
+      button.addEventListener('pointermove', (event) => {
+        const rect = button.getBoundingClientRect();
+        const x = event.clientX - rect.left - rect.width / 2;
+        const y = event.clientY - rect.top - rect.height / 2;
+        button.style.transform = `translate(${x * .08}px, ${y * .12}px) translateY(-3px)`;
+      });
+      button.addEventListener('pointerleave', () => { button.style.transform = ''; });
+    });
+
+    const zone = qs('.parallax-zone', section);
+    if (zone) {
+      let raf = 0;
+      zone.addEventListener('pointermove', (event) => {
+        const rect = zone.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width - .5) * 2;
+        const y = ((event.clientY - rect.top) / rect.height - .5) * 2;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          qsa('.parallax-layer', zone).forEach((layer) => {
+            const depth = Number(layer.dataset.depth || .05);
+            layer.style.translate = `${x * depth * 110}px ${y * depth * 70}px`;
+          });
+        });
+      });
+      zone.addEventListener('pointerleave', () => {
+        qsa('.parallax-layer', zone).forEach((layer) => {
+          layer.animate([{ translate: getComputedStyle(layer).translate }, { translate: '0px 0px' }], {
+            duration: 650,
+            easing: 'cubic-bezier(.16,1,.3,1)',
+            fill: 'forwards'
+          });
+        });
+      });
+    }
+  }
+
   let animated = false;
   const reveal = () => {
     if (animated || !section) return;
@@ -186,6 +256,9 @@
     });
     gsap.from('.plan-step', { opacity: 0, y: 12, stagger: .15, duration: .55, delay: .45, ease: 'power2.out' });
     gsap.from('.method-pillar', { opacity: 0, y: 10, stagger: .1, duration: .55, delay: .75, ease: 'power2.out' });
+    qsa('[data-float]', section).forEach((card, index) => {
+      gsap.to(card, { y: index % 2 === 0 ? -8 : 7, duration: 3.4 + index * .25, yoyo: true, repeat: -1, ease: 'sine.inOut' });
+    });
   };
 
   if ('IntersectionObserver' in window && section) {
