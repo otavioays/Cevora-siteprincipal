@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+<title id="title">Sapo da fortuna Cevora</title>
+<desc id="desc">Escultura premium de um sapo em obsidiana, ouro e rubis, símbolo do Cevora Clínica Próspera.</desc>
+<defs>
+  <radialGradient id="bg" cx="50%" cy="42%" r="65%"><stop offset="0" stop-color="#26140b"/><stop offset=".55" stop-color="#090706"/><stop offset="1" stop-color="#030303"/></radialGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#70471f"/><stop offset=".28" stop-color="#f2cf80"/><stop offset=".58" stop-color="#a66d2c"/><stop offset=".82" stop-color="#f8df9b"/><stop offset="1" stop-color="#6d431c"/></linearGradient>
+  <linearGradient id="black" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#292421"/><stop offset=".38" stop-color="#070605"/><stop offset=".7" stop-color="#171311"/><stop offset="1" stop-color="#030303"/></linearGradient>
+  <radialGradient id="ruby"><stop stop-color="#e64a55"/><stop offset=".35" stop-color="#8d1724"/><stop offset=".75" stop-color="#39050b"/><stop offset="1" stop-color="#110103"/></radialGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="shadow"><feDropShadow dx="0" dy="22" stdDeviation="18" flood-color="#000" flood-opacity=".78"/></filter>
+  <pattern id="texture" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M0 16h32M16 0v32" stroke="#d8ad5f" stroke-opacity=".025"/></pattern>
+</defs>
+<rect width="640" height="640" fill="url(#bg)"/>
+<rect width="640" height="640" fill="url(#texture)"/>
+<g fill="none" stroke="#d8ad5f" stroke-opacity=".16"><circle cx="320" cy="306" r="250"/><circle cx="320" cy="306" r="206"/><circle cx="320" cy="306" r="164" stroke-dasharray="3 12"/></g>
+<g fill="#f0cc82" filter="url(#glow)" opacity=".8"><circle cx="97" cy="228" r="3"/><circle cx="530" cy="172" r="3"/><circle cx="565" cy="348" r="2.5"/><circle cx="130" cy="427" r="2.5"/><circle cx="467" cy="518" r="2"/></g>
+<g filter="url(#shadow)">
+  <g id="coins" stroke="#5d3515" stroke-width="4">
+    <ellipse cx="320" cy="548" rx="224" ry="54" fill="#0b0806" stroke="#d8ad5f"/>
+    <g fill="url(#gold)">
+      <ellipse cx="132" cy="527" rx="55" ry="19"/><ellipse cx="185" cy="553" rx="54" ry="18"/><ellipse cx="246" cy="568" rx="56" ry="19"/><ellipse cx="315" cy="575" rx="58" ry="20"/><ellipse cx="388" cy="569" rx="58" ry="20"/><ellipse cx="458" cy="552" rx="57" ry="19"/><ellipse cx="510" cy="522" rx="54" ry="18"/>
+      <ellipse cx="152" cy="497" rx="48" ry="17"/><ellipse cx="218" cy="513" rx="51" ry="18"/><ellipse cx="425" cy="511" rx="51" ry="18"/><ellipse cx="489" cy="492" rx="49" ry="17"/>
+    </g>
+    <g fill="none" stroke="#4b2c14" stroke-width="2" opacity=".7"><path d="M105 527h54M159 552h52M222 568h48M360 568h54M432 551h55M483 521h50"/></g>
+  </g>
+
+  <path d="M190 478C146 426 145 354 176 302c25-42 59-62 88-72 5-46 25-91 57-119 31 28 51 73 56 119 30 10 63 30 88 72 31 52 30 124-14 176-33 40-81 62-131 62s-98-22-130-62Z" fill="url(#black)" stroke="url(#gold)" stroke-width="9"/>
+
+  <path d="M222 270c-43 22-70 60-72 105 30-21 60-29 92-27M418 270c43 22 70 60 72 105-30-21-60-29-92-27" fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round"/>
+
+  <g>
+    <ellipse cx="248" cy="212" rx="64" ry="60" fill="url(#black)" stroke="url(#gold)" stroke-width="10"/>
+    <ellipse cx="392" cy="212" rx="64" ry="60" fill="url(#black)" stroke="url(#gold)" stroke-width="10"/>
+    <circle cx="250" cy="212" r="30" fill="url(#ruby)" stroke="url(#gold)" stroke-width="7"/>
+    <circle cx="390" cy="212" r="30" fill="url(#ruby)" stroke="url(#gold)" stroke-width="7"/>
+    <circle cx="240" cy="199" r="8" fill="#ffdca1" opacity=".75"/>
+    <circle cx="380" cy="199" r="8" fill="#ffdca1" opacity=".75"/>
+  </g>
+
+  <path d="M218 286c32-31 63-40 102-40s70 9 102 40c-5 55-45 96-102 96s-97-41-102-96Z" fill="#080706" stroke="url(#gold)" stroke-width="8"/>
+  <path d="M247 304c24 18 48 25 73 25s49-7 73-25" fill="none" stroke="#d8ad5f" stroke-width="7" stroke-linecap="round"/>
+  <path d="M290 274c8 7 18 11 30 11s22-4 30-11" fill="none" stroke="#9d662a" stroke-width="5" stroke-linecap="round"/>
+
+  <g fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round" opacity=".96">
+    <path d="M197 354c34 4 62 18 85 43M443 354c-34 4-62 18-85 43"/>
+    <path d="M210 386c20 2 39 10 56 25M430 386c-20 2-39 10-56 25"/>
+    <path d="M234 442c18-22 39-36 64-42M406 442c-18-22-39-36-64-42"/>
+    <path d="M264 153c18 9 36 25 56 46 20-21 38-37 56-46"/>
+  </g>
+
+  <g transform="translate(320 430)">
+    <circle r="91" fill="#0b0806" stroke="url(#gold)" stroke-width="10"/>
+    <circle r="72" fill="#3f070e" stroke="#b9843c" stroke-width="5"/>
+    <g fill="none" stroke="url(#gold)" stroke-width="7" stroke-linejoin="round">
+      <path d="M0-57C12-31 31-17 57-11 34 2 22 19 20 45 5 27-7 18-20 45-22 19-34 2-57-11-31-17-12-31 0-57Z"/>
+      <path d="M0-38 16-12 42-5 20 12 23 38 0 24-23 38-20 12-42-5-16-12Z"/>
+    </g>
+    <circle r="17" fill="url(#ruby)" stroke="url(#gold)" stroke-width="6"/>
+  </g>
+
+  <path d="M238 474c-44 10-80 37-103 73M402 474c44 10 80 37 103 73" fill="none" stroke="url(#gold)" stroke-width="12" stroke-linecap="round"/>
+  <g fill="url(#gold)" stroke="#5d3515" stroke-width="3"><circle cx="181" cy="506" r="16"/><circle cx="459" cy="506" r="16"/><circle cx="148" cy="538" r="14"/><circle cx="492" cy="538" r="14"/></g>
+</g>
+<g fill="none" stroke="#d8ad5f" stroke-opacity=".14" stroke-width="2"><path d="M66 198c45-70 99-111 165-129M574 198c-45-70-99-111-165-129"/><path d="M64 445c45 52 94 84 147 99M576 445c-45 52-94 84-147 99"/></g>
+</svg>
