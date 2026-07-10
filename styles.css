@@ -1,6 +1,7 @@
 @import url('./styles-base.css');
 @import url('./styles-hero.css');
 @import url('./styles-conversion.css');
+@import url('./styles-course.css');
 @import url('./styles-modal.css');
 
 /* Compatibility bridge for legacy image paths in the first fold. */
