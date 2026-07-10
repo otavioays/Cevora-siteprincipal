@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050403" />
+  <meta name="description" content="Cevora Concierge 24/7: tecnologia de atendimento especializada para cirurgiões plásticos." />
+  <title>Cevora Concierge 24/7</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="page-grid" aria-hidden="true"></div>
+  <canvas id="ambientCanvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__mark">
+      <svg viewBox="0 0 64 64" role="img" aria-label="Símbolo Cevora">
+        <path d="M32 6c3 9 3 18 0 27C29 24 29 15 32 6Z" />
+        <path d="M15 14c8 5 13 12 15 21-8-5-13-12-15-21Z" />
+        <path d="M49 14c-8 5-13 12-15 21 8-5 13-12 15-21Z" />
+        <path d="M8 29c9 1 16 5 21 13-9-1-16-5-21-13Z" />
+        <path d="M56 29c-9 1-16 5-21 13 9-1 16-5 21-13Z" />
+        <path d="M19 47c7 3 19 3 26 0" fill="none" />
+      </svg>
+    </div>
+    <div class="loader__line"><span></span></div>
+  </div>
+
+  <header class="site-header" data-animate="header">
+    <div class="header-frame frame-corners">
+      <a class="brand" href="#top" aria-label="Cevora, início">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64">
+            <path d="M32 6c3 9 3 18 0 27C29 24 29 15 32 6Z" />
+            <path d="M15 14c8 5 13 12 15 21-8-5-13-12-15-21Z" />
+            <path d="M49 14c-8 5-13 12-15 21 8-5 13-12 15-21Z" />
+            <path d="M8 29c9 1 16 5 21 13-9-1-16-5-21-13Z" />
+            <path d="M56 29c-9 1-16 5-21 13 9-1 16-5 21-13Z" />
+            <path d="M19 47c7 3 19 3 26 0" fill="none" />
+          </svg>
+        </span>
+        <span class="brand__type">
+          <span class="brand__name" aria-label="CEVORA">
+            <span>C</span><span class="brand__e" aria-hidden="true"><i></i><i></i><i></i></span><span>VORA</span>
+          </span>
+          <span class="brand__tag">Crescimento. Valor. Prosperidade.</span>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="#produto">Produtos <span>⌄</span></a>
+        <a href="#metodo">Método</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="client-button" type="button" data-open="contact">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7 8a7 7 0 0 0-14 0" /></svg>
+          Área do cliente
+        </button>
+        <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#produto">Produtos</a>
+    <a href="#metodo">Método</a>
+    <a href="#contato">Contato</a>
+    <button type="button" data-open="contact">Área do cliente</button>
+  </div>
+
+  <main id="top">
+    <section class="hero frame-corners" id="produto">
+      <div class="hero__ornament hero__ornament--left" aria-hidden="true"></div>
+      <div class="hero__ornament hero__ornament--right" aria-hidden="true"></div>
+      <div class="hero__halo hero__halo--one" aria-hidden="true"></div>
+      <div class="hero__halo hero__halo--two" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <div class="eyebrow reveal clip-slide delay-100">
+          <span class="eyebrow__icon" aria-hidden="true">
+            <svg viewBox="0 0 44 24"><path d="M22 2c2 5 2 9 0 14-2-5-2-9 0-14Z"/><path d="M9 5c6 2 10 6 12 11-6-2-10-6-12-11Z"/><path d="M35 5c-6 2-10 6-12 11 6-2 10-6 12-11Z"/><path d="M2 13c7 0 12 2 18 7-7 0-12-2-18-7Z"/><path d="M42 13c-7 0-12 2-18 7 7 0 12-2 18-7Z"/></svg>
+          </span>
+          Exclusivo para cirurgiões plásticos
+        </div>
+
+        <h1 class="hero__title" aria-label="Cevora Concierge 24/7">
+          <span class="word-mask"><span class="word-inner gold-gradient">Cevora</span></span>
+          <span class="word-mask"><span class="word-inner delay-100">Concierge <em>24/7</em></span></span>
+        </h1>
+
+        <div class="title-rule reveal clip-slide delay-300" aria-hidden="true">
+          <span></span><i>✦</i><span></span>
+        </div>
+
+        <p class="hero__copy reveal clip-slide delay-400">
+          Tecnologia de atendimento especializada para acolher, qualificar e acompanhar pacientes com precisão premium.
+        </p>
+
+        <p class="hero__support reveal clip-slide delay-500">
+          <span></span>
+          Uma experiência de atendimento feita para clínicas de cirurgia plástica.
+        </p>
+
+        <div class="hero__actions reveal clip-slide delay-600">
+          <button class="button button--primary magnetic" type="button" data-open="contact">
+            <span class="button__icon pomegranate-mini" aria-hidden="true"></span>
+            <span>Quero conhecer</span>
+            <i aria-hidden="true">↗</i>
+          </button>
+          <button class="button button--ghost magnetic" type="button" data-open="demo">
+            <span class="play-icon" aria-hidden="true">▶</span>
+            <span>Ver demonstração</span>
+          </button>
+        </div>
+
+        <div class="benefits reveal clip-slide delay-700" aria-label="Principais benefícios">
+          <div class="benefit-card" data-tilt>
+            <span class="benefit-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="8"/><path d="M19 5l2-2M5 5 3 3"/></svg>
+            </span>
+            <span>Responde 24/7</span>
+          </div>
+          <div class="benefit-card" data-tilt>
+            <span class="benefit-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4a3 3 0 0 0-3 3v1a3 3 0 0 0-2 3 3 3 0 0 0 2 3v1a3 3 0 0 0 3 3M15 4a3 3 0 0 1 3 3v1a3 3 0 0 1 2 3 3 3 0 0 1-2 3v1a3 3 0 0 1-3 3M9 4v16M15 4v16M9 9h6M9 15h6"/></svg>
+            </span>
+            <span>Qualifica com inteligência</span>
+          </div>
+          <div class="benefit-card" data-tilt>
+            <span class="benefit-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-5"/></svg>
+            </span>
+            <span>Acompanha sem falhas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__visual reveal clip-slide delay-300" aria-label="Demonstração visual do Cevora Concierge 24/7">
+        <svg class="face-outline" viewBox="0 0 420 500" aria-hidden="true">
+          <path d="M168 32c-32 29-50 71-50 120 0 62 21 106 15 156-6 48 2 93 32 135" />
+          <path d="M154 60c44 15 91 55 109 107 9 26 6 49-5 69-9 17-13 30-9 42 6 18 25 22 33 32-8 8-21 10-35 8-3 26-16 49-37 65-16 12-29 30-33 54" />
+          <path d="M173 94c-3 43 7 77 31 101 18 18 25 33 21 46-4 11-14 17-28 18" />
+          <path d="M145 166c19-15 42-18 61-6" />
+          <path d="M211 264c16 3 31 0 45-10" />
+          <path d="M160 330c32 1 63 6 91 18" />
+          <path class="face-outline__dotted" d="M126 151c64 18 132 69 175 134" />
+          <circle cx="126" cy="151" r="3"/><circle cx="166" cy="168" r="3"/><circle cx="206" cy="193" r="3"/><circle cx="247" cy="230" r="3"/><circle cx="282" cy="271" r="3"/>
+        </svg>
+
+        <div class="orbit orbit--outer" aria-hidden="true"><span class="orbit-node orbit-node--one"></span><span class="orbit-node orbit-node--two"></span></div>
+        <div class="orbit orbit--inner" aria-hidden="true"><span class="orbit-node orbit-node--three"></span></div>
+        <div class="product-glow" aria-hidden="true"></div>
+
+        <div class="product-art parallax-layer" data-depth="0.08">
+          <img src="assets/pomegranate.webp" alt="Romã dourada e vermelha, símbolo do Cevora Concierge 24/7" />
+        </div>
+
+        <article class="floating-card chat-card parallax-layer" data-depth="0.14" data-float="1">
+          <header class="floating-card__header">
+            <span class="avatar"><img src="assets/pomegranate.webp" alt="" /></span>
+            <strong>Cevora Concierge 24/7</strong>
+            <button type="button" aria-label="Mais opções">•••</button>
+          </header>
+          <div class="chat-message" id="chatMessage" aria-live="polite">
+            <span>Olá! Sou a Concierge da sua clínica.</span>
+            <span>Como posso te ajudar hoje?</span>
+            <small>09:41 ✓✓</small>
+          </div>
+          <div class="chat-options">
+            <button type="button" data-chat="Quero agendar uma avaliação">Quero agendar uma avaliação</button>
+            <button type="button" data-chat="Tenho dúvidas sobre procedimentos">Tenho dúvidas sobre procedimentos</button>
+            <button type="button" data-chat="Quero saber valores">Quero saber valores</button>
+          </div>
+        </article>
+
+        <article class="floating-card score-card parallax-layer" data-depth="0.1" data-float="2">
+          <header class="floating-card__header compact">
+            <span class="spark">✦</span>
+            <strong>Qualificação inteligente</strong>
+            <button type="button" aria-label="Fechar cartão">×</button>
+          </header>
+          <div class="score-card__body">
+            <div class="score-ring" aria-label="92 por cento qualificado">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r="40" class="score-ring__track" />
+                <circle cx="50" cy="50" r="40" class="score-ring__value" />
+              </svg>
+              <strong data-count="92">0%</strong>
+            </div>
+            <div class="score-copy">
+              <strong>Perfil qualificado</strong>
+              <span>Interesse confirmado</span>
+              <span>Disponibilidade verificada</span>
+              <span>Perfil compatível</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="floating-card journey-card parallax-layer" data-depth="0.07" data-float="3">
+          <header class="floating-card__header compact">
+            <span class="journey-icon">◈</span>
+            <strong>Acompanhamento premium</strong>
+            <button type="button" aria-label="Fechar cartão">×</button>
+          </header>
+          <svg class="journey-chart" viewBox="0 0 300 92" role="img" aria-label="Evolução da jornada do paciente">
+            <defs>
+              <linearGradient id="chartGradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#8d1f29" />
+                <stop offset="1" stop-color="#e5b968" />
+              </linearGradient>
+            </defs>
+            <path class="journey-chart__grid" d="M0 70H300M0 45H300M0 20H300" />
+            <path class="journey-chart__line" d="M8 73 42 58 76 62 111 38 145 65 177 41 210 50 246 20 290 40" />
+            <g class="journey-chart__points">
+              <circle cx="8" cy="73" r="3"/><circle cx="42" cy="58" r="3"/><circle cx="76" cy="62" r="3"/><circle cx="111" cy="38" r="3"/><circle cx="145" cy="65" r="3"/><circle cx="177" cy="41" r="3"/><circle cx="210" cy="50" r="3"/><circle cx="246" cy="20" r="3"/><circle cx="290" cy="40" r="3"/>
+            </g>
+          </svg>
+          <div class="journey-card__status">
+            <strong>Paciente em jornada ativa</strong>
+            <span>Acompanhamento contínuo e personalizado.</span>
+          </div>
+        </article>
+
+        <div class="product-badge parallax-layer" data-depth="0.11">
+          <img src="assets/pomegranate.webp" alt="" />
+        </div>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true"><span></span>Explore</div>
+    </section>
+  </main>
+
+  <div class="modal" id="demoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
+    <div class="modal__backdrop" data-close="demo"></div>
+    <div class="modal__panel frame-corners">
+      <button class="modal__close" type="button" aria-label="Fechar demonstração" data-close="demo">×</button>
+      <span class="modal__eyebrow">Demonstração interativa</span>
+      <h2 id="demoTitle">Veja o Concierge em ação.</h2>
+      <p>Escolha uma intenção abaixo e acompanhe como a tecnologia acolhe, qualifica e direciona o paciente.</p>
+      <div class="demo-shell">
+        <div class="demo-shell__messages" id="demoMessages">
+          <div class="demo-message demo-message--bot">Olá! Sou a Concierge da clínica. Como posso te ajudar hoje?</div>
+        </div>
+        <div class="demo-shell__options">
+          <button type="button" data-demo="agendamento">Agendar avaliação</button>
+          <button type="button" data-demo="procedimento">Dúvida sobre procedimento</button>
+          <button type="button" data-demo="valor">Informações de investimento</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="contactModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <div class="modal__backdrop" data-close="contact"></div>
+    <div class="modal__panel modal__panel--contact frame-corners">
+      <button class="modal__close" type="button" aria-label="Fechar formulário" data-close="contact">×</button>
+      <span class="modal__eyebrow">Implantação personalizada</span>
+      <h2 id="contactTitle">Leve o Cevora Concierge para sua clínica.</h2>
+      <p>Preencha os dados e deixe a Cevora preparar o próximo passo.</p>
+      <form class="lead-form" id="leadForm">
+        <label>Nome<input type="text" name="nome" autocomplete="name" required placeholder="Seu nome" /></label>
+        <label>Clínica<input type="text" name="clinica" required placeholder="Nome da clínica" /></label>
+        <label>WhatsApp<input type="tel" name="whatsapp" autocomplete="tel" required placeholder="(00) 00000-0000" /></label>
+        <button class="button button--primary" type="submit"><span>Solicitar apresentação</span><i>↗</i></button>
+        <small>Seus dados serão usados apenas para entrar em contato sobre o produto.</small>
+      </form>
+      <div class="form-success" id="formSuccess" aria-live="polite">
+        <strong>Solicitação registrada.</strong>
+        <span>O próximo passo já está em movimento.</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
