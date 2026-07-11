@@ -212,3 +212,11 @@
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+(() => {
+  if (document.querySelector('script[src="course-editorial-reveal.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'course-editorial-reveal.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
