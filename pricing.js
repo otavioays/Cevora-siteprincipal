@@ -228,3 +228,11 @@
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+(() => {
+  if (document.querySelector('script[src="conversion-system-caption.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'conversion-system-caption.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
