@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+/* NovaChain design-system typography: neutral interface sans + technical mono. */
+:root {
+  --font-ds-interface: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-ds-technical: "Space Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+html,
+body,
+body *,
+button,
+input,
+textarea,
+select,
+option,
+::placeholder {
+  font-family: var(--font-ds-interface) !important;
+}
+
+body {
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Primary display hierarchy mirrors the DS: compact, modern, controlled. */
+.brand__name,
+.hero__title,
+.conversion__title,
+.course__title,
+.acquisition__title,
+.funnel__title,
+.modal__panel h2,
+.price-spotlight__amount,
+.score-ring strong,
+.conversion-ring strong,
+.growth-ring strong,
+.funnel-rate strong,
+.ab-result strong,
+.ab-variant > strong {
+  font-family: var(--font-ds-interface) !important;
+  font-style: normal;
+}
+
+.hero__title,
+.conversion__title,
+.course__title,
+.acquisition__title,
+.funnel__title {
+  font-weight: 500 !important;
+  letter-spacing: -.055em !important;
+  line-height: .84;
+}
+
+.hero__title em,
+.conversion__title em,
+.course__title em,
+.acquisition__title em,
+.funnel__title em {
+  font-family: inherit !important;
+  font-weight: 400;
+  letter-spacing: -.03em;
+}
+
+.brand__name {
+  font-weight: 600 !important;
+  letter-spacing: .18em !important;
+}
+
+.hero__copy,
+.conversion__copy,
+.course__copy,
+.acquisition__copy,
+.funnel__copy,
+.hero__support,
+.conversion__proof,
+.course__support,
+.acquisition__support,
+.funnel__support,
+.modal__panel p {
+  font-family: var(--font-ds-interface) !important;
+  font-weight: 400;
+  letter-spacing: -.012em;
+}
+
+/* Technical voice: metadata, system labels, controls and dashboard chrome. */
+.eyebrow,
+.brand__tag,
+.desktop-nav,
+.mobile-menu,
+.client-button,
+.button,
+.modal__eyebrow,
+.fold-index-label,
+.fold-index-label *,
+.price-spotlight__label,
+.price-spotlight__badge,
+.price-spotlight__tier small,
+.price-spotlight__single-row > span,
+.early-access-pill,
+.funnel-capacity,
+.funnel-system-caption,
+.funnel-system-caption *,
+.conversion-system-caption,
+.conversion-system-caption *,
+.acquisition-system-caption,
+.acquisition-system-caption *,
+.course-system-caption,
+.course-system-caption *,
+[class$="card__header"],
+[class$="card__header"] *,
+[class*="card__header "],
+[class*="card__header "] *,
+code,
+kbd,
+pre,
+samp,
+small {
+  font-family: var(--font-ds-technical) !important;
+}
+
+.eyebrow,
+.brand__tag,
+.desktop-nav,
+.mobile-menu,
+.client-button,
+.button,
+.modal__eyebrow,
+.fold-index-label,
+.price-spotlight__label,
+.price-spotlight__badge,
+.early-access-pill,
+.funnel-capacity,
+.funnel-system-caption,
+.conversion-system-caption,
+.acquisition-system-caption,
+.course-system-caption {
+  font-weight: 400 !important;
+}
+
+.price-spotlight__amount strong,
+.price-spotlight__amount em,
+.score-ring strong,
+.conversion-ring strong,
+.growth-ring strong,
+.funnel-rate strong,
+.ab-result strong,
+.ab-variant > strong {
+  font-family: var(--font-ds-interface) !important;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 760px) {
+  .hero__title,
+  .conversion__title,
+  .course__title,
+  .acquisition__title,
+  .funnel__title {
+    letter-spacing: -.045em !important;
+    line-height: .88;
+  }
+
+  .brand__name {
+    letter-spacing: .14em !important;
+  }
+}
