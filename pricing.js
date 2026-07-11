@@ -188,3 +188,11 @@
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+(() => {
+  if (document.querySelector('script[src="fold-index.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'fold-index.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
