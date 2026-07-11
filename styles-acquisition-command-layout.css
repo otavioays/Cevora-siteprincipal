@@ -310,6 +310,14 @@
   width: 560px;
   height: 560px;
   transform: translateX(-50%);
+  animation: acquisition-command-glow 5.2s ease-in-out infinite;
+}
+
+@keyframes acquisition-command-glow {
+  50% {
+    opacity: .67;
+    transform: translateX(-50%) scale(1.065);
+  }
 }
 
 .acquisition-command-core .acquisition-orbit--outer {
@@ -318,6 +326,14 @@
   left: 50%;
   bottom: 2%;
   transform: translateX(-50%) rotate(-8deg);
+  animation: acquisition-command-orbit 8s ease-in-out infinite;
+}
+
+@keyframes acquisition-command-orbit {
+  50% {
+    transform: translateX(-50%) rotate(-5deg) scale(1.018);
+    opacity: .82;
+  }
 }
 
 .acquisition-command-core .acquisition-orbit--inner {
