@@ -57,7 +57,7 @@
     sessionStorage.removeItem('cevora-ganesha-offer-dismissed');
   } catch (_) {}
 
-  const version = '7';
+  const version = '8';
 
   document.querySelectorAll('link[data-ganesha-refinement]').forEach((node) => node.remove());
   const link = document.createElement('link');
