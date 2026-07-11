@@ -7,6 +7,7 @@
 @import url('./styles-acquisition.css');
 @import url('./styles-funnel.css');
 @import url('./styles-pricing.css');
+@import url('./styles-pricing-glass.css');
 @import url('./styles-modal.css');
 
 /* Compatibility bridge for legacy image paths in the first fold. */
