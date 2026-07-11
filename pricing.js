@@ -220,3 +220,11 @@
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+(() => {
+  if (document.querySelector('script[src="acquisition-editorial-reveal.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'acquisition-editorial-reveal.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
