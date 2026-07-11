@@ -96,3 +96,9 @@
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+document.addEventListener('click', (event) => {
+  const trigger = event.target.closest('[data-open="contact"]');
+  if (!trigger || trigger.closest('#ganeshaOffer')) return;
+  document.querySelector('#leadForm input[name="origem"]')?.remove();
+}, true);
