@@ -1,0 +1,280 @@
+/* Product signature integration: contact, ambient light and interface depth without motion. */
+.product-art,
+#conversion .lucky-cat,
+#course .fortune-frog,
+#acquisition .acquisition-lion,
+#prosperity-engine .funnel-orange {
+  --signature-light: 216, 173, 95;
+  --signature-core: 125, 17, 29;
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.product-art::before,
+#conversion .lucky-cat::before,
+#course .fortune-frog::before,
+#acquisition .acquisition-lion::before,
+#prosperity-engine .funnel-orange::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 8%;
+  right: 8%;
+  bottom: 0;
+  height: 23%;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(0, 0, 0, .88) 0 24%,
+      rgba(var(--signature-core), .18) 42%,
+      rgba(var(--signature-light), .075) 58%,
+      transparent 76%);
+  filter: blur(17px);
+  opacity: .92;
+  transform: translateY(24%);
+}
+
+.product-art::after,
+#conversion .lucky-cat::after,
+#course .fortune-frog::after,
+#acquisition .acquisition-lion::after,
+#prosperity-engine .funnel-orange::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 7% 10% 17%;
+  border-radius: 48%;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 34% 24%, rgba(255, 244, 217, .1), transparent 24%),
+    radial-gradient(ellipse at 67% 68%, rgba(var(--signature-core), .13), transparent 37%),
+    linear-gradient(128deg, rgba(var(--signature-light), .055), transparent 32% 72%, rgba(var(--signature-core), .045));
+  filter: blur(11px);
+  mix-blend-mode: screen;
+  opacity: .72;
+}
+
+.product-art > img,
+#conversion .lucky-cat > img,
+#course .fortune-frog > img,
+#acquisition .acquisition-lion > img,
+#prosperity-engine .funnel-orange > img {
+  position: relative;
+  z-index: 1;
+  filter:
+    drop-shadow(0 12px 18px rgba(0, 0, 0, .34))
+    drop-shadow(0 0 22px rgba(var(--signature-core), .1));
+}
+
+/* Concierge: the pomegranate belongs to the conversation environment rather than floating above it. */
+#produto .product-art {
+  --signature-core: 145, 19, 36;
+}
+
+#produto .product-art::before {
+  left: 13%;
+  right: 10%;
+  bottom: 5%;
+  height: 21%;
+}
+
+#produto .product-art::after {
+  inset: 10% 13% 21% 8%;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255, 239, 202, .11), transparent 23%),
+    radial-gradient(ellipse at 67% 61%, rgba(145, 19, 36, .17), transparent 39%);
+}
+
+#produto .chat-card,
+#produto .score-card,
+#produto .journey-card {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    inset 0 0 30px rgba(0,0,0,.5),
+    0 22px 70px rgba(0,0,0,.56),
+    -18px 18px 44px rgba(0,0,0,.18);
+}
+
+/* Conversion Atelier: the cat sits inside the laboratory chassis and behind the instruments. */
+#conversion .lucky-cat {
+  --signature-core: 155, 25, 43;
+  --signature-light: 240, 204, 130;
+}
+
+#conversion .conversion-lab-stage .lucky-cat::before {
+  left: 4%;
+  right: 16%;
+  bottom: 8%;
+  height: 22%;
+  opacity: 1;
+}
+
+#conversion .conversion-lab-stage .lucky-cat::after {
+  inset: 4% 14% 20% 4%;
+  background:
+    radial-gradient(ellipse at 31% 24%, rgba(255, 241, 207, .12), transparent 23%),
+    radial-gradient(ellipse at 63% 68%, rgba(155, 25, 43, .16), transparent 38%);
+}
+
+#conversion .conversion-lab-stage .lucky-cat > img {
+  filter:
+    saturate(.96)
+    contrast(1.03)
+    drop-shadow(0 16px 22px rgba(0,0,0,.42))
+    drop-shadow(0 0 24px rgba(155,25,43,.09));
+}
+
+#conversion .conversion-lab-stage .ab-card,
+#conversion .conversion-lab-stage .heatmap-card {
+  box-shadow:
+    inset 0 1px 0 rgba(255,244,217,.13),
+    inset 0 -1px 0 rgba(0,0,0,.92),
+    inset 0 0 0 3px rgba(5,4,3,.72),
+    inset 0 0 0 4px rgba(216,173,95,.08),
+    0 26px 72px rgba(0,0,0,.64),
+    -18px 18px 38px rgba(0,0,0,.21);
+}
+
+/* Clínica Próspera: the frog is grounded on the educational timeline. */
+#course .fortune-frog {
+  --signature-core: 132, 22, 34;
+  --signature-light: 226, 188, 111;
+}
+
+#course .course-journey-stage .fortune-frog::before {
+  left: 3%;
+  right: 10%;
+  bottom: 6%;
+  height: 24%;
+}
+
+#course .course-journey-stage .fortune-frog::after {
+  inset: 5% 11% 18% 3%;
+  background:
+    radial-gradient(ellipse at 34% 22%, rgba(255, 239, 203, .1), transparent 24%),
+    radial-gradient(ellipse at 61% 71%, rgba(132, 22, 34, .14), transparent 39%);
+}
+
+#course .course-journey-stage .fortune-frog > img {
+  filter:
+    saturate(.94)
+    contrast(1.025)
+    drop-shadow(0 17px 24px rgba(0,0,0,.44))
+    drop-shadow(0 0 22px rgba(216,173,95,.075));
+}
+
+#course .course-journey-timeline,
+#course .course-journey-insights {
+  position: relative;
+  z-index: 10;
+}
+
+/* Acquisition OS: the lion occupies the command chamber, below operational readouts. */
+#acquisition .acquisition-lion {
+  --signature-core: 170, 28, 44;
+  --signature-light: 232, 194, 117;
+}
+
+#acquisition .acquisition-command-core .acquisition-lion::before {
+  left: 4%;
+  right: 8%;
+  bottom: 7%;
+  height: 24%;
+  opacity: 1;
+}
+
+#acquisition .acquisition-command-core .acquisition-lion::after {
+  inset: 4% 9% 18% 3%;
+  background:
+    radial-gradient(ellipse at 33% 21%, rgba(255, 241, 207, .105), transparent 24%),
+    radial-gradient(ellipse at 67% 68%, rgba(170, 28, 44, .16), transparent 40%);
+}
+
+#acquisition .acquisition-command-core .acquisition-lion > img {
+  filter:
+    saturate(.96)
+    contrast(1.035)
+    drop-shadow(0 18px 25px rgba(0,0,0,.46))
+    drop-shadow(0 0 25px rgba(170,28,44,.085));
+}
+
+#acquisition .acquisition-command-core .radar-card {
+  position: relative;
+  z-index: 14;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    inset 0 0 32px rgba(0,0,0,.52),
+    0 28px 78px rgba(0,0,0,.64),
+    -20px 18px 42px rgba(0,0,0,.2);
+}
+
+/* Prosperity Engine: the orange reads as the illuminated physical core of the radial system. */
+#prosperity-engine .funnel-orange {
+  --signature-core: 214, 102, 18;
+  --signature-light: 243, 200, 120;
+}
+
+#prosperity-engine .funnel-radial-core .funnel-orange::before {
+  left: 8%;
+  right: 8%;
+  bottom: 4%;
+  height: 26%;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(0,0,0,.86) 0 25%,
+      rgba(214,102,18,.2) 44%,
+      rgba(243,200,120,.085) 59%,
+      transparent 77%);
+}
+
+#prosperity-engine .funnel-radial-core .funnel-orange::after {
+  inset: 6% 8% 14%;
+  background:
+    radial-gradient(circle at 34% 24%, rgba(255, 235, 185, .16), transparent 22%),
+    radial-gradient(circle at 65% 69%, rgba(214,102,18,.19), transparent 39%);
+  opacity: .82;
+}
+
+#prosperity-engine .funnel-radial-core .funnel-orange > img {
+  filter:
+    saturate(1.04)
+    contrast(1.035)
+    drop-shadow(0 20px 28px rgba(0,0,0,.5))
+    drop-shadow(0 0 30px rgba(214,102,18,.13));
+}
+
+#prosperity-engine .funnel-radial-core::after {
+  box-shadow:
+    inset 0 0 52px rgba(214,102,18,.06),
+    0 0 62px rgba(214,102,18,.045);
+}
+
+@media (max-width: 820px) {
+  .product-art::after,
+  #conversion .lucky-cat::after,
+  #course .fortune-frog::after,
+  #acquisition .acquisition-lion::after,
+  #prosperity-engine .funnel-orange::after {
+    opacity: .48;
+    filter: blur(9px);
+  }
+
+  .product-art::before,
+  #conversion .lucky-cat::before,
+  #course .fortune-frog::before,
+  #acquisition .acquisition-lion::before,
+  #prosperity-engine .funnel-orange::before {
+    filter: blur(13px);
+    opacity: .78;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-art,
+  #conversion .lucky-cat,
+  #course .fortune-frog,
+  #acquisition .acquisition-lion,
+  #prosperity-engine .funnel-orange {
+    transition: none !important;
+  }
+}
