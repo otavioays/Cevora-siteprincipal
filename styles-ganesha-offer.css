@@ -1,0 +1,150 @@
+/* Floating Ganesha promotion widget. */
+.ganesha-offer {
+  position: fixed;
+  right: clamp(14px, 2vw, 28px);
+  bottom: clamp(14px, 2vw, 26px);
+  z-index: 1400;
+  width: clamp(390px, 40vw, 560px);
+  aspect-ratio: 3 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(18px) scale(.975);
+  transform-origin: right bottom;
+  filter: drop-shadow(0 22px 42px rgba(0, 0, 0, .62));
+  transition:
+    opacity .58s cubic-bezier(.16, 1, .3, 1),
+    transform .58s cubic-bezier(.16, 1, .3, 1),
+    visibility .58s;
+}
+
+.ganesha-offer.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.ganesha-offer.is-closing {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(.985);
+}
+
+.ganesha-offer__surface {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 8.2% / 24%;
+  overflow: hidden;
+  cursor: pointer;
+  background: transparent;
+  box-shadow:
+    0 0 0 1px rgba(240, 204, 130, .18),
+    0 0 34px rgba(125, 17, 29, .14);
+  transition:
+    transform .28s cubic-bezier(.16, 1, .3, 1),
+    filter .28s ease,
+    box-shadow .28s ease;
+}
+
+.ganesha-offer__surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(110deg, transparent 18%, rgba(255, 237, 192, .08) 43%, transparent 67%);
+  translate: -120% 0;
+  transition: translate .78s cubic-bezier(.16, 1, .3, 1);
+}
+
+.ganesha-offer__surface:hover,
+.ganesha-offer__surface:focus-visible {
+  transform: translateY(-4px) scale(1.012);
+  filter: saturate(1.06) brightness(1.04);
+  box-shadow:
+    0 0 0 1px rgba(240, 204, 130, .42),
+    0 22px 52px rgba(0, 0, 0, .56),
+    0 0 46px rgba(125, 17, 29, .18);
+  outline: none;
+}
+
+.ganesha-offer__surface:hover::after,
+.ganesha-offer__surface:focus-visible::after {
+  translate: 120% 0;
+}
+
+.ganesha-offer__surface img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Transparent hit target over the close icon already rendered in the artwork. */
+.ganesha-offer__close {
+  position: absolute;
+  z-index: 4;
+  top: 5.5%;
+  right: 1.9%;
+  width: 9.2%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  font-size: 0;
+}
+
+.ganesha-offer__close:focus-visible {
+  outline: 2px solid rgba(240, 204, 130, .92);
+  outline-offset: 2px;
+}
+
+@media (max-width: 980px) {
+  .ganesha-offer {
+    width: clamp(360px, 54vw, 500px);
+  }
+}
+
+@media (max-width: 640px) {
+  .ganesha-offer {
+    right: 10px;
+    bottom: 10px;
+    width: calc(100vw - 20px);
+    max-width: 480px;
+    filter: drop-shadow(0 16px 30px rgba(0, 0, 0, .58));
+  }
+
+  .ganesha-offer__surface {
+    border-radius: 7% / 22%;
+  }
+}
+
+@media (max-width: 420px) {
+  .ganesha-offer {
+    width: calc(100vw - 14px);
+    right: 7px;
+    bottom: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ganesha-offer,
+  .ganesha-offer__surface,
+  .ganesha-offer__surface::after {
+    transition: none !important;
+  }
+
+  .ganesha-offer__surface:hover,
+  .ganesha-offer__surface:focus-visible {
+    transform: none;
+  }
+}
