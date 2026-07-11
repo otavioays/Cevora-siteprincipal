@@ -13,10 +13,7 @@
 @import url('./styles-fold-index.css');
 @import url('./styles-technical-frames.css');
 @import url('./styles-editorial-reveals.css');
-@import url('./styles-funnel-system-caption.css');
-@import url('./styles-conversion-system-caption.css');
-@import url('./styles-acquisition-system-caption.css');
-@import url('./styles-course-system-caption.css');
+@import url('./styles-system-captions.css');
 @import url('./styles-conversion-lab-layout.css');
 @import url('./styles-course-journey-layout.css');
 @import url('./styles-acquisition-command-layout.css');
