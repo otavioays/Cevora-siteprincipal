@@ -43,3 +43,11 @@
     }, 7000);
   }
 })();
+
+(() => {
+  if (document.querySelector('script[src="acquisition-command-layout.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'acquisition-command-layout.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
