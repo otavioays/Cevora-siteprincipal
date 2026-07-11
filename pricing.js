@@ -172,3 +172,11 @@
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+(() => {
+  if (document.querySelector('script[src="atmosphere.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'atmosphere.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
