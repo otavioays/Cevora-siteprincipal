@@ -1,0 +1,67 @@
+/* Prevent transform systems from fighting after the product layouts are re-composed. */
+#conversion[data-conversion-lab-layout="true"],
+#course[data-course-journey-layout="true"],
+#acquisition[data-acquisition-command-layout="true"],
+#prosperity-engine[data-funnel-radial-layout="true"] {
+  overflow-anchor: none;
+}
+
+#conversion[data-conversion-lab-layout="true"] .section-reveal,
+#course[data-course-journey-layout="true"] .section-reveal,
+#acquisition[data-acquisition-command-layout="true"] .section-reveal,
+#prosperity-engine[data-funnel-radial-layout="true"] .section-reveal {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  translate: none !important;
+  filter: none !important;
+  clip-path: none !important;
+  will-change: auto !important;
+}
+
+#conversion[data-conversion-lab-layout="true"] .cro-card,
+#conversion[data-conversion-lab-layout="true"] .heatmap-card,
+#course[data-course-journey-layout="true"] .course-card,
+#acquisition[data-acquisition-command-layout="true"] .acquisition-card,
+#prosperity-engine[data-funnel-radial-layout="true"] .funnel-card {
+  transform: none !important;
+  translate: none !important;
+  will-change: auto !important;
+}
+
+#course[data-course-journey-layout="true"] .course-editorial-step,
+#acquisition[data-acquisition-command-layout="true"] .acquisition-editorial-step,
+#prosperity-engine[data-funnel-radial-layout="true"] .funnel-editorial-step,
+#conversion[data-conversion-lab-layout="true"] .conversion-editorial-step {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  translate: none !important;
+  filter: none !important;
+  clip-path: none !important;
+  transition: none !important;
+  will-change: auto !important;
+}
+
+#conversion[data-conversion-lab-layout="true"] .price-spotlight,
+#course[data-course-journey-layout="true"] .price-spotlight,
+#acquisition[data-acquisition-command-layout="true"] .price-spotlight,
+#prosperity-engine[data-funnel-radial-layout="true"] .price-spotlight {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+#course[data-course-journey-layout="true"] .course-journey-layout,
+#course[data-course-journey-layout="true"] .course-journey-copyrail,
+#course[data-course-journey-layout="true"] .course-journey-stage,
+#acquisition[data-acquisition-command-layout="true"] .acquisition-command-layout,
+#acquisition[data-acquisition-command-layout="true"] .acquisition-command-copyrail,
+#acquisition[data-acquisition-command-layout="true"] .acquisition-command-stage,
+#prosperity-engine[data-funnel-radial-layout="true"] .funnel-radial-layout,
+#prosperity-engine[data-funnel-radial-layout="true"] .funnel-radial-copyrail,
+#prosperity-engine[data-funnel-radial-layout="true"] .funnel-radial-stage {
+  transform: none !important;
+  translate: none !important;
+  will-change: auto !important;
+}
