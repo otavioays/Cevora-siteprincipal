@@ -51,3 +51,21 @@
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+(() => {
+  try {
+    sessionStorage.removeItem('cevora-ganesha-offer-dismissed');
+  } catch (_) {}
+
+  const load = (src) => {
+    if (document.querySelector(`script[data-ganesha-loader="${src}"]`)) return;
+    const script = document.createElement('script');
+    script.src = `${src}?v=4`;
+    script.defer = true;
+    script.dataset.ganeshaLoader = src;
+    document.body.appendChild(script);
+  };
+
+  load('ganesha-offer.js');
+  load('ganesha-offer-ds.js');
+})();
