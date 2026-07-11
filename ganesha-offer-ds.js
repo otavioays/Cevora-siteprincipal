@@ -20,32 +20,7 @@
     const cta = widget.querySelector('.ganesha-offer__cta');
 
     cta?.addEventListener('click', () => {
-      const modal = document.querySelector('#contactModal');
-      if (!modal) return;
-
-      const eyebrow = modal.querySelector('.modal__eyebrow');
-      const title = modal.querySelector('#contactTitle');
-      const copy = title?.nextElementSibling;
-      const form = modal.querySelector('#leadForm');
-      const submit = form?.querySelector('button[type="submit"] span');
-
-      if (eyebrow) eyebrow.textContent = 'Promoção exclusiva';
-      if (title) title.textContent = 'Veja se sua clínica ainda pode receber tudo isso DE GRAÇA.';
-      if (copy) copy.textContent = 'Preencha os dados para confirmarmos se essa condição especial ainda está disponível para sua clínica.';
-      if (submit) submit.textContent = 'Quero receber DE GRAÇA';
-
-      if (form && !form.querySelector('input[name="origem"]')) {
-        const origin = document.createElement('input');
-        origin.type = 'hidden';
-        origin.name = 'origem';
-        origin.value = 'Promoção — acesso grátis';
-        form.appendChild(origin);
-      }
-
-      modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      window.setTimeout(() => modal.querySelector('input')?.focus(), 90);
+      window.location.href = 'oferta-gratis.html';
     });
 
     widget.classList.remove('is-closing');
