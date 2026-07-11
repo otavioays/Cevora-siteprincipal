@@ -143,6 +143,30 @@
   qsa('[data-course-close]').forEach((button) => button.addEventListener('click', closeModal));
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && modal?.classList.contains('is-open')) closeModal(); });
 
+  const settleCourseMetrics = () => {
+    qsa('[data-course-progress]', section).forEach((ring) => {
+      ring.style.setProperty('--progress', `${Number(ring.dataset.courseProgress) * 3.6}deg`);
+    });
+    const count = qs('[data-growth-count]', section);
+    if (count) count.textContent = '87%';
+    const circle = qs('.growth-ring__value', section);
+    if (circle) circle.style.strokeDashoffset = '39.2';
+  };
+
+  const settleJourneyMotion = (gsap) => {
+    const stableNodes = qsa('.fortune-frog, .course-card, .plan-step, .method-pillar', section);
+    if (gsap && stableNodes.length) gsap.killTweensOf(stableNodes);
+    stableNodes.forEach((element) => {
+      element.getAnimations?.().forEach((animation) => animation.cancel());
+      element.removeAttribute('data-float');
+      element.removeAttribute('data-depth');
+      element.style.removeProperty('transform');
+      element.style.removeProperty('translate');
+      element.style.removeProperty('opacity');
+      element.style.removeProperty('will-change');
+    });
+  };
+
   let animated = false;
   const reveal = () => {
     if (animated || !section) return;
@@ -151,12 +175,11 @@
 
     const gsap = window.gsap;
     const rings = qsa('[data-course-progress]', section);
-    if (reduceMotion || !gsap) {
-      rings.forEach((ring) => ring.style.setProperty('--progress', `${Number(ring.dataset.courseProgress) * 3.6}deg`));
-      const count = qs('[data-growth-count]', section);
-      if (count) count.textContent = '87%';
-      const circle = qs('.growth-ring__value', section);
-      if (circle) circle.style.strokeDashoffset = '39.2';
+    const journeyLayoutActive = section.dataset.courseJourneyLayout === 'true';
+
+    if (reduceMotion || !gsap || journeyLayoutActive) {
+      settleCourseMetrics();
+      if (journeyLayoutActive) settleJourneyMotion(gsap);
       return;
     }
 
