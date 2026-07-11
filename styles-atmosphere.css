@@ -1,0 +1,232 @@
+/* Nova-inspired translucent grid and seamless fold transitions. */
+:root {
+  --grid-pointer-x: 50vw;
+  --grid-pointer-y: 38vh;
+  --grid-drift-x: 0px;
+  --grid-drift-y: 0px;
+  --fold-accent: 216, 173, 95;
+}
+
+body {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(125, 17, 29, .08), transparent 34%),
+    #050403;
+}
+
+.page-grid {
+  z-index: 1;
+  opacity: .72;
+  background-image:
+    linear-gradient(to right, rgba(240, 204, 130, .074) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(240, 204, 130, .062) 1px, transparent 1px);
+  background-size: 80px 80px;
+  background-position:
+    calc(50% + var(--grid-drift-x))
+    calc(50% + var(--grid-drift-y));
+  mask-image:
+    radial-gradient(circle at var(--grid-pointer-x) var(--grid-pointer-y), black 0, rgba(0, 0, 0, .94) 24%, rgba(0, 0, 0, .54) 58%, transparent 91%);
+  -webkit-mask-image:
+    radial-gradient(circle at var(--grid-pointer-x) var(--grid-pointer-y), black 0, rgba(0, 0, 0, .94) 24%, rgba(0, 0, 0, .54) 58%, transparent 91%);
+  transition: opacity .45s ease;
+  will-change: background-position, mask-image;
+}
+
+.page-grid::before,
+.page-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.page-grid::before {
+  opacity: .28;
+  mix-blend-mode: overlay;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0,
+    transparent 5px,
+    rgba(255, 255, 255, .028) 5px,
+    rgba(255, 255, 255, .028) 6px
+  );
+}
+
+.page-grid::after {
+  background:
+    linear-gradient(90deg, transparent 0 7%, rgba(216, 173, 95, .055) 7.05%, transparent 7.1% 92.9%, rgba(216, 173, 95, .055) 92.95%, transparent 93%),
+    radial-gradient(circle at var(--grid-pointer-x) var(--grid-pointer-y), rgba(182, 39, 55, .075), transparent 24%);
+  opacity: .8;
+}
+
+main {
+  position: relative;
+  isolation: isolate;
+}
+
+.cevora-fold {
+  --fold-presence: 0;
+  isolation: isolate;
+  position: relative;
+}
+
+.cevora-fold > .fold-grid-surface {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: calc(.16 + (var(--fold-presence) * .24));
+  background-image:
+    linear-gradient(to right, rgba(240, 204, 130, .09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(240, 204, 130, .075) 1px, transparent 1px);
+  background-size: 80px 80px;
+  background-position:
+    calc(50% + var(--grid-drift-x))
+    calc(50% + var(--grid-drift-y));
+  mask-image: linear-gradient(to bottom, transparent 0, black 14%, black 86%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 14%, black 86%, transparent 100%);
+  transition: opacity .7s cubic-bezier(.16, 1, .3, 1);
+}
+
+.cevora-fold > .fold-grid-surface::before,
+.cevora-fold > .fold-grid-surface::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.cevora-fold > .fold-grid-surface::before {
+  width: min(620px, 52vw);
+  height: min(620px, 52vw);
+  left: calc(var(--grid-pointer-x) - 26vw);
+  top: calc(var(--grid-pointer-y) - 26vw);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--fold-accent), .11), rgba(125, 17, 29, .045) 38%, transparent 72%);
+  filter: blur(18px);
+  opacity: calc(.4 + (var(--fold-presence) * .55));
+}
+
+.cevora-fold > .fold-grid-surface::after {
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0 8%, rgba(240, 204, 130, .055) 8.05%, transparent 8.1% 91.9%, rgba(240, 204, 130, .055) 91.95%, transparent 92%),
+    repeating-linear-gradient(-45deg, transparent 0 5px, rgba(255,255,255,.018) 5px 6px);
+  mix-blend-mode: screen;
+}
+
+.fold-seam {
+  --seam-progress: 0;
+  position: relative;
+  z-index: 28;
+  width: 100%;
+  height: clamp(150px, 16vw, 240px);
+  margin-top: clamp(-120px, -8vw, -75px);
+  margin-bottom: clamp(-120px, -8vw, -75px);
+  pointer-events: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.fold-seam::before,
+.fold-seam::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.fold-seam::before {
+  background:
+    radial-gradient(ellipse at center, rgba(125, 17, 29, calc(.12 + var(--seam-progress) * .09)) 0, rgba(216, 173, 95, .05) 34%, transparent 72%),
+    linear-gradient(to bottom, transparent 0, rgba(5, 4, 3, .82) 42%, rgba(5, 4, 3, .9) 50%, rgba(5, 4, 3, .82) 58%, transparent 100%);
+  filter: saturate(115%);
+}
+
+.fold-seam::after {
+  left: 5%;
+  right: 5%;
+  top: 50%;
+  bottom: auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(216, 173, 95, .16), rgba(240, 204, 130, .74), rgba(216, 173, 95, .16), transparent);
+  box-shadow: 0 0 26px rgba(216, 173, 95, .16);
+  transform: scaleX(calc(.38 + var(--seam-progress) * .62));
+  opacity: calc(.34 + var(--seam-progress) * .54);
+  transition: transform .2s linear, opacity .2s linear;
+}
+
+.fold-seam__aura {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(760px, 76vw);
+  height: 120px;
+  transform: translate(-50%, -50%) scaleX(calc(.82 + var(--seam-progress) * .18));
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(216, 173, 95, .075), rgba(125, 17, 29, .035) 42%, transparent 72%);
+  filter: blur(20px);
+  opacity: calc(.42 + var(--seam-progress) * .46);
+}
+
+.fold-seam__spark {
+  position: absolute;
+  left: calc(8% + var(--seam-progress) * 84%);
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: #f0cc82;
+  box-shadow: 0 0 10px #f0cc82, 0 0 28px rgba(216, 173, 95, .72);
+  opacity: calc(.22 + var(--seam-progress) * .78);
+}
+
+.fold-seam__mark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(calc(var(--seam-progress) * 90deg));
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: rgba(240, 204, 130, .78);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  background: radial-gradient(circle, rgba(16, 12, 9, .96), rgba(5, 4, 3, .8));
+  border: 1px solid rgba(216, 173, 95, .36);
+  border-radius: 50%;
+  box-shadow: 0 0 28px rgba(216, 173, 95, .09);
+}
+
+@media (max-width: 760px) {
+  .page-grid,
+  .cevora-fold > .fold-grid-surface {
+    background-size: 52px 52px;
+  }
+
+  .page-grid { opacity: .48; }
+
+  .fold-seam {
+    height: 132px;
+    margin-top: -66px;
+    margin-bottom: -66px;
+  }
+
+  .fold-seam__mark {
+    width: 28px;
+    height: 28px;
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-grid,
+  .cevora-fold > .fold-grid-surface {
+    background-position: center !important;
+    transition: none !important;
+  }
+
+  .fold-seam__spark { display: none; }
+  .fold-seam__mark { transform: translate(-50%, -50%); }
+}
