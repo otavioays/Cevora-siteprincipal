@@ -1,0 +1,724 @@
+/* Prosperity Engine architecture: compact command rail + radial operating-system map. */
+#prosperity-engine.funnel-section {
+  display: block;
+  min-height: auto;
+  padding: 124px 4.2vw 0;
+  background:
+    radial-gradient(circle at 65% 48%, rgba(201, 83, 13, .22), transparent 27%),
+    radial-gradient(circle at 17% 20%, rgba(216, 173, 95, .055), transparent 31%),
+    linear-gradient(112deg, rgba(5, 4, 3, .99), rgba(7, 5, 4, .96) 46%, rgba(5, 3, 2, .91));
+}
+
+#prosperity-engine.funnel-section::before {
+  background-position: center, 64% 49%;
+  opacity: .82;
+}
+
+.funnel-radial-layout {
+  position: relative;
+  z-index: 7;
+  width: min(1760px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(340px, .66fr) minmax(780px, 1.34fr);
+  align-items: center;
+  gap: clamp(34px, 4vw, 84px);
+}
+
+.funnel-radial-copyrail,
+.funnel-radial-stage {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  margin: 0 !important;
+}
+
+.funnel-radial-copyrail {
+  width: 100%;
+  max-width: none !important;
+  padding: 8px 0 8px clamp(20px, 2vw, 34px) !important;
+  border-left: 1px solid rgba(216, 173, 95, .2);
+}
+
+.funnel-radial-intro,
+.funnel-radial-commerce {
+  position: relative;
+}
+
+.funnel-radial-intro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(-1 * clamp(20px, 2vw, 34px) - 1px);
+  width: 1px;
+  height: 118px;
+  background: linear-gradient(180deg, #f1cc82, #e59b36 46%, rgba(139, 36, 19, .72), transparent);
+  box-shadow: 0 0 22px rgba(229, 155, 54, .2);
+}
+
+.funnel-radial-intro .funnel__title {
+  max-width: 620px;
+  font-size: clamp(56px, 4.8vw, 90px);
+  line-height: .84;
+}
+
+.funnel-radial-intro .funnel__copy {
+  max-width: 560px;
+  font-size: clamp(20px, 1.42vw, 27px);
+  line-height: 1.38;
+}
+
+.funnel-radial-intro .funnel__support {
+  max-width: 540px;
+}
+
+.funnel-radial-commerce {
+  margin-top: 24px;
+  padding: 22px;
+  border: 1px solid rgba(216, 173, 95, .18);
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, rgba(27, 18, 12, .58), rgba(8, 6, 4, .72)),
+    repeating-linear-gradient(-45deg, transparent 0 11px, rgba(255, 255, 255, .008) 11px 12px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .035),
+    inset 0 0 40px rgba(0, 0, 0, .28),
+    0 26px 74px rgba(0, 0, 0, .3);
+}
+
+.funnel-radial-commerce::before,
+.funnel-radial-commerce::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.funnel-radial-commerce::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid rgba(241, 204, 130, .6);
+  border-left: 1px solid rgba(241, 204, 130, .6);
+}
+
+.funnel-radial-commerce::after {
+  right: -1px;
+  bottom: -1px;
+  border-right: 1px solid rgba(229, 155, 54, .46);
+  border-bottom: 1px solid rgba(229, 155, 54, .46);
+}
+
+.funnel-radial-commerce .price-spotlight {
+  width: 100%;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.funnel-radial-commerce .funnel__actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 17px;
+}
+
+.funnel-radial-commerce .funnel__actions .button {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.funnel-radial-commerce .funnel-benefits {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.funnel-radial-commerce .funnel-benefit {
+  min-height: 52px;
+  padding: 0 10px;
+}
+
+.funnel-radial-commerce .funnel-benefit strong {
+  white-space: normal;
+  line-height: 1.25;
+}
+
+.funnel-radial-stage {
+  position: relative;
+  width: 100% !important;
+  height: 820px !important;
+  min-height: 820px !important;
+  overflow: visible;
+}
+
+.funnel-radial-stage > .funnel-system-caption {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  max-width: none;
+  margin: 0 0 14px;
+  justify-content: center;
+  background: linear-gradient(90deg, transparent, rgba(8, 6, 4, .74) 14%, rgba(8, 6, 4, .74) 86%, transparent);
+}
+
+.funnel-radial-shell {
+  position: relative;
+  width: 100%;
+  height: 760px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(216, 173, 95, .2);
+  border-radius: 30px;
+  background:
+    linear-gradient(rgba(216, 173, 95, .032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216, 173, 95, .032) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(229, 155, 54, .16), transparent 27%),
+    radial-gradient(circle at 50% 50%, rgba(139, 36, 19, .17), transparent 48%),
+    linear-gradient(145deg, rgba(24, 16, 10, .72), rgba(7, 5, 4, .92));
+  background-size: 46px 46px, 46px 46px, auto, auto, auto;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .035),
+    inset 0 0 90px rgba(0, 0, 0, .46),
+    0 34px 100px rgba(0, 0, 0, .38);
+}
+
+.funnel-radial-shell::before,
+.funnel-radial-shell::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.funnel-radial-shell::before {
+  inset: 18px;
+  border: 1px solid rgba(216, 173, 95, .08);
+  border-radius: 21px;
+  clip-path: polygon(0 0, 21% 0, 21% 1px, 79% 1px, 79% 0, 100% 0, 100% 100%, 79% 100%, 79% calc(100% - 1px), 21% calc(100% - 1px), 21% 100%, 0 100%);
+}
+
+.funnel-radial-shell::after {
+  inset: 42px;
+  border-radius: 50%;
+  border: 1px dashed rgba(216, 173, 95, .08);
+}
+
+.funnel-radial-connectors {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.funnel-radial-connectors path {
+  fill: none;
+  stroke: url(#funnelRadialLine);
+  stroke-width: 1.4;
+  stroke-dasharray: 7 9;
+  filter: drop-shadow(0 0 5px rgba(229, 155, 54, .16));
+}
+
+.funnel-radial-connectors circle {
+  fill: rgba(8, 6, 4, .84);
+  stroke: rgba(241, 204, 130, .46);
+  stroke-width: 1.2;
+}
+
+.funnel-radial-connectors .funnel-radial-connectors__orbit {
+  fill: none;
+  stroke: rgba(216, 173, 95, .12);
+  stroke-dasharray: 4 12;
+}
+
+.funnel-radial-core {
+  position: absolute;
+  z-index: 8;
+  left: 50%;
+  top: 50%;
+  width: 370px;
+  height: 370px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(34, 21, 11, .72), rgba(8, 6, 4, .72) 58%, transparent 70%);
+}
+
+.funnel-radial-core::before,
+.funnel-radial-core::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.funnel-radial-core::before {
+  inset: 26px;
+  border: 1px solid rgba(241, 204, 130, .2);
+  box-shadow:
+    inset 0 0 36px rgba(229, 155, 54, .08),
+    0 0 40px rgba(229, 155, 54, .08);
+}
+
+.funnel-radial-core::after {
+  inset: 58px;
+  border: 1px dashed rgba(216, 173, 95, .18);
+}
+
+.funnel-radial-core-label {
+  position: absolute;
+  z-index: 16;
+  left: 50%;
+  top: 18px;
+  transform: translateX(-50%);
+  min-width: 170px;
+  padding: 8px 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  border-top: 1px solid rgba(216, 173, 95, .22);
+  border-bottom: 1px solid rgba(216, 173, 95, .12);
+  background: rgba(8, 6, 4, .64);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+
+.funnel-radial-core-label span,
+.funnel-radial-core-label strong {
+  font-family: var(--font-ds-technical);
+  font-size: 8px;
+  font-weight: 400;
+}
+
+.funnel-radial-core-label span {
+  color: #e59b36;
+}
+
+.funnel-radial-core-label strong {
+  color: rgba(241, 234, 223, .66);
+}
+
+.funnel-radial-core-art {
+  position: relative;
+  z-index: 12;
+  width: 330px;
+  height: 330px;
+  display: grid;
+  place-items: center;
+}
+
+.funnel-radial-core .funnel-orange {
+  position: relative !important;
+  inset: auto !important;
+  width: 310px !important;
+  max-width: 82%;
+  filter: drop-shadow(0 28px 54px rgba(0, 0, 0, .68)) drop-shadow(0 0 26px rgba(229, 155, 54, .12));
+}
+
+.funnel-radial-core .funnel-glow {
+  left: 50% !important;
+  top: 50% !important;
+  bottom: auto !important;
+  width: 420px !important;
+  height: 420px !important;
+  translate: -50% -50%;
+}
+
+.funnel-radial-core .funnel-orbit {
+  left: 50% !important;
+  top: 50% !important;
+  bottom: auto !important;
+  translate: -50% -50%;
+}
+
+.funnel-radial-core .funnel-orbit--outer {
+  width: 510px !important;
+  height: 410px !important;
+}
+
+.funnel-radial-core .funnel-orbit--inner {
+  width: 390px !important;
+  height: 310px !important;
+}
+
+.funnel-radial-module {
+  position: absolute !important;
+  z-index: 14;
+  inset: auto !important;
+  width: min(320px, 31%) !important;
+  max-width: 340px;
+  margin: 0 !important;
+}
+
+.funnel-radial-module::before {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e59b36;
+  box-shadow: 0 0 14px rgba(229, 155, 54, .48);
+}
+
+.funnel-radial-module--positioning {
+  top: 44px !important;
+  left: 22px !important;
+}
+
+.funnel-radial-module--positioning::before {
+  right: -5px;
+  bottom: 22px;
+}
+
+.funnel-radial-module--operation {
+  top: 50px !important;
+  right: 22px !important;
+}
+
+.funnel-radial-module--operation::before {
+  left: -5px;
+  bottom: 22px;
+}
+
+.funnel-radial-module--connection {
+  left: 22px !important;
+  bottom: 42px !important;
+}
+
+.funnel-radial-module--connection::before {
+  right: -5px;
+  top: 22px;
+}
+
+.funnel-radial-module--implementation {
+  right: 22px !important;
+  bottom: 42px !important;
+}
+
+.funnel-radial-module--implementation::before {
+  left: -5px;
+  top: 22px;
+}
+
+.funnel-radial-module.funnel-card {
+  border-color: rgba(216, 173, 95, .34);
+  background:
+    linear-gradient(180deg, rgba(28, 20, 13, .94), rgba(8, 6, 4, .98)),
+    repeating-linear-gradient(-45deg, transparent 0 10px, rgba(255, 255, 255, .008) 10px 11px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .04),
+    inset 0 0 36px rgba(0, 0, 0, .48),
+    0 24px 70px rgba(0, 0, 0, .46),
+    0 0 0 1px rgba(8, 6, 4, .72);
+}
+
+.funnel-radial-module .funnel-card__header {
+  min-height: 44px;
+}
+
+.funnel-radial-module--positioning .chain-track {
+  padding-inline: 10px;
+}
+
+.funnel-radial-module--positioning .chain-step span {
+  font-size: 7px;
+}
+
+.funnel-radial-module--connection .connected-map {
+  height: 138px;
+}
+
+.funnel-radial-module--implementation .implementation-item {
+  min-height: 31px;
+}
+
+#prosperity-engine .funnel-bridge {
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: min(1180px, 88vw);
+  margin: 38px auto 0;
+}
+
+#prosperity-engine .site-footer {
+  margin-top: 34px;
+}
+
+@media (max-width: 1460px) {
+  .funnel-radial-layout {
+    grid-template-columns: minmax(330px, .72fr) minmax(700px, 1.28fr);
+    gap: 34px;
+  }
+
+  .funnel-radial-stage {
+    height: 760px !important;
+    min-height: 760px !important;
+  }
+
+  .funnel-radial-shell {
+    height: 700px;
+  }
+
+  .funnel-radial-core {
+    width: 330px;
+    height: 330px;
+  }
+
+  .funnel-radial-core-art {
+    width: 300px;
+    height: 300px;
+  }
+
+  .funnel-radial-core .funnel-orange {
+    width: 280px !important;
+  }
+
+  .funnel-radial-core .funnel-orbit--outer {
+    width: 450px !important;
+    height: 365px !important;
+  }
+
+  .funnel-radial-core .funnel-orbit--inner {
+    width: 350px !important;
+    height: 280px !important;
+  }
+
+  .funnel-radial-module {
+    width: min(292px, 31%) !important;
+  }
+
+  .funnel-radial-module--positioning,
+  .funnel-radial-module--operation {
+    top: 34px !important;
+  }
+
+  .funnel-radial-module--connection,
+  .funnel-radial-module--implementation {
+    bottom: 34px !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  #prosperity-engine.funnel-section {
+    padding-top: 112px;
+  }
+
+  .funnel-radial-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .funnel-radial-copyrail {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(330px, .8fr);
+    align-items: end;
+    gap: 34px;
+    padding-bottom: 30px !important;
+    border-left: 0;
+    border-bottom: 1px solid rgba(216, 173, 95, .16);
+  }
+
+  .funnel-radial-intro {
+    padding-left: 24px;
+    border-left: 1px solid rgba(216, 173, 95, .2);
+  }
+
+  .funnel-radial-intro::before {
+    left: -1px;
+  }
+
+  .funnel-radial-commerce {
+    margin-top: 0;
+  }
+
+  .funnel-radial-stage {
+    height: 840px !important;
+    min-height: 840px !important;
+  }
+
+  .funnel-radial-shell {
+    height: 780px;
+  }
+
+  .funnel-radial-module {
+    width: min(320px, 32%) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .funnel-radial-copyrail {
+    grid-template-columns: 1fr;
+  }
+
+  .funnel-radial-commerce {
+    width: min(620px, 100%);
+  }
+
+  .funnel-radial-stage {
+    height: 900px !important;
+    min-height: 900px !important;
+  }
+
+  .funnel-radial-shell {
+    height: 840px;
+  }
+
+  .funnel-radial-core {
+    width: 300px;
+    height: 300px;
+  }
+
+  .funnel-radial-core-art {
+    width: 270px;
+    height: 270px;
+  }
+
+  .funnel-radial-module {
+    width: min(290px, 39%) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  #prosperity-engine.funnel-section {
+    padding: 92px 20px 0;
+  }
+
+  .funnel-radial-copyrail {
+    display: block;
+    padding: 0 !important;
+    border: 0;
+  }
+
+  .funnel-radial-intro {
+    padding-left: 18px;
+  }
+
+  .funnel-radial-intro .funnel__title {
+    font-size: clamp(52px, 15vw, 76px);
+  }
+
+  .funnel-radial-commerce {
+    margin-top: 22px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .funnel-radial-stage {
+    height: auto !important;
+    min-height: 0 !important;
+    margin-top: 28px !important;
+  }
+
+  .funnel-radial-stage > .funnel-system-caption {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+
+  .funnel-radial-shell {
+    height: auto;
+    min-height: 0;
+    padding: 20px;
+    display: grid;
+    gap: 12px;
+    overflow: visible;
+    border-radius: 22px;
+  }
+
+  .funnel-radial-shell::after,
+  .funnel-radial-connectors {
+    display: none;
+  }
+
+  .funnel-radial-core {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: 330px;
+    transform: none;
+    border: 1px solid rgba(216, 173, 95, .14);
+    border-radius: 18px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(229, 155, 54, .17), transparent 42%),
+      rgba(8, 6, 4, .62);
+  }
+
+  .funnel-radial-core::before {
+    inset: 28px;
+  }
+
+  .funnel-radial-core::after {
+    inset: 58px;
+  }
+
+  .funnel-radial-core-label {
+    top: 12px;
+  }
+
+  .funnel-radial-core-art {
+    width: 280px;
+    height: 280px;
+  }
+
+  .funnel-radial-core .funnel-orange {
+    width: 250px !important;
+  }
+
+  .funnel-radial-core .funnel-glow {
+    width: 340px !important;
+    height: 340px !important;
+  }
+
+  .funnel-radial-core .funnel-orbit--outer {
+    width: 370px !important;
+    height: 290px !important;
+  }
+
+  .funnel-radial-core .funnel-orbit--inner {
+    width: 285px !important;
+    height: 220px !important;
+  }
+
+  .funnel-radial-module {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: none;
+    translate: none !important;
+  }
+
+  .funnel-radial-module::before {
+    display: none;
+  }
+
+  .funnel-radial-module--positioning { order: 2; }
+  .funnel-radial-module--operation { order: 3; }
+  .funnel-radial-module--connection { order: 4; }
+  .funnel-radial-module--implementation { order: 5; }
+
+  #prosperity-engine .funnel-bridge {
+    width: 100%;
+    margin-top: 28px;
+  }
+
+  #prosperity-engine .funnel-bridge i {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .funnel-radial-connectors path {
+    stroke-dasharray: none;
+  }
+}
