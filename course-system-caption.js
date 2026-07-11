@@ -43,3 +43,11 @@
     }, 7000);
   }
 })();
+
+(() => {
+  if (document.querySelector('script[src="course-journey-layout.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'course-journey-layout.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
