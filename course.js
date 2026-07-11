@@ -210,3 +210,11 @@
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+(() => {
+  if (document.querySelector('script[src="pricing.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'pricing.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
