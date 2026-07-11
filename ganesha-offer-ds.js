@@ -21,21 +21,19 @@
         </div>
         <div class="ganesha-offer__content">
           <span class="ganesha-offer__eyebrow">Condição especial ativa</span>
-          <h3 class="ganesha-offer__title">Ganhe acesso a tudo isso <strong>sem custo</strong></h3>
-          <p class="ganesha-offer__copy">Oferta exclusiva liberada para algumas clínicas selecionadas.</p>
+          <h3 class="ganesha-offer__title">Ganhe acesso a tudo isso <strong>DE GRAÇA</strong></h3>
+          <p class="ganesha-offer__copy">Condição exclusiva liberada para algumas clínicas selecionadas.</p>
           <button class="ganesha-offer__cta" type="button">
-            <span>Verificar disponibilidade</span>
+            <span>Quero receber DE GRAÇA</span>
             <i aria-hidden="true">↗</i>
           </button>
-          <span class="ganesha-offer__microcopy">Clique para confirmar se ainda está disponível</span>
+          <span class="ganesha-offer__microcopy">Clique para verificar se a condição ainda está disponível</span>
         </div>
         <span class="ganesha-offer__system-line" aria-hidden="true"></span>
-        <button class="ganesha-offer__close" type="button" aria-label="Fechar promoção">×</button>
       </div>
     `;
 
     const cta = widget.querySelector('.ganesha-offer__cta');
-    const close = widget.querySelector('.ganesha-offer__close');
 
     cta?.addEventListener('click', () => {
       const modal = document.querySelector('#contactModal');
@@ -48,15 +46,15 @@
       const submit = form?.querySelector('button[type="submit"] span');
 
       if (eyebrow) eyebrow.textContent = 'Promoção exclusiva';
-      if (title) title.textContent = 'Veja se sua clínica ainda pode receber tudo isso sem custo.';
+      if (title) title.textContent = 'Veja se sua clínica ainda pode receber tudo isso DE GRAÇA.';
       if (copy) copy.textContent = 'Preencha os dados para confirmarmos se essa condição especial ainda está disponível para sua clínica.';
-      if (submit) submit.textContent = 'Verificar disponibilidade';
+      if (submit) submit.textContent = 'Quero receber DE GRAÇA';
 
       if (form && !form.querySelector('input[name="origem"]')) {
         const origin = document.createElement('input');
         origin.type = 'hidden';
         origin.name = 'origem';
-        origin.value = 'Promoção Ganesha — acesso sem custo';
+        origin.value = 'Promoção Ganesha — acesso grátis';
         form.appendChild(origin);
       }
 
@@ -66,13 +64,10 @@
       window.setTimeout(() => modal.querySelector('input')?.focus(), 90);
     });
 
-    close?.addEventListener('click', () => {
-      widget.classList.remove('is-visible');
-      widget.classList.add('is-closing');
-      widget.setAttribute('aria-hidden', 'true');
-      sessionStorage.setItem('cevora-ganesha-offer-dismissed', 'true');
-      window.setTimeout(() => widget.remove(), 520);
-    });
+    widget.classList.remove('is-closing');
+    widget.classList.add('is-visible');
+    widget.setAttribute('aria-hidden', 'false');
+    sessionStorage.removeItem('cevora-ganesha-offer-dismissed');
 
     return true;
   };
