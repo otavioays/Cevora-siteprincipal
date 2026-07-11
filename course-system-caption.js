@@ -57,15 +57,27 @@
     sessionStorage.removeItem('cevora-ganesha-offer-dismissed');
   } catch (_) {}
 
+  const version = '6';
+
+  const refinementHref = `styles-ganesha-offer-refinement.css?v=${version}`;
+  if (!document.querySelector('link[data-ganesha-refinement]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = refinementHref;
+    link.dataset.ganeshaRefinement = 'true';
+    document.head.appendChild(link);
+  }
+
   const load = (src) => {
-    if (document.querySelector(`script[data-ganesha-loader="${src}"]`)) return;
+    const selector = `script[data-ganesha-loader="${src}"]`;
+    document.querySelector(selector)?.remove();
     const script = document.createElement('script');
-    script.src = `${src}?v=4`;
+    script.src = `${src}?v=${version}`;
     script.defer = true;
     script.dataset.ganeshaLoader = src;
     document.body.appendChild(script);
   };
 
   load('ganesha-offer.js');
-  load('ganesha-offer-ds.js');
+  window.setTimeout(() => load('ganesha-offer-ds.js'), 40);
 })();
