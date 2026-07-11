@@ -164,3 +164,11 @@
     observer.disconnect();
   }, 7000);
 })();
+
+(() => {
+  if (document.querySelector('script[src="concierge-ai.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'concierge-ai.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
