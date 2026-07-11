@@ -1,0 +1,12 @@
+/* Global typography requested for the entire site. */
+html,
+body,
+body *,
+button,
+input,
+textarea,
+select,
+option,
+::placeholder {
+  font-family: "Times New Roman", Times, serif !important;
+}
