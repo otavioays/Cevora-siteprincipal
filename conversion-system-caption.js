@@ -43,3 +43,11 @@
     }, 7000);
   }
 })();
+
+(() => {
+  if (document.querySelector('script[src="conversion-lab-layout.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'conversion-lab-layout.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
