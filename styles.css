@@ -21,7 +21,7 @@
 @import url('./styles-acquisition-system-caption.css');
 @import url('./styles-course-system-caption.css');
 @import url('./styles-modal.css');
-@import url('./styles-font-times.css');
+@import url('./styles-typography-ds.css');
 
 /* Compatibility bridge for legacy image paths in the first fold. */
 .product-art img,
