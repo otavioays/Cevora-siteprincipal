@@ -90,11 +90,19 @@
 })();
 
 (() => {
-  if (document.querySelector('script[src="ganesha-offer.js"]')) return;
-  const script = document.createElement('script');
-  script.src = 'ganesha-offer.js';
-  script.defer = true;
-  document.body.appendChild(script);
+  if (!document.querySelector('script[src="ganesha-offer.js"]')) {
+    const offerScript = document.createElement('script');
+    offerScript.src = 'ganesha-offer.js';
+    offerScript.defer = true;
+    document.body.appendChild(offerScript);
+  }
+
+  if (!document.querySelector('script[src="ganesha-offer-ds.js"]')) {
+    const designScript = document.createElement('script');
+    designScript.src = 'ganesha-offer-ds.js';
+    designScript.defer = true;
+    document.body.appendChild(designScript);
+  }
 })();
 
 document.addEventListener('click', (event) => {
