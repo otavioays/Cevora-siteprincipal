@@ -1,0 +1,328 @@
+/* Unified product-card system: one family, five distinct product accents. */
+:root {
+  --ds-card-radius: 16px;
+  --ds-card-header-height: 50px;
+  --ds-card-header-pad: 16px;
+  --ds-card-icon-size: 28px;
+  --ds-card-control-width: 30px;
+  --ds-card-control-height: 24px;
+  --ds-card-edge: rgba(216, 173, 95, .34);
+  --ds-card-edge-hot: rgba(241, 204, 130, .62);
+  --ds-card-highlight: rgba(255, 244, 217, .075);
+  --ds-card-shadow: rgba(0, 0, 0, .56);
+  --ds-card-accent: var(--gold);
+  --ds-card-accent-rgb: 216, 173, 95;
+  --ds-card-accent-strong: var(--gold-bright);
+  --ds-card-panel-top: rgba(29, 22, 16, .94);
+  --ds-card-panel-bottom: rgba(7, 6, 5, .985);
+}
+
+#produto {
+  --ds-card-accent: #d8ad5f;
+  --ds-card-accent-rgb: 216, 173, 95;
+  --ds-card-accent-strong: #f0cc82;
+}
+
+#conversion {
+  --ds-card-accent: #b62737;
+  --ds-card-accent-rgb: 182, 39, 55;
+  --ds-card-accent-strong: #f0cc82;
+}
+
+#course {
+  --ds-card-accent: #d8ad5f;
+  --ds-card-accent-rgb: 216, 173, 95;
+  --ds-card-accent-strong: #f0cc82;
+}
+
+#acquisition {
+  --ds-card-accent: #b62737;
+  --ds-card-accent-rgb: 182, 39, 55;
+  --ds-card-accent-strong: #f0cc82;
+}
+
+#prosperity-engine {
+  --ds-card-accent: #e59b36;
+  --ds-card-accent-rgb: 229, 155, 54;
+  --ds-card-accent-strong: #f3c878;
+}
+
+/* Primary card housings. */
+#produto .floating-card,
+#conversion .cro-card,
+#conversion .heatmap-card,
+#course .course-card,
+#acquisition .acquisition-card,
+#prosperity-engine .funnel-card {
+  isolation: isolate;
+  border: 1px solid var(--ds-card-edge);
+  border-radius: var(--ds-card-radius);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.03), transparent 13%),
+    linear-gradient(155deg, var(--ds-card-panel-top), var(--ds-card-panel-bottom));
+  box-shadow:
+    inset 0 1px 0 var(--ds-card-highlight),
+    inset 0 -1px 0 rgba(0,0,0,.9),
+    inset 0 0 0 3px rgba(5,4,3,.56),
+    inset 0 -28px 52px rgba(0,0,0,.35),
+    0 22px 68px var(--ds-card-shadow);
+  -webkit-backdrop-filter: blur(16px) saturate(116%);
+  backdrop-filter: blur(16px) saturate(116%);
+  overflow: hidden;
+  transition: border-color .32s ease, box-shadow .32s ease, background .32s ease;
+}
+
+#produto .floating-card::before,
+#conversion .cro-card::before,
+#conversion .heatmap-card::before,
+#course .course-card::before,
+#acquisition .acquisition-card::before,
+#prosperity-engine .funnel-card::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  z-index: 30;
+  pointer-events: none;
+  border: 1px solid rgba(241, 204, 130, .055);
+  border-radius: calc(var(--ds-card-radius) - 5px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.018),
+    inset 0 -1px 0 rgba(0,0,0,.58);
+}
+
+#produto .floating-card:hover,
+#conversion .cro-card:hover,
+#conversion .heatmap-card:hover,
+#course .course-card:hover,
+#acquisition .acquisition-card:hover,
+#prosperity-engine .funnel-card:hover {
+  border-color: var(--ds-card-edge-hot);
+  box-shadow:
+    inset 0 1px 0 rgba(255,244,217,.11),
+    inset 0 -1px 0 rgba(0,0,0,.92),
+    inset 0 0 0 3px rgba(5,4,3,.58),
+    inset 0 -28px 52px rgba(0,0,0,.32),
+    0 28px 78px rgba(0,0,0,.62),
+    0 0 34px rgba(var(--ds-card-accent-rgb), .055);
+}
+
+/* Unified headers. */
+#produto .floating-card__header.compact,
+#conversion .cro-card__header,
+#course .course-card__header,
+#acquisition .acquisition-card__header,
+#prosperity-engine .funnel-card__header {
+  min-height: var(--ds-card-header-height);
+  padding: 0 var(--ds-card-header-pad);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(216,173,95,.18);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.042), transparent 52%),
+    linear-gradient(90deg, rgba(var(--ds-card-accent-rgb), .11), rgba(13,10,8,.7) 38%, rgba(7,6,5,.82));
+  box-shadow:
+    inset 0 1px 0 rgba(255,244,217,.055),
+    inset 0 -1px 0 rgba(0,0,0,.72);
+  color: var(--ds-card-accent-strong);
+  font-family: var(--font-ds-technical, "Space Mono", monospace);
+  text-transform: uppercase;
+  letter-spacing: .065em;
+}
+
+#produto .floating-card__header.compact > span:first-child,
+#conversion .cro-card__header > span,
+#course .course-card__header > span,
+#acquisition .acquisition-card__header > span,
+#prosperity-engine .funnel-card__header > span {
+  width: var(--ds-card-icon-size);
+  height: var(--ds-card-icon-size);
+  flex: 0 0 var(--ds-card-icon-size);
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(var(--ds-card-accent-rgb), .34);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255,244,217,.09), transparent 34%),
+    linear-gradient(145deg, rgba(var(--ds-card-accent-rgb), .14), #0b0806 70%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.055),
+    inset 0 -2px 5px rgba(0,0,0,.56);
+  color: var(--ds-card-accent);
+  font-size: 15px;
+}
+
+#produto .floating-card__header strong,
+#conversion .cro-card__header strong,
+#course .course-card__header strong,
+#acquisition .acquisition-card__header strong,
+#prosperity-engine .funnel-card__header strong {
+  color: rgba(241,234,223,.82);
+  font-family: var(--font-ds-technical, "Space Mono", monospace);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .075em;
+  line-height: 1.25;
+}
+
+#produto .floating-card__header button,
+#conversion .cro-card__header button,
+#course .course-card__header button,
+#acquisition .acquisition-card__header button,
+#prosperity-engine .funnel-card__header button {
+  width: var(--ds-card-control-width);
+  height: var(--ds-card-control-height);
+  margin-left: auto;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(216,173,95,.12);
+  border-radius: 999px;
+  background: rgba(4,3,3,.42);
+  box-shadow: inset 0 1px 4px rgba(0,0,0,.62);
+  color: rgba(216,173,95,.76);
+  cursor: pointer;
+  opacity: .88;
+  transition: border-color .25s ease, color .25s ease, background .25s ease;
+}
+
+#produto .floating-card__header button:hover,
+#conversion .cro-card__header button:hover,
+#course .course-card__header button:hover,
+#acquisition .acquisition-card__header button:hover,
+#prosperity-engine .funnel-card__header button:hover,
+#produto .floating-card__header button:focus-visible,
+#conversion .cro-card__header button:focus-visible,
+#course .course-card__header button:focus-visible,
+#acquisition .acquisition-card__header button:focus-visible,
+#prosperity-engine .funnel-card__header button:focus-visible {
+  border-color: rgba(var(--ds-card-accent-rgb), .5);
+  background: rgba(var(--ds-card-accent-rgb), .075);
+  color: var(--ds-card-accent-strong);
+  outline: none;
+}
+
+/* Recessed subpanels and controls. */
+#produto .chat-message,
+#produto .journey-card__status,
+#conversion .ab-variant,
+#conversion .performance-status,
+#conversion .conversion-checks span,
+#course .plan-step > i,
+#course .diagnostic-ring::before,
+#acquisition .priority-action,
+#acquisition .access-list span,
+#acquisition .procedure-tabs button,
+#prosperity-engine .chain-message,
+#prosperity-engine .system-node,
+#prosperity-engine .implementation-item {
+  border-color: rgba(216,173,95,.14);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.014), transparent 30%),
+    rgba(5,4,3,.5);
+  box-shadow:
+    inset 0 2px 7px rgba(0,0,0,.54),
+    inset 0 -1px 0 rgba(255,255,255,.018);
+}
+
+/* Compact benefit family. */
+#produto .benefit-card,
+#conversion .conversion-benefit,
+#course .course-benefit,
+#acquisition .acquisition-benefit,
+#prosperity-engine .funnel-benefit {
+  min-height: 58px;
+  border: 1px solid rgba(216,173,95,.16);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.022), transparent 34%),
+    linear-gradient(145deg, rgba(21,16,12,.78), rgba(7,6,5,.84));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.035),
+    inset 0 -1px 0 rgba(0,0,0,.64),
+    0 12px 32px rgba(0,0,0,.26);
+  transition: border-color .3s ease, box-shadow .3s ease, background .3s ease;
+}
+
+#produto .benefit-card:hover,
+#conversion .conversion-benefit:hover,
+#course .course-benefit:hover,
+#acquisition .acquisition-benefit:hover,
+#prosperity-engine .funnel-benefit:hover {
+  border-color: rgba(var(--ds-card-accent-rgb), .48);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.03), transparent 34%),
+    linear-gradient(145deg, rgba(var(--ds-card-accent-rgb), .075), rgba(7,6,5,.86));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.045),
+    inset 0 -1px 0 rgba(0,0,0,.68),
+    0 17px 40px rgba(0,0,0,.36),
+    0 0 26px rgba(var(--ds-card-accent-rgb), .04);
+}
+
+#produto .benefit-card__icon,
+#conversion .conversion-benefit > span,
+#course .course-benefit > span,
+#acquisition .acquisition-benefit > span,
+#prosperity-engine .funnel-benefit > span {
+  color: var(--ds-card-accent);
+}
+
+#produto .benefit-card span:last-child,
+#conversion .conversion-benefit strong,
+#course .course-benefit strong,
+#acquisition .acquisition-benefit strong,
+#prosperity-engine .funnel-benefit strong {
+  color: rgba(241,234,223,.78);
+  font-family: var(--font-ds-technical, "Space Mono", monospace);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: .025em;
+  line-height: 1.35;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --ds-card-radius: 14px;
+    --ds-card-header-height: 46px;
+    --ds-card-header-pad: 13px;
+    --ds-card-icon-size: 25px;
+  }
+
+  #produto .floating-card,
+  #conversion .cro-card,
+  #conversion .heatmap-card,
+  #course .course-card,
+  #acquisition .acquisition-card,
+  #prosperity-engine .funnel-card {
+    box-shadow:
+      inset 0 1px 0 rgba(255,244,217,.065),
+      inset 0 -1px 0 rgba(0,0,0,.82),
+      inset 0 0 0 2px rgba(5,4,3,.48),
+      0 16px 44px rgba(0,0,0,.44);
+  }
+
+  #produto .benefit-card,
+  #conversion .conversion-benefit,
+  #course .course-benefit,
+  #acquisition .acquisition-benefit,
+  #prosperity-engine .funnel-benefit {
+    min-height: 54px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #produto .floating-card,
+  #conversion .cro-card,
+  #conversion .heatmap-card,
+  #course .course-card,
+  #acquisition .acquisition-card,
+  #prosperity-engine .funnel-card,
+  #produto .benefit-card,
+  #conversion .conversion-benefit,
+  #course .course-benefit,
+  #acquisition .acquisition-benefit,
+  #prosperity-engine .funnel-benefit {
+    transition: none !important;
+  }
+}
