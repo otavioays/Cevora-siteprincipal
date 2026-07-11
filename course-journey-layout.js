@@ -95,3 +95,11 @@
     }, 7000);
   }
 })();
+
+(() => {
+  if (document.querySelector('script[src="scroll-stability.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'scroll-stability.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
