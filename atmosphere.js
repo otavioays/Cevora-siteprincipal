@@ -106,7 +106,7 @@
 
   const observer = new MutationObserver((mutations) => {
     const changed = mutations.some((mutation) => [...mutation.addedNodes, ...mutation.removedNodes]
-      .some((node) => node.nodeType === 1 && (node.matches?.('section, .fold-seam') || node.querySelector?.('section'))));
+      .some((node) => node.nodeType === 1 && node.matches?.('section')));
     if (changed) requestRefresh();
   });
 
