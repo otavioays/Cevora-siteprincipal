@@ -1,0 +1,338 @@
+/* Conversion Atelier material pilot: one tactile system for casing, instruments, controls and commerce. */
+#conversion[data-conversion-lab-layout="true"] {
+  --cro-brass-hi: #f2d28c;
+  --cro-brass: #c99a4d;
+  --cro-brass-mid: #8f642d;
+  --cro-brass-low: #3a2512;
+  --cro-ruby-hi: #c93f50;
+  --cro-ruby: #78121e;
+  --cro-ruby-low: #2c080d;
+  --cro-glass-top: rgba(34, 27, 20, .93);
+  --cro-glass-bottom: rgba(7, 6, 5, .985);
+  --cro-screen: rgba(4, 5, 5, .92);
+  --cro-edge-light: rgba(255, 241, 204, .16);
+  --cro-edge-dark: rgba(0, 0, 0, .72);
+  --cro-hairline: rgba(216, 173, 95, .22);
+}
+
+/* Main laboratory chassis. */
+#conversion[data-conversion-lab-layout="true"] .conversion-lab-stage {
+  border-color: rgba(216, 173, 95, .36);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.035), transparent 9%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.012) 0 1px, transparent 1px 5px),
+    linear-gradient(rgba(216,173,95,.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216,173,95,.032) 1px, transparent 1px),
+    radial-gradient(circle at 48% 43%, rgba(125,17,29,.21), transparent 40%),
+    linear-gradient(148deg, #1b140e 0%, #0b0806 48%, #050403 100%);
+  background-size: auto, auto, 44px 44px, 44px 44px, auto, auto;
+  outline: 1px solid rgba(0, 0, 0, .76);
+  outline-offset: -6px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 244, 217, .1),
+    inset 0 -1px 0 rgba(0, 0, 0, .94),
+    inset 0 0 0 5px rgba(6, 5, 4, .76),
+    inset 0 0 0 6px rgba(216, 173, 95, .08),
+    inset 0 22px 52px rgba(255, 220, 155, .018),
+    inset 0 -48px 84px rgba(0, 0, 0, .58),
+    0 4px 0 rgba(216, 173, 95, .045),
+    0 34px 96px rgba(0, 0, 0, .48);
+}
+
+#conversion[data-conversion-lab-layout="true"] .conversion-lab-stage::before {
+  border-color: rgba(241, 204, 130, .13);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.018),
+    0 0 0 1px rgba(0,0,0,.38);
+}
+
+#conversion[data-conversion-lab-layout="true"] .conversion-lab-stage::after {
+  width: 2px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.62), rgba(241,204,130,.18), rgba(0,0,0,.62));
+  box-shadow: 12px 0 38px rgba(125,17,29,.06), -12px 0 38px rgba(216,173,95,.04);
+}
+
+/* Shared smoked-instrument housing. */
+#conversion[data-conversion-lab-layout="true"] .cro-card,
+#conversion[data-conversion-lab-layout="true"] .heatmap-card {
+  border-color: rgba(216, 173, 95, .46);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.035), transparent 12%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.009) 0 1px, transparent 1px 4px),
+    linear-gradient(165deg, var(--cro-glass-top), var(--cro-glass-bottom));
+  box-shadow:
+    inset 0 1px 0 var(--cro-edge-light),
+    inset 0 -1px 0 rgba(0,0,0,.92),
+    inset 0 0 0 3px rgba(5,4,3,.72),
+    inset 0 0 0 4px rgba(216,173,95,.07),
+    inset 0 18px 28px rgba(255,225,164,.018),
+    inset 0 -26px 44px rgba(0,0,0,.46),
+    0 2px 0 rgba(241,204,130,.035),
+    0 24px 68px rgba(0,0,0,.58);
+  -webkit-backdrop-filter: blur(18px) saturate(114%);
+  backdrop-filter: blur(18px) saturate(114%);
+}
+
+#conversion[data-conversion-lab-layout="true"] .cro-card::before,
+#conversion[data-conversion-lab-layout="true"] .heatmap-card::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  z-index: 30;
+  pointer-events: none;
+  border: 1px solid rgba(241, 204, 130, .075);
+  border-radius: 11px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    inset 0 -1px 0 rgba(0,0,0,.64);
+}
+
+#conversion[data-conversion-lab-layout="true"] .cro-card::after {
+  background:
+    linear-gradient(116deg, transparent 10%, rgba(255,238,199,.055) 31%, transparent 52%),
+    linear-gradient(180deg, rgba(255,255,255,.018), transparent 24%);
+}
+
+#conversion[data-conversion-lab-layout="true"] .cro-card:hover,
+#conversion[data-conversion-lab-layout="true"] .heatmap-card:hover {
+  border-color: rgba(242, 210, 140, .68);
+  box-shadow:
+    inset 0 1px 0 rgba(255,244,217,.18),
+    inset 0 -1px 0 rgba(0,0,0,.92),
+    inset 0 0 0 3px rgba(5,4,3,.72),
+    inset 0 0 0 4px rgba(216,173,95,.11),
+    inset 0 -26px 44px rgba(0,0,0,.44),
+    0 28px 76px rgba(0,0,0,.64),
+    0 0 34px rgba(216,173,95,.055);
+}
+
+/* Brushed-metal instrument headers. */
+#conversion[data-conversion-lab-layout="true"] .cro-card__header {
+  min-height: 50px;
+  border-bottom-color: rgba(216, 173, 95, .22);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.055), transparent 48%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.012) 0 1px, transparent 1px 3px),
+    linear-gradient(90deg, rgba(66,45,23,.72), rgba(21,16,11,.82) 42%, rgba(12,9,7,.9));
+  box-shadow:
+    inset 0 1px 0 rgba(255,244,217,.08),
+    inset 0 -1px 0 rgba(0,0,0,.78);
+}
+
+#conversion[data-conversion-lab-layout="true"] .cro-card__header > span {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(216,173,95,.34);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255,244,217,.12), transparent 34%),
+    linear-gradient(145deg, #2c1e10, #0d0906);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07),
+    inset 0 -2px 5px rgba(0,0,0,.58),
+    0 1px 0 rgba(241,204,130,.04);
+}
+
+#conversion[data-conversion-lab-layout="true"] .cro-card__header button {
+  width: 30px;
+  height: 24px;
+  border: 1px solid rgba(216,173,95,.12);
+  border-radius: 999px;
+  background: rgba(4,3,3,.44);
+  box-shadow: inset 0 1px 4px rgba(0,0,0,.62);
+}
+
+/* Recessed A/B test controls. */
+#conversion[data-conversion-lab-layout="true"] .ab-grid {
+  position: relative;
+  z-index: 4;
+}
+
+#conversion[data-conversion-lab-layout="true"] .ab-variant {
+  border-color: rgba(216,173,95,.2);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.018), transparent 18%),
+    linear-gradient(145deg, rgba(8,7,6,.96), rgba(16,12,9,.88));
+  box-shadow:
+    inset 0 2px 7px rgba(0,0,0,.72),
+    inset 0 -1px 0 rgba(255,255,255,.025),
+    0 1px 0 rgba(216,173,95,.025);
+}
+
+#conversion[data-conversion-lab-layout="true"] .ab-variant:hover {
+  border-color: rgba(216,173,95,.46);
+  box-shadow:
+    inset 0 2px 7px rgba(0,0,0,.66),
+    inset 0 0 18px rgba(216,173,95,.025),
+    0 8px 22px rgba(0,0,0,.24);
+}
+
+#conversion[data-conversion-lab-layout="true"] .ab-variant.is-winner {
+  border-color: rgba(201,63,80,.86);
+  background:
+    radial-gradient(circle at 72% 18%, rgba(201,63,80,.16), transparent 38%),
+    linear-gradient(180deg, rgba(83,13,24,.66), rgba(23,7,8,.94));
+  box-shadow:
+    inset 0 1px 0 rgba(255,190,198,.08),
+    inset 0 0 0 2px rgba(46,7,12,.66),
+    inset 0 0 28px rgba(120,18,30,.28),
+    0 0 26px rgba(120,18,30,.11);
+}
+
+#conversion[data-conversion-lab-layout="true"] .mini-page {
+  border-color: rgba(216,173,95,.14);
+  background:
+    linear-gradient(rgba(216,173,95,.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216,173,95,.022) 1px, transparent 1px),
+    var(--cro-screen);
+  background-size: 12px 12px, 12px 12px, auto;
+  box-shadow:
+    inset 0 2px 8px rgba(0,0,0,.82),
+    inset 0 0 0 1px rgba(255,255,255,.012);
+}
+
+/* Metric dial and graph screen. */
+#conversion[data-conversion-lab-layout="true"] .conversion-ring {
+  border: 1px solid rgba(216,173,95,.28);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 40% 33%, rgba(255,255,255,.055), transparent 30%),
+    radial-gradient(circle, rgba(16,12,9,.96) 0 58%, #070504 60% 70%, rgba(216,173,95,.2) 71% 72%, #0a0705 73%);
+  box-shadow:
+    inset 0 3px 12px rgba(0,0,0,.74),
+    inset 0 -1px 0 rgba(255,255,255,.035),
+    0 6px 18px rgba(0,0,0,.34);
+}
+
+#conversion[data-conversion-lab-layout="true"] .performance-chart {
+  margin: 12px 14px 0;
+  width: calc(100% - 28px);
+  border: 1px solid rgba(216,173,95,.12);
+  border-radius: 10px;
+  background:
+    linear-gradient(rgba(216,173,95,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216,173,95,.028) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(5,6,6,.94), rgba(3,3,3,.98));
+  background-size: 26px 26px, 26px 26px, auto;
+  box-shadow:
+    inset 0 3px 12px rgba(0,0,0,.8),
+    inset 0 0 0 1px rgba(255,255,255,.012);
+}
+
+#conversion[data-conversion-lab-layout="true"] .performance-status,
+#conversion[data-conversion-lab-layout="true"] .conversion-checks span {
+  border-color: rgba(216,173,95,.16);
+  background: linear-gradient(180deg, rgba(255,255,255,.018), rgba(3,3,3,.36));
+  box-shadow: inset 0 1px 5px rgba(0,0,0,.46);
+}
+
+/* Heatmap becomes a portable measurement instrument. */
+#conversion[data-conversion-lab-layout="true"] .heatmap-card {
+  border: 1px solid rgba(216,173,95,.42);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+#conversion[data-conversion-lab-layout="true"] .heatmap-preview {
+  border: 1px solid rgba(216,173,95,.14);
+  background-color: #060504;
+  box-shadow:
+    inset 0 3px 12px rgba(0,0,0,.82),
+    inset 0 0 0 1px rgba(255,255,255,.012);
+}
+
+/* Commerce surface uses smoked glass held by a brass rim. */
+#conversion[data-conversion-lab-layout="true"] .conversion-lab-commerce .price-spotlight {
+  border-color: rgba(216,173,95,.42);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.04), transparent 18%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.009) 0 1px, transparent 1px 4px),
+    linear-gradient(145deg, rgba(31,23,16,.9), rgba(8,6,5,.96));
+  box-shadow:
+    inset 0 1px 0 rgba(255,244,217,.12),
+    inset 0 -1px 0 rgba(0,0,0,.9),
+    inset 0 0 0 3px rgba(5,4,3,.54),
+    inset 0 0 0 4px rgba(216,173,95,.065),
+    0 22px 58px rgba(0,0,0,.42);
+}
+
+#conversion[data-conversion-lab-layout="true"] .conversion-benefit {
+  border-color: rgba(216,173,95,.24);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.03), transparent 26%),
+    linear-gradient(145deg, rgba(24,18,13,.9), rgba(7,5,4,.96));
+  box-shadow:
+    inset 0 1px 0 rgba(255,244,217,.07),
+    inset 0 -2px 7px rgba(0,0,0,.62),
+    0 8px 22px rgba(0,0,0,.25);
+}
+
+#conversion[data-conversion-lab-layout="true"] .conversion-benefit span {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(216,173,95,.32);
+  border-radius: 8px;
+  background: linear-gradient(145deg, #2b1e11, #0a0705);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    inset 0 -2px 5px rgba(0,0,0,.62);
+  font-size: 17px;
+}
+
+/* Engraved readout rail. */
+#conversion[data-conversion-lab-layout="true"] .conversion-lab-readout {
+  border-left-color: rgba(216,173,95,.2);
+  background:
+    linear-gradient(90deg, rgba(216,173,95,.025), transparent 18%),
+    linear-gradient(180deg, rgba(255,255,255,.012), transparent 18%);
+}
+
+#conversion[data-conversion-lab-layout="true"] .conversion-system-caption {
+  border-top: 1px solid rgba(216,173,95,.12);
+  border-bottom: 1px solid rgba(0,0,0,.72);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.02),
+    0 1px 0 rgba(216,173,95,.025);
+}
+
+@media (max-width: 820px) {
+  #conversion[data-conversion-lab-layout="true"] .conversion-lab-stage {
+    outline-offset: -4px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,244,217,.08),
+      inset 0 -1px 0 rgba(0,0,0,.9),
+      inset 0 0 0 3px rgba(6,5,4,.72),
+      inset 0 0 0 4px rgba(216,173,95,.06),
+      inset 0 -36px 68px rgba(0,0,0,.5),
+      0 24px 62px rgba(0,0,0,.42);
+  }
+
+  #conversion[data-conversion-lab-layout="true"] .conversion-lab-readout {
+    border-left: 0;
+    border-top-color: rgba(216,173,95,.2);
+  }
+}
+
+@media (max-width: 560px) {
+  #conversion[data-conversion-lab-layout="true"] .cro-card,
+  #conversion[data-conversion-lab-layout="true"] .heatmap-card,
+  #conversion[data-conversion-lab-layout="true"] .conversion-lab-commerce .price-spotlight {
+    box-shadow:
+      inset 0 1px 0 rgba(255,244,217,.08),
+      inset 0 -1px 0 rgba(0,0,0,.88),
+      inset 0 0 0 2px rgba(5,4,3,.62),
+      inset 0 0 0 3px rgba(216,173,95,.055),
+      0 16px 42px rgba(0,0,0,.44);
+  }
+
+  #conversion[data-conversion-lab-layout="true"] .cro-card::before,
+  #conversion[data-conversion-lab-layout="true"] .heatmap-card::before {
+    inset: 3px;
+  }
+}
