@@ -22,11 +22,9 @@
 @import url('./styles-course-system-caption.css');
 @import url('./styles-conversion-lab-layout.css');
 @import url('./styles-course-journey-layout.css');
-@import url('./styles-course-alignment-fix.css');
 @import url('./styles-acquisition-command-layout.css');
-@import url('./styles-acquisition-alignment-fix.css');
 @import url('./styles-funnel-radial-layout.css');
-@import url('./styles-scroll-stability.css');
+@import url('./styles-layout-stability.css');
 @import url('./styles-card-system.css');
 @import url('./styles-conversion-materials.css');
 @import url('./styles-mascot-integration.css');
@@ -34,7 +32,6 @@
 @import url('./styles-motion-language.css');
 @import url('./styles-responsive-system.css');
 @import url('./styles-ganesha-offer.css');
-@import url('./styles-ganesha-offer-refinement.css');
 @import url('./styles-modal.css');
 @import url('./styles-typography-ds.css');
 
