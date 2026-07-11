@@ -1,0 +1,328 @@
+/* Unified motion language: decorative, one-axis and scroll-safe.
+ * No product layout, card position or structural transform is animated here.
+ */
+:root {
+  --motion-instant: 160ms;
+  --motion-fast: 260ms;
+  --motion-medium: 620ms;
+  --motion-slow: 980ms;
+  --motion-ambient: 5200ms;
+  --motion-ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+#produto.cevora-fold { --motion-accent: 182, 39, 55; }
+#conversion.cevora-fold { --motion-accent: 216, 173, 95; }
+#course.cevora-fold { --motion-accent: 200, 164, 91; }
+#acquisition.cevora-fold { --motion-accent: 215, 178, 105; }
+#prosperity-engine.cevora-fold { --motion-accent: 229, 155, 54; }
+
+/* Editorial lines draw in without changing document geometry. */
+.cevora-fold .fold-index-label__line {
+  opacity: .28;
+  transform-origin: left center;
+  transform: scaleX(.18);
+  box-shadow: 0 0 0 rgba(var(--motion-accent), 0);
+  transition:
+    opacity var(--motion-medium) var(--motion-ease),
+    transform var(--motion-slow) var(--motion-ease),
+    box-shadow var(--motion-medium) ease;
+}
+
+.cevora-fold.is-fold-active .fold-index-label__line {
+  opacity: 1;
+  transform: scaleX(1);
+  box-shadow: 0 0 18px rgba(var(--motion-accent), .22);
+}
+
+.cevora-fold .title-rule span {
+  opacity: .18;
+  clip-path: inset(0 100% 0 0);
+  transition:
+    opacity var(--motion-medium) ease,
+    clip-path var(--motion-slow) var(--motion-ease);
+}
+
+.cevora-fold .title-rule span:last-child {
+  clip-path: inset(0 0 0 100%);
+}
+
+.cevora-fold.is-fold-active .title-rule span {
+  opacity: .92;
+  clip-path: inset(0 0 0 0);
+}
+
+.cevora-fold .title-rule i {
+  opacity: .42;
+  filter: drop-shadow(0 0 0 rgba(var(--motion-accent), 0));
+  transition:
+    opacity var(--motion-medium) ease,
+    filter var(--motion-medium) ease;
+}
+
+.cevora-fold.is-fold-active .title-rule i {
+  opacity: 1;
+  filter: drop-shadow(0 0 9px rgba(var(--motion-accent), .46));
+}
+
+/* Technical captions behave like instruments coming online. */
+.cevora-fold [class$="-system-caption"] {
+  --caption-glow: rgba(var(--motion-accent), .18);
+  border-color: rgba(var(--motion-accent), .16);
+  transition:
+    border-color var(--motion-medium) ease,
+    box-shadow var(--motion-medium) ease,
+    background-color var(--motion-medium) ease;
+}
+
+.cevora-fold.is-fold-active [class$="-system-caption"] {
+  border-color: rgba(var(--motion-accent), .3);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 0 26px rgba(var(--motion-accent), .045);
+}
+
+.cevora-fold [class*="-system-caption__dot"],
+.cevora-fold .status-icon,
+.cevora-fold .access-status > i,
+.cevora-fold .funnel-capacity > i {
+  transition:
+    opacity var(--motion-fast) ease,
+    box-shadow var(--motion-medium) ease,
+    background-color var(--motion-fast) ease;
+}
+
+.cevora-fold.is-fold-active [class*="-system-caption__dot"],
+.cevora-fold.is-fold-active .status-icon,
+.cevora-fold.is-fold-active .access-status > i,
+.cevora-fold.is-fold-active .funnel-capacity > i {
+  animation: cevora-indicator-breathe 2.8s ease-in-out 1;
+}
+
+/* Shared header scan. It lives only inside the header pseudo-element. */
+.cevora-fold .floating-card__header,
+.cevora-fold .cro-card__header,
+.cevora-fold .course-card__header,
+.cevora-fold .acquisition-card__header,
+.cevora-fold .funnel-card__header {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.cevora-fold .floating-card__header::after,
+.cevora-fold .cro-card__header::after,
+.cevora-fold .course-card__header::after,
+.cevora-fold .acquisition-card__header::after,
+.cevora-fold .funnel-card__header::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: -34%;
+  width: 28%;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, rgba(var(--motion-accent), .12), transparent);
+  transform: skewX(-18deg);
+}
+
+.cevora-fold.is-fold-active .floating-card__header::after,
+.cevora-fold.is-fold-active .cro-card__header::after,
+.cevora-fold.is-fold-active .course-card__header::after,
+.cevora-fold.is-fold-active .acquisition-card__header::after,
+.cevora-fold.is-fold-active .funnel-card__header::after {
+  animation: cevora-header-scan 1.55s .16s var(--motion-ease) 1 both;
+}
+
+/* Cards wake through light, never through displacement. */
+.cevora-fold .floating-card,
+.cevora-fold .cro-card,
+.cevora-fold .heatmap-card,
+.cevora-fold .course-card,
+.cevora-fold .acquisition-card,
+.cevora-fold .funnel-card {
+  transition:
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-medium) var(--motion-ease),
+    background-color var(--motion-medium) ease !important;
+}
+
+.cevora-fold.is-fold-active .floating-card,
+.cevora-fold.is-fold-active .cro-card,
+.cevora-fold.is-fold-active .heatmap-card,
+.cevora-fold.is-fold-active .course-card,
+.cevora-fold.is-fold-active .acquisition-card,
+.cevora-fold.is-fold-active .funnel-card {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.045),
+    inset 0 -1px 0 rgba(0,0,0,.72),
+    inset 0 0 34px rgba(0,0,0,.38),
+    0 24px 72px rgba(0,0,0,.5),
+    0 0 30px rgba(var(--motion-accent), .035);
+}
+
+/* Benefit icons light up in sequence with no card motion. */
+.cevora-fold .benefit-card > :first-child,
+.cevora-fold .conversion-benefit > span,
+.cevora-fold .course-benefit > span,
+.cevora-fold .acquisition-benefit > span,
+.cevora-fold .funnel-benefit > span {
+  opacity: .58;
+  filter: drop-shadow(0 0 0 rgba(var(--motion-accent), 0));
+  transition:
+    opacity var(--motion-medium) ease,
+    filter var(--motion-medium) ease;
+}
+
+.cevora-fold.is-fold-active .benefit-card > :first-child,
+.cevora-fold.is-fold-active .conversion-benefit > span,
+.cevora-fold.is-fold-active .course-benefit > span,
+.cevora-fold.is-fold-active .acquisition-benefit > span,
+.cevora-fold.is-fold-active .funnel-benefit > span {
+  opacity: 1;
+  filter: drop-shadow(0 0 8px rgba(var(--motion-accent), .24));
+}
+
+/* Concierge: conversational presence. */
+#produto.is-fold-active .chat-message small,
+#produto.is-fold-active .concierge-message small,
+#produto.is-fold-active .concierge-card__header small {
+  animation: cevora-copy-presence 1.35s .24s ease-out 1 both;
+}
+
+#produto.is-fold-active .score-ring__value,
+#produto.is-fold-active .journey-chart__line {
+  filter: drop-shadow(0 0 8px rgba(182,39,55,.22));
+}
+
+/* Conversion Atelier: winner and measurement language. */
+#conversion.is-fold-active .ab-variant.is-winner > em {
+  animation: cevora-ruby-confirm 1.8s .3s ease-out 1 both;
+}
+
+#conversion.is-fold-active .conversion-ring,
+#conversion.is-fold-active .heatmap-preview,
+#conversion.is-fold-active .performance-chart {
+  box-shadow:
+    inset 0 2px 10px rgba(0,0,0,.72),
+    inset 0 0 0 1px rgba(255,255,255,.012),
+    0 0 22px rgba(216,173,95,.035);
+}
+
+/* Clínica Próspera: milestones illuminate in sequence. */
+#course.is-fold-active .plan-step > i {
+  animation: cevora-milestone-on 1.15s var(--motion-ease) 1 both;
+}
+
+#course.is-fold-active .plan-step:nth-child(2) > i { animation-delay: .12s; }
+#course.is-fold-active .plan-step:nth-child(3) > i { animation-delay: .24s; }
+
+#course.is-fold-active .diagnostic-ring,
+#course.is-fold-active .growth-ring {
+  filter: drop-shadow(0 0 10px rgba(200,164,91,.1));
+}
+
+/* Acquisition OS: command-state confirmation. */
+#acquisition.is-fold-active .priority-tag,
+#acquisition.is-fold-active .early-access-pill {
+  animation: cevora-command-confirm 1.55s .2s ease-out 1 both;
+}
+
+#acquisition.is-fold-active .acquisition-command-source b,
+#acquisition.is-fold-active .radar-node {
+  box-shadow: 0 0 16px rgba(215,178,105,.42);
+}
+
+/* Prosperity Engine: data flows through the radial map. */
+#prosperity-engine.is-fold-active .funnel-radial-connectors path {
+  animation: cevora-radial-flow 3.8s linear infinite;
+}
+
+#prosperity-engine.is-fold-active .funnel-radial-connectors circle {
+  animation: cevora-node-confirm 2.6s ease-in-out infinite;
+}
+
+#prosperity-engine.is-fold-active .funnel-radial-shell::after {
+  animation: cevora-orbit-signal 7s linear infinite;
+}
+
+@keyframes cevora-header-scan {
+  0% { left: -34%; opacity: 0; }
+  14% { opacity: .65; }
+  78% { opacity: .32; }
+  100% { left: 108%; opacity: 0; }
+}
+
+@keyframes cevora-indicator-breathe {
+  0%, 100% { opacity: .72; box-shadow: 0 0 0 rgba(var(--motion-accent), 0); }
+  46% { opacity: 1; box-shadow: 0 0 18px rgba(var(--motion-accent), .42); }
+}
+
+@keyframes cevora-copy-presence {
+  from { opacity: .34; filter: blur(2px); }
+  to { opacity: 1; filter: blur(0); }
+}
+
+@keyframes cevora-ruby-confirm {
+  0%, 100% { box-shadow: 0 0 12px rgba(120,18,30,.18); }
+  48% { box-shadow: 0 0 28px rgba(201,63,80,.48), inset 0 0 10px rgba(255,210,215,.1); }
+}
+
+@keyframes cevora-milestone-on {
+  0% { opacity: .5; box-shadow: inset 0 0 0 rgba(200,164,91,0); }
+  55% { opacity: 1; box-shadow: 0 0 18px rgba(200,164,91,.28), inset 0 0 10px rgba(200,164,91,.1); }
+  100% { opacity: 1; box-shadow: 0 0 8px rgba(200,164,91,.1); }
+}
+
+@keyframes cevora-command-confirm {
+  0%, 100% { border-color: rgba(216,173,95,.34); box-shadow: 0 0 0 rgba(215,178,105,0); }
+  45% { border-color: rgba(240,204,130,.68); box-shadow: 0 0 24px rgba(215,178,105,.12); }
+}
+
+@keyframes cevora-radial-flow {
+  to { stroke-dashoffset: -64; }
+}
+
+@keyframes cevora-node-confirm {
+  0%, 100% { stroke-opacity: .46; filter: drop-shadow(0 0 0 rgba(229,155,54,0)); }
+  50% { stroke-opacity: 1; filter: drop-shadow(0 0 6px rgba(229,155,54,.44)); }
+}
+
+@keyframes cevora-orbit-signal {
+  to { border-color: rgba(216,173,95,.16); }
+}
+
+@media (max-width: 760px) {
+  .cevora-fold.is-fold-active .floating-card__header::after,
+  .cevora-fold.is-fold-active .cro-card__header::after,
+  .cevora-fold.is-fold-active .course-card__header::after,
+  .cevora-fold.is-fold-active .acquisition-card__header::after,
+  .cevora-fold.is-fold-active .funnel-card__header::after {
+    animation-duration: 1.1s;
+  }
+
+  #prosperity-engine.is-fold-active .funnel-radial-connectors path {
+    animation-duration: 5.2s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cevora-fold *,
+  .cevora-fold *::before,
+  .cevora-fold *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+
+  .cevora-fold .fold-index-label__line {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .cevora-fold .title-rule span {
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+}
