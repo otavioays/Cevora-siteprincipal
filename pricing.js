@@ -180,3 +180,11 @@
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+(() => {
+  if (document.querySelector('script[src="pricing-reflection.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'pricing-reflection.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
