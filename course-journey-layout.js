@@ -4,6 +4,33 @@
   if (window.__cevoraCourseJourneyLayoutLoaded) return;
   window.__cevoraCourseJourneyLayoutLoaded = true;
 
+  const stabilizeMountedLayout = (section, content, visual) => {
+    const stableNodes = [
+      ...visual.querySelectorAll('.parallax-layer, .course-card, .fortune-frog'),
+      content,
+      visual
+    ];
+
+    if (window.gsap && stableNodes.length) window.gsap.killTweensOf(stableNodes);
+
+    visual.classList.remove('parallax-zone');
+    stableNodes.forEach((element) => {
+      element.getAnimations?.().forEach((animation) => animation.cancel());
+      element.classList.remove('parallax-layer');
+      element.removeAttribute('data-depth');
+      element.removeAttribute('data-float');
+      element.removeAttribute('data-course-float');
+      element.style.removeProperty('transform');
+      element.style.removeProperty('translate');
+      element.style.removeProperty('opacity');
+      element.style.removeProperty('filter');
+      element.style.removeProperty('will-change');
+    });
+
+    content.classList.add('is-visible');
+    visual.classList.add('is-visible');
+  };
+
   const mount = () => {
     const section = document.querySelector('#course');
     const content = section?.querySelector('.course__content');
@@ -12,7 +39,10 @@
     const price = content?.querySelector('[data-price-card="course"]');
 
     if (!section || !content || !visual || !marker || !price) return false;
-    if (section.dataset.courseJourneyLayout === 'true') return true;
+    if (section.dataset.courseJourneyLayout === 'true') {
+      stabilizeMountedLayout(section, content, visual);
+      return true;
+    }
 
     const bridge = section.querySelector('.course-bridge');
     const layout = document.createElement('div');
@@ -75,6 +105,7 @@
     content.classList.add('course-journey-copyrail');
     visual.classList.add('course-journey-stage');
     section.dataset.courseJourneyLayout = 'true';
+    stabilizeMountedLayout(section, content, visual);
 
     return true;
   };
