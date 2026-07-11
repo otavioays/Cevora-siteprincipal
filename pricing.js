@@ -244,3 +244,11 @@
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+(() => {
+  if (document.querySelector('script[src="course-system-caption.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'course-system-caption.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
