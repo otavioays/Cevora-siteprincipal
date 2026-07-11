@@ -204,3 +204,11 @@
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+(() => {
+  if (document.querySelector('script[src="conversion-editorial-reveal.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'conversion-editorial-reveal.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
