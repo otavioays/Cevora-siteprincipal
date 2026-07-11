@@ -1,0 +1,64 @@
+/* Final Ganesha offer refinements: centered artwork, stronger free CTA, persistent presentation. */
+.ganesha-offer__medallion {
+  display: grid;
+  place-items: center;
+}
+
+.ganesha-offer__medallion img {
+  width: 300% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: left center !important;
+  transform: translateX(-4.5%) !important;
+  transform-origin: center !important;
+}
+
+.ganesha-offer__content {
+  padding-right: 0 !important;
+}
+
+.ganesha-offer__title strong {
+  display: inline-block;
+  color: var(--gold-bright, #f0cc82) !important;
+  text-transform: uppercase;
+  letter-spacing: .015em;
+  text-shadow: 0 0 18px rgba(240, 204, 130, .18);
+}
+
+.ganesha-offer__cta {
+  border-color: rgba(240, 204, 130, .62) !important;
+  background:
+    linear-gradient(135deg, rgba(151, 20, 36, .96), rgba(82, 9, 19, .98)),
+    repeating-linear-gradient(-45deg, transparent 0 8px, rgba(255,255,255,.018) 8px 9px) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.075),
+    inset 0 0 24px rgba(0,0,0,.22),
+    0 12px 30px rgba(0,0,0,.3),
+    0 0 28px rgba(182,39,55,.14) !important;
+}
+
+.ganesha-offer__cta span {
+  color: #fff4df;
+  font-size: 9.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: .085em !important;
+}
+
+.ganesha-offer__close {
+  display: none !important;
+}
+
+.ganesha-offer__system-line {
+  right: 18px !important;
+}
+
+@media (max-width: 640px) {
+  .ganesha-offer__medallion img {
+    transform: translateX(-4%) !important;
+  }
+
+  .ganesha-offer__cta span {
+    font-size: 8.5px !important;
+  }
+}
