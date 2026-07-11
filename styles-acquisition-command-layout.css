@@ -1,0 +1,510 @@
+/* Acquisition OS architecture: command header + three-zone operating console. */
+#acquisition.acquisition-section {
+  display: block;
+  min-height: auto;
+  padding: 124px 4.2vw 92px;
+  background:
+    radial-gradient(circle at 50% 68%, rgba(125, 17, 29, .2), transparent 30%),
+    radial-gradient(circle at 20% 18%, rgba(216, 173, 95, .055), transparent 30%),
+    linear-gradient(180deg, rgba(5, 4, 3, .99), rgba(7, 5, 4, .95) 44%, rgba(4, 3, 2, .9));
+}
+
+#acquisition.acquisition-section::before {
+  background-position: center, 50% 72%;
+  opacity: .78;
+}
+
+.acquisition-command-layout {
+  position: relative;
+  z-index: 6;
+  width: min(1720px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 38px;
+}
+
+.acquisition-command-copyrail {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 0 30px !important;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(360px, .65fr);
+  align-items: end;
+  gap: clamp(42px, 5vw, 96px);
+  border-bottom: 1px solid rgba(216, 173, 95, .16);
+}
+
+.acquisition-command-intro,
+.acquisition-command-commerce {
+  position: relative;
+  min-width: 0;
+}
+
+.acquisition-command-intro {
+  padding-left: clamp(20px, 2vw, 34px);
+  border-left: 1px solid rgba(216, 173, 95, .2);
+}
+
+.acquisition-command-intro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 1px;
+  height: 112px;
+  background: linear-gradient(180deg, var(--gold-bright), rgba(182, 39, 55, .7), transparent);
+  box-shadow: 0 0 18px rgba(216, 173, 95, .2);
+}
+
+.acquisition-command-intro .acquisition__title {
+  max-width: 900px;
+  font-size: clamp(62px, 6.2vw, 112px);
+  line-height: .82;
+}
+
+.acquisition-command-intro .acquisition__copy {
+  max-width: 780px;
+  font-size: clamp(21px, 1.5vw, 28px);
+}
+
+.acquisition-command-intro .acquisition__support {
+  max-width: 760px;
+}
+
+.acquisition-command-intro .founders-note {
+  max-width: 760px;
+}
+
+.acquisition-command-commerce {
+  padding: 24px;
+  border: 1px solid rgba(216, 173, 95, .18);
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, rgba(24, 17, 12, .54), rgba(7, 5, 4, .7)),
+    repeating-linear-gradient(-45deg, transparent 0 11px, rgba(255, 255, 255, .008) 11px 12px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .035),
+    0 24px 70px rgba(0, 0, 0, .28);
+}
+
+.acquisition-command-commerce .price-spotlight {
+  width: 100%;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.acquisition-command-commerce .acquisition__actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.acquisition-command-commerce .acquisition__actions .button {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.acquisition-command-commerce .acquisition-benefits {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.acquisition-command-commerce .acquisition-benefit {
+  min-height: 52px;
+  padding: 0 10px;
+}
+
+.acquisition-command-commerce .acquisition-benefit strong {
+  white-space: normal;
+  line-height: 1.25;
+}
+
+.acquisition-command-stage {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  position: relative;
+  overflow: visible;
+}
+
+.acquisition-command-stage > .acquisition-system-caption {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  max-width: none;
+  margin: 0 0 14px;
+  justify-content: center;
+  background: linear-gradient(90deg, transparent, rgba(8, 6, 5, .72) 14%, rgba(8, 6, 5, .72) 86%, transparent);
+}
+
+.acquisition-command-console {
+  position: relative;
+  min-height: 690px;
+  display: grid;
+  grid-template-columns: minmax(220px, .52fr) minmax(520px, 1.4fr) minmax(300px, .72fr);
+  gap: 16px;
+}
+
+.acquisition-command-sources,
+.acquisition-command-core,
+.acquisition-command-analysis {
+  position: relative;
+  min-width: 0;
+  min-height: 690px;
+  border: 1px solid rgba(216, 173, 95, .18);
+  border-radius: 22px;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(216, 173, 95, .027) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216, 173, 95, .027) 1px, transparent 1px),
+    linear-gradient(145deg, rgba(22, 16, 12, .7), rgba(7, 5, 4, .9));
+  background-size: 42px 42px, 42px 42px, auto;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .03),
+    inset 0 0 64px rgba(0, 0, 0, .32),
+    0 24px 70px rgba(0, 0, 0, .28);
+}
+
+.acquisition-command-zone-label {
+  position: relative;
+  z-index: 20;
+  min-height: 54px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(216, 173, 95, .12);
+  background: rgba(8, 6, 5, .58);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.acquisition-command-zone-label span {
+  color: var(--red-bright);
+  font-family: var(--font-ds-technical);
+  font-size: 9px;
+}
+
+.acquisition-command-zone-label strong {
+  color: rgba(241, 234, 223, .72);
+  font-family: var(--font-ds-technical);
+  font-size: 9px;
+  font-weight: 400;
+}
+
+.acquisition-command-sources {
+  padding-bottom: 14px;
+}
+
+.acquisition-command-source-list {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+}
+
+.acquisition-command-source {
+  min-height: 48px;
+  padding: 0 11px;
+  display: grid;
+  grid-template-columns: 26px 1fr 8px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(216, 173, 95, .12);
+  border-radius: 9px;
+  background: rgba(5, 4, 3, .5);
+}
+
+.acquisition-command-source i,
+.acquisition-command-source span {
+  font-family: var(--font-ds-technical);
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.acquisition-command-source i {
+  color: rgba(216, 173, 95, .42);
+  font-size: 8px;
+}
+
+.acquisition-command-source span {
+  color: rgba(241, 234, 223, .68);
+  font-size: 8px;
+  letter-spacing: .07em;
+}
+
+.acquisition-command-source b {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold-bright);
+  box-shadow: 0 0 10px rgba(240, 204, 130, .35);
+}
+
+.acquisition-command-sources .access-card,
+.acquisition-command-analysis .priority-card,
+.acquisition-command-analysis .procedure-card,
+.acquisition-command-core .radar-card {
+  position: relative !important;
+  inset: auto !important;
+  width: auto !important;
+  max-width: none !important;
+  translate: none;
+}
+
+.acquisition-command-sources .access-card {
+  margin: 2px 14px 0;
+}
+
+.acquisition-command-core {
+  isolation: isolate;
+}
+
+.acquisition-command-core::before,
+.acquisition-command-core::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.acquisition-command-core::before {
+  inset: 72px 18px 18px;
+  border: 1px solid rgba(216, 173, 95, .07);
+  border-radius: 16px;
+}
+
+.acquisition-command-core::after {
+  left: 50%;
+  top: 78px;
+  bottom: 24px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(216, 173, 95, .18), transparent);
+}
+
+.acquisition-command-core .radar-card {
+  z-index: 14;
+  width: min(570px, calc(100% - 64px)) !important;
+  margin: 76px auto 0;
+}
+
+.acquisition-command-core .radar-grid {
+  height: 340px;
+}
+
+.acquisition-command-core .acquisition-lion {
+  z-index: 5;
+  width: min(430px, 62%);
+  left: -70px;
+  bottom: -74px;
+  opacity: .78;
+}
+
+.acquisition-command-core .acquisition-glow {
+  left: 50%;
+  bottom: 4%;
+  width: 560px;
+  height: 560px;
+  transform: translateX(-50%);
+}
+
+.acquisition-command-core .acquisition-orbit--outer {
+  width: 690px;
+  height: 540px;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%) rotate(-8deg);
+}
+
+.acquisition-command-core .acquisition-orbit--inner {
+  width: 520px;
+  height: 400px;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%) rotate(8deg);
+}
+
+.acquisition-command-analysis {
+  padding-bottom: 14px;
+}
+
+.acquisition-command-analysis .priority-card,
+.acquisition-command-analysis .procedure-card {
+  margin: 14px 14px 0;
+}
+
+.acquisition-command-analysis .priority-body h3 {
+  font-size: clamp(20px, 1.5vw, 26px);
+}
+
+.acquisition-command-analysis .procedure-tabs {
+  grid-template-columns: 1fr;
+}
+
+.acquisition-command-analysis .procedure-tabs button {
+  text-align: left;
+  padding: 0 11px;
+}
+
+#acquisition .acquisition-bridge {
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: min(1180px, 88vw);
+  margin: 34px auto 0;
+}
+
+@media (max-width: 1380px) {
+  .acquisition-command-copyrail {
+    grid-template-columns: minmax(0, 1.12fr) minmax(340px, .88fr);
+  }
+
+  .acquisition-command-console {
+    grid-template-columns: minmax(210px, .5fr) minmax(470px, 1.25fr) minmax(290px, .7fr);
+  }
+
+  .acquisition-command-core .radar-grid {
+    height: 300px;
+  }
+}
+
+@media (max-width: 1120px) {
+  #acquisition.acquisition-section {
+    padding-top: 106px;
+  }
+
+  .acquisition-command-copyrail {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 28px;
+  }
+
+  .acquisition-command-commerce {
+    width: min(720px, 100%);
+  }
+
+  .acquisition-command-console {
+    grid-template-columns: minmax(210px, .55fr) minmax(500px, 1.45fr);
+  }
+
+  .acquisition-command-analysis {
+    grid-column: 1 / -1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .acquisition-command-analysis .acquisition-command-zone-label {
+    grid-column: 1 / -1;
+  }
+
+  .acquisition-command-analysis .priority-card,
+  .acquisition-command-analysis .procedure-card {
+    height: calc(100% - 14px);
+  }
+
+  .acquisition-command-analysis .procedure-tabs {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  #acquisition.acquisition-section {
+    padding: 92px 20px 52px;
+  }
+
+  .acquisition-command-layout {
+    gap: 26px;
+  }
+
+  .acquisition-command-copyrail {
+    padding-bottom: 24px !important;
+  }
+
+  .acquisition-command-intro {
+    padding-left: 16px;
+  }
+
+  .acquisition-command-intro .acquisition__title {
+    font-size: clamp(50px, 15vw, 74px);
+  }
+
+  .acquisition-command-commerce {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .acquisition-command-commerce .acquisition-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .acquisition-command-stage > .acquisition-system-caption {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .acquisition-command-console {
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .acquisition-command-sources,
+  .acquisition-command-core,
+  .acquisition-command-analysis {
+    min-height: 0;
+    border-radius: 18px;
+  }
+
+  .acquisition-command-source-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .acquisition-command-core {
+    min-height: 590px;
+  }
+
+  .acquisition-command-core .radar-card {
+    width: calc(100% - 28px) !important;
+    margin-top: 70px;
+  }
+
+  .acquisition-command-core .radar-grid {
+    height: 245px;
+  }
+
+  .acquisition-command-core .acquisition-lion {
+    width: 390px;
+    max-width: 85%;
+    left: -72px;
+    bottom: -58px;
+  }
+
+  .acquisition-command-core .acquisition-orbit--outer {
+    width: 520px;
+    height: 420px;
+  }
+
+  .acquisition-command-core .acquisition-orbit--inner {
+    width: 390px;
+    height: 310px;
+  }
+
+  .acquisition-command-analysis {
+    display: block;
+  }
+
+  .acquisition-command-analysis .procedure-tabs {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #acquisition .acquisition-bridge {
+    width: 100%;
+    margin-top: 26px;
+  }
+}
