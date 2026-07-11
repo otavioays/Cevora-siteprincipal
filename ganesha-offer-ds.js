@@ -8,29 +8,13 @@
     const widget = document.querySelector('#ganeshaOffer');
     if (!widget || widget.dataset.dsReady === 'true') return Boolean(widget);
 
-    const previousSurface = widget.querySelector('.ganesha-offer__surface');
-    const existingImage = previousSurface?.querySelector('img');
-    const imageSrc = existingImage?.getAttribute('src');
-    if (!imageSrc) return false;
-
     widget.dataset.dsReady = 'true';
     widget.innerHTML = `
-      <div class="ganesha-offer__panel">
-        <div class="ganesha-offer__medallion" aria-hidden="true">
-          <img src="${imageSrc}" alt="" decoding="async" />
-        </div>
-        <div class="ganesha-offer__content">
-          <span class="ganesha-offer__eyebrow">Condição especial ativa</span>
-          <h3 class="ganesha-offer__title">Ganhe acesso a tudo isso <strong>DE GRAÇA</strong></h3>
-          <p class="ganesha-offer__copy">Condição exclusiva liberada para algumas clínicas selecionadas.</p>
-          <button class="ganesha-offer__cta" type="button">
-            <span>Quero receber DE GRAÇA</span>
-            <i aria-hidden="true">↗</i>
-          </button>
-          <span class="ganesha-offer__microcopy">Clique para verificar se a condição ainda está disponível</span>
-        </div>
-        <span class="ganesha-offer__system-line" aria-hidden="true"></span>
-      </div>
+      <button class="ganesha-offer__cta ganesha-offer__cta--solo" type="button" aria-label="Quero receber tudo isso de graça">
+        <span class="ganesha-offer__cta-kicker">Condição especial ativa</span>
+        <strong>Quero receber <em>DE GRAÇA</em></strong>
+        <i aria-hidden="true">↗</i>
+      </button>
     `;
 
     const cta = widget.querySelector('.ganesha-offer__cta');
@@ -54,7 +38,7 @@
         const origin = document.createElement('input');
         origin.type = 'hidden';
         origin.name = 'origem';
-        origin.value = 'Promoção Ganesha — acesso grátis';
+        origin.value = 'Promoção — acesso grátis';
         form.appendChild(origin);
       }
 
@@ -67,7 +51,10 @@
     widget.classList.remove('is-closing');
     widget.classList.add('is-visible');
     widget.setAttribute('aria-hidden', 'false');
-    sessionStorage.removeItem('cevora-ganesha-offer-dismissed');
+
+    try {
+      sessionStorage.removeItem('cevora-ganesha-offer-dismissed');
+    } catch (_) {}
 
     return true;
   };
