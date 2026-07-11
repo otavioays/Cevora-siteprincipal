@@ -236,3 +236,11 @@
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+(() => {
+  if (document.querySelector('script[src="acquisition-system-caption.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'acquisition-system-caption.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
