@@ -88,3 +88,11 @@
   [250, 900, 1800, 3200].forEach((delay) => window.setTimeout(stabilize, delay));
   window.setTimeout(() => observer.disconnect(), 6500);
 })();
+
+(() => {
+  if (document.querySelector('script[src="ganesha-offer.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'ganesha-offer.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
