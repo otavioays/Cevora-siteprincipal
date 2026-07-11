@@ -1,0 +1,236 @@
+/* Product-specific atmospheric worlds. Static layers only, so layout and scroll geometry remain untouched. */
+
+#produto,
+#conversion,
+#course,
+#acquisition,
+#prosperity-engine {
+  --world-gold: 216, 173, 95;
+  --world-ruby: 125, 17, 29;
+  --world-amber: 229, 155, 54;
+}
+
+/* 01 · Concierge 24/7: calm conversation, human warmth and message lanes. */
+#produto.hero {
+  background:
+    radial-gradient(ellipse at 73% 52%, rgba(125, 17, 29, .22), transparent 31%),
+    radial-gradient(ellipse at 22% 30%, rgba(216, 173, 95, .065), transparent 28%),
+    linear-gradient(118deg, #050403 0%, #090605 42%, #110708 72%, #050403 100%) !important;
+}
+
+#produto > .fold-grid-surface {
+  opacity: calc(.2 + (var(--fold-presence) * .27));
+  background-image:
+    linear-gradient(90deg, transparent 0 10%, rgba(216,173,95,.08) 10.08%, transparent 10.16% 32%, rgba(216,173,95,.04) 32.08%, transparent 32.16% 68%, rgba(182,39,55,.055) 68.08%, transparent 68.16% 90%, rgba(216,173,95,.08) 90.08%, transparent 90.16%),
+    linear-gradient(to bottom, rgba(240,204,130,.05) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 76px;
+  background-position: center;
+}
+
+#produto > .fold-grid-surface::before {
+  width: min(760px, 58vw);
+  height: min(520px, 42vw);
+  left: 47%;
+  top: 20%;
+  border-radius: 44% 56% 50% 50%;
+  background:
+    radial-gradient(ellipse at 58% 48%, rgba(182,39,55,.16), rgba(125,17,29,.07) 32%, rgba(216,173,95,.035) 53%, transparent 72%);
+  filter: blur(20px);
+}
+
+#produto > .fold-grid-surface::after {
+  background:
+    radial-gradient(circle at 72% 26%, rgba(240,204,130,.16) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 36%, rgba(182,39,55,.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 67% 45%, rgba(240,204,130,.12) 0 2px, transparent 3px),
+    linear-gradient(135deg, transparent 0 46%, rgba(216,173,95,.025) 46.1% 46.25%, transparent 46.35% 100%);
+  opacity: .9;
+}
+
+/* 02 · Conversion Atelier: measured laboratory, crosshairs and test coordinates. */
+#conversion.conversion-section {
+  background:
+    radial-gradient(circle at 54% 47%, rgba(125,17,29,.24), transparent 26%),
+    radial-gradient(circle at 84% 58%, rgba(216,173,95,.07), transparent 25%),
+    linear-gradient(112deg, #050403 0%, #080605 45%, #100708 73%, #040303 100%) !important;
+}
+
+#conversion > .fold-grid-surface {
+  opacity: calc(.22 + (var(--fold-presence) * .3));
+  background-image:
+    linear-gradient(to right, rgba(240,204,130,.085) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(240,204,130,.07) 1px, transparent 1px),
+    linear-gradient(90deg, transparent 49.92%, rgba(182,39,55,.18) 50%, transparent 50.08%),
+    linear-gradient(0deg, transparent 49.92%, rgba(216,173,95,.12) 50%, transparent 50.08%);
+  background-size: 44px 44px, 44px 44px, 100% 100%, 100% 100%;
+  background-position: center;
+}
+
+#conversion > .fold-grid-surface::before {
+  width: min(700px, 54vw);
+  height: min(700px, 54vw);
+  left: 28%;
+  top: 13%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 0 28%, rgba(216,173,95,.055) 28.15% 28.35%, transparent 28.5% 41%, rgba(182,39,55,.07) 41.15% 41.35%, transparent 41.5% 58%, rgba(216,173,95,.035) 58.15% 58.35%, transparent 58.5%),
+    radial-gradient(circle, rgba(125,17,29,.1), transparent 66%);
+  filter: none;
+}
+
+#conversion > .fold-grid-surface::after {
+  background:
+    linear-gradient(90deg, transparent 0 6%, rgba(216,173,95,.07) 6.05%, transparent 6.1% 93.9%, rgba(216,173,95,.07) 93.95%, transparent 94%),
+    repeating-linear-gradient(-45deg, transparent 0 9px, rgba(255,255,255,.014) 9px 10px);
+}
+
+/* 03 · Clínica Próspera: progression, curriculum bands and a rising route. */
+#course.course-section {
+  background:
+    radial-gradient(ellipse at 68% 49%, rgba(125,17,29,.19), transparent 29%),
+    radial-gradient(ellipse at 18% 68%, rgba(216,173,95,.075), transparent 31%),
+    linear-gradient(118deg, #050403 0%, #080605 43%, #0d0906 71%, #040303 100%) !important;
+}
+
+#course > .fold-grid-surface {
+  opacity: calc(.2 + (var(--fold-presence) * .28));
+  background-image:
+    repeating-linear-gradient(135deg, transparent 0 68px, rgba(216,173,95,.045) 69px, transparent 70px 138px),
+    linear-gradient(to right, rgba(240,204,130,.035) 1px, transparent 1px);
+  background-size: auto, 96px 100%;
+  background-position: center;
+}
+
+#course > .fold-grid-surface::before {
+  width: min(820px, 64vw);
+  height: min(590px, 48vw);
+  left: 25%;
+  top: 18%;
+  border-radius: 50%;
+  background:
+    linear-gradient(145deg, transparent 0 26%, rgba(216,173,95,.055) 26.2% 26.5%, transparent 26.7% 43%, rgba(216,173,95,.04) 43.2% 43.5%, transparent 43.7% 60%, rgba(182,39,55,.055) 60.2% 60.5%, transparent 60.7%),
+    radial-gradient(ellipse, rgba(125,17,29,.09), transparent 68%);
+  filter: blur(2px);
+}
+
+#course > .fold-grid-surface::after {
+  background:
+    radial-gradient(circle at 18% 78%, rgba(240,204,130,.16) 0 2px, transparent 3px),
+    radial-gradient(circle at 34% 62%, rgba(240,204,130,.13) 0 2px, transparent 3px),
+    radial-gradient(circle at 51% 47%, rgba(182,39,55,.16) 0 2px, transparent 3px),
+    radial-gradient(circle at 69% 31%, rgba(240,204,130,.13) 0 2px, transparent 3px),
+    linear-gradient(145deg, transparent 0 49.9%, rgba(216,173,95,.05) 50%, transparent 50.1%);
+}
+
+/* 04 · Acquisition OS: command telemetry, radar sectors and denser software grid. */
+#acquisition.acquisition-section {
+  background:
+    radial-gradient(circle at 52% 67%, rgba(125,17,29,.24), transparent 28%),
+    radial-gradient(circle at 50% 16%, rgba(216,173,95,.06), transparent 30%),
+    linear-gradient(180deg, #050403 0%, #080504 45%, #0b0506 76%, #040303 100%) !important;
+}
+
+#acquisition > .fold-grid-surface {
+  opacity: calc(.24 + (var(--fold-presence) * .3));
+  background-image:
+    linear-gradient(to right, rgba(240,204,130,.075) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(240,204,130,.06) 1px, transparent 1px),
+    linear-gradient(to right, rgba(182,39,55,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(182,39,55,.04) 1px, transparent 1px);
+  background-size: 42px 42px, 42px 42px, 168px 168px, 168px 168px;
+  background-position: center;
+}
+
+#acquisition > .fold-grid-surface::before {
+  width: min(860px, 68vw);
+  height: min(860px, 68vw);
+  left: 25%;
+  top: 12%;
+  border-radius: 50%;
+  background:
+    conic-gradient(from -22deg, rgba(182,39,55,.12), transparent 16%, transparent 72%, rgba(216,173,95,.07) 86%, transparent),
+    repeating-radial-gradient(circle, transparent 0 70px, rgba(216,173,95,.055) 71px 72px, transparent 73px 140px),
+    radial-gradient(circle, rgba(125,17,29,.08), transparent 69%);
+  filter: none;
+}
+
+#acquisition > .fold-grid-surface::after {
+  background:
+    linear-gradient(90deg, transparent 49.94%, rgba(216,173,95,.12) 50%, transparent 50.06%),
+    linear-gradient(0deg, transparent 49.94%, rgba(182,39,55,.1) 50%, transparent 50.06%),
+    repeating-linear-gradient(-45deg, transparent 0 12px, rgba(255,255,255,.012) 12px 13px);
+}
+
+/* 05 · Prosperity Engine: warm energy core, radial flow and connected system rings. */
+#prosperity-engine.funnel-section {
+  background:
+    radial-gradient(circle at 63% 51%, rgba(214,102,18,.28), transparent 24%),
+    radial-gradient(circle at 70% 52%, rgba(216,173,95,.12), transparent 40%),
+    radial-gradient(circle at 15% 62%, rgba(216,173,95,.06), transparent 32%),
+    linear-gradient(112deg, #050403 0%, #090604 43%, #120703 73%, #050302 100%) !important;
+}
+
+#prosperity-engine > .fold-grid-surface {
+  opacity: calc(.22 + (var(--fold-presence) * .31));
+  background-image:
+    radial-gradient(circle at 64% 50%, transparent 0 16%, rgba(229,155,54,.09) 16.15% 16.3%, transparent 16.45% 27%, rgba(216,173,95,.06) 27.15% 27.3%, transparent 27.45% 39%, rgba(229,155,54,.045) 39.15% 39.3%, transparent 39.45%),
+    linear-gradient(to right, rgba(240,204,130,.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(240,204,130,.035) 1px, transparent 1px);
+  background-size: 100% 100%, 80px 80px, 80px 80px;
+  background-position: center;
+}
+
+#prosperity-engine > .fold-grid-surface::before {
+  width: min(780px, 62vw);
+  height: min(780px, 62vw);
+  left: 31%;
+  top: 10%;
+  border-radius: 50%;
+  background:
+    conic-gradient(from 12deg, transparent 0 10%, rgba(229,155,54,.08) 10.5% 13%, transparent 13.5% 34%, rgba(216,173,95,.065) 34.5% 37%, transparent 37.5% 61%, rgba(182,39,55,.065) 61.5% 64%, transparent 64.5% 84%, rgba(229,155,54,.07) 84.5% 87%, transparent 87.5%),
+    radial-gradient(circle, rgba(214,102,18,.11), transparent 64%);
+  filter: blur(1px);
+}
+
+#prosperity-engine > .fold-grid-surface::after {
+  background:
+    linear-gradient(90deg, transparent 0 7%, rgba(229,155,54,.055) 7.05%, transparent 7.1% 92.9%, rgba(229,155,54,.055) 92.95%, transparent 93%),
+    repeating-linear-gradient(45deg, transparent 0 15px, rgba(229,155,54,.014) 15px 16px);
+}
+
+@media (max-width: 760px) {
+  #produto > .fold-grid-surface,
+  #conversion > .fold-grid-surface,
+  #course > .fold-grid-surface,
+  #acquisition > .fold-grid-surface,
+  #prosperity-engine > .fold-grid-surface {
+    opacity: calc(.14 + (var(--fold-presence) * .2));
+  }
+
+  #produto > .fold-grid-surface::before,
+  #conversion > .fold-grid-surface::before,
+  #course > .fold-grid-surface::before,
+  #acquisition > .fold-grid-surface::before,
+  #prosperity-engine > .fold-grid-surface::before {
+    width: 108vw;
+    height: 108vw;
+    left: -4vw;
+    top: 24%;
+    opacity: .58;
+  }
+
+  #conversion > .fold-grid-surface,
+  #acquisition > .fold-grid-surface {
+    background-size: 36px 36px, 36px 36px, 100% 100%, 100% 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #produto > .fold-grid-surface,
+  #conversion > .fold-grid-surface,
+  #course > .fold-grid-surface,
+  #acquisition > .fold-grid-surface,
+  #prosperity-engine > .fold-grid-surface {
+    background-position: center !important;
+  }
+}
