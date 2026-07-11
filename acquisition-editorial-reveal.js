@@ -90,3 +90,11 @@
     }, 7000);
   }
 })();
+
+(() => {
+  if (document.querySelector('script[src="funnel-editorial-reveal.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'funnel-editorial-reveal.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
