@@ -25,7 +25,6 @@
         </h2>
 
         <div class="title-rule acquisition__rule" aria-hidden="true"><span></span><i>✦</i><span></span></div>
-
         <p class="acquisition__copy">Sua clínica já possui dados. Agora ela precisa de direção.</p>
         <p class="acquisition__support">Uma IA especializada que conecta campanhas, páginas, contatos e agendamentos para mostrar o que está funcionando, onde oportunidades estão sendo perdidas e qual deve ser o próximo movimento.</p>
 
@@ -65,9 +64,7 @@
 
         <article class="acquisition-card radar-card parallax-layer" data-depth="0.14" data-acquisition-float="1">
           <header class="acquisition-card__header"><span>⌖</span><strong>Radar de aquisição</strong><button type="button" aria-label="Mais opções">•••</button></header>
-          <div class="radar-grid" aria-hidden="true">
-            <div class="radar-sweep"></div><i class="radar-node"></i><i class="radar-node"></i><i class="radar-node"></i><i class="radar-node"></i>
-          </div>
+          <div class="radar-grid" aria-hidden="true"><div class="radar-sweep"></div><i class="radar-node"></i><i class="radar-node"></i><i class="radar-node"></i><i class="radar-node"></i></div>
           <div class="radar-labels"><span>Campanhas</span><span>Páginas</span><span>Contatos</span><span>Agenda</span></div>
         </article>
 
@@ -125,15 +122,55 @@
       </div>
     </div>`;
 
-  const mount = () => {
-    if (qs('#acquisition')) return;
-    const main = qs('main');
-    if (!main) return;
-    const course = qs('#course');
-    if (course) course.insertAdjacentHTML('afterend', sectionMarkup);
-    else main.insertAdjacentHTML('beforeend', sectionMarkup);
-    if (!qs('#acquisitionModal')) document.body.insertAdjacentHTML('beforeend', modalMarkup);
-    init();
+  const openContactFor = (product, eyebrow, title, copy, submit) => {
+    const contact = qs('#contactModal');
+    if (!contact) return;
+    const contactEyebrow = qs('.modal__eyebrow', contact);
+    const contactTitle = qs('#contactTitle', contact);
+    const contactCopy = contactTitle?.nextElementSibling;
+    const submitText = qs('#leadForm button[type="submit"] span');
+    if (contactEyebrow) contactEyebrow.textContent = eyebrow;
+    if (contactTitle) contactTitle.textContent = title;
+    if (contactCopy) contactCopy.textContent = copy;
+    if (submitText) submitText.textContent = submit;
+    const form = qs('#leadForm');
+    if (form) {
+      let hidden = qs('input[name="produto"]', form);
+      if (!hidden) {
+        hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.name = 'produto';
+        form.append(hidden);
+      }
+      hidden.value = product;
+    }
+    contact.classList.add('is-open');
+    contact.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => qs('input', contact)?.focus(), 80);
+  };
+
+  const initParallax = (visual) => {
+    if (!visual || reduceMotion) return;
+    let raf = 0;
+    visual.addEventListener('pointermove', (event) => {
+      const rect = visual.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width - .5) * 2;
+      const y = ((event.clientY - rect.top) / rect.height - .5) * 2;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        qsa('.parallax-layer', visual).forEach((layer) => {
+          const depth = Number(layer.dataset.depth || .05);
+          layer.style.translate = `${x * depth * 110}px ${y * depth * 70}px`;
+        });
+      });
+    });
+    visual.addEventListener('pointerleave', () => {
+      qsa('.parallax-layer', visual).forEach((layer) => layer.animate(
+        [{ translate: getComputedStyle(layer).translate }, { translate: '0px 0px' }],
+        { duration: 650, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' }
+      ));
+    });
   };
 
   const init = () => {
@@ -141,51 +178,33 @@
     const modal = qs('#acquisitionModal');
     if (!section || !modal) return;
 
-    const openAcquisitionModal = () => {
+    const openModal = () => {
       modal.classList.add('is-open');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       setTimeout(() => qs('button', modal)?.focus(), 80);
     };
-    const closeAcquisitionModal = () => {
+    const closeModal = () => {
       modal.classList.remove('is-open');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     };
-    const openContact = () => {
-      closeAcquisitionModal();
-      const contact = qs('#contactModal');
-      if (!contact) return;
-      const eyebrow = qs('.modal__eyebrow', contact);
-      const title = qs('#contactTitle', contact);
-      const copy = title?.nextElementSibling;
-      const submitText = qs('#leadForm button[type="submit"] span');
-      if (eyebrow) eyebrow.textContent = 'Acesso antecipado para clínicas fundadoras';
-      if (title) title.textContent = 'Entre na primeira fase do Cevora Acquisition OS.';
-      if (copy) copy.textContent = 'Envie os dados da clínica para receber os detalhes do programa piloto e da implantação assistida.';
-      if (submitText) submitText.textContent = 'Solicitar acesso antecipado';
-      const form = qs('#leadForm');
-      if (form) {
-        let product = qs('input[name="produto"]', form);
-        if (!product) {
-          product = document.createElement('input');
-          product.type = 'hidden';
-          product.name = 'produto';
-          form.append(product);
-        }
-        product.value = 'Cevora Acquisition OS - Acesso antecipado';
-      }
-      contact.classList.add('is-open');
-      contact.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      setTimeout(() => qs('input', contact)?.focus(), 80);
-    };
 
-    qsa('[data-acquisition-open]').forEach((button) => button.addEventListener('click', openAcquisitionModal));
-    qsa('[data-acquisition-close]').forEach((button) => button.addEventListener('click', closeAcquisitionModal));
-    qsa('[data-acquisition-contact], [data-acquisition-modal-contact]').forEach((button) => button.addEventListener('click', openContact));
+    qsa('[data-acquisition-open]').forEach((button) => button.addEventListener('click', openModal));
+    qsa('[data-acquisition-close]').forEach((button) => button.addEventListener('click', closeModal));
+    qsa('[data-acquisition-contact], [data-acquisition-modal-contact]').forEach((button) => button.addEventListener('click', () => {
+      closeModal();
+      openContactFor(
+        'Cevora Acquisition OS - Acesso antecipado',
+        'Acesso antecipado para clínicas fundadoras',
+        'Entre na primeira fase do Cevora Acquisition OS.',
+        'Envie os dados da clínica para receber os detalhes do programa piloto e da implantação assistida.',
+        'Solicitar acesso antecipado'
+      );
+    }));
+
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && modal.classList.contains('is-open')) closeAcquisitionModal();
+      if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
     });
 
     const procedureData = {
@@ -194,20 +213,19 @@
       abdo: { metric: 76, title: 'Abdominoplastia perde força na página.', copy: 'Os anúncios geram interesse, mas poucos visitantes iniciam uma conversa.', action: 'Próximo movimento: revisar mensagem, prova e chamada para avaliação.' },
       face: { metric: 51, title: 'Lifting facial exige mais confiança.', copy: 'O volume é menor e as dúvidas aparecem antes da solicitação de avaliação.', action: 'Próximo movimento: reforçar autoridade e responder objeções na jornada.' }
     };
-    qsa('[data-procedure]', section).forEach((button) => {
-      button.addEventListener('click', () => {
-        qsa('[data-procedure]', section).forEach((item) => item.classList.toggle('is-active', item === button));
-        const data = procedureData[button.dataset.procedure];
-        qs('#priorityTitle', section).textContent = data.title;
-        qs('#priorityCopy', section).textContent = data.copy;
-        qs('#priorityAction', section).textContent = data.action;
-        const metric = qs('#procedureMetric', section);
-        if (window.gsap && !reduceMotion) {
-          const state = { value: Number(metric.textContent) || 0 };
-          window.gsap.to(state, { value: data.metric, duration: .6, ease: 'power2.out', onUpdate: () => metric.textContent = Math.round(state.value) });
-        } else metric.textContent = data.metric;
-      });
-    });
+
+    qsa('[data-procedure]', section).forEach((button) => button.addEventListener('click', () => {
+      qsa('[data-procedure]', section).forEach((item) => item.classList.toggle('is-active', item === button));
+      const data = procedureData[button.dataset.procedure];
+      qs('#priorityTitle', section).textContent = data.title;
+      qs('#priorityCopy', section).textContent = data.copy;
+      qs('#priorityAction', section).textContent = data.action;
+      const metric = qs('#procedureMetric', section);
+      if (window.gsap && !reduceMotion) {
+        const state = { value: Number(metric.textContent) || 0 };
+        window.gsap.to(state, { value: data.metric, duration: .6, ease: 'power2.out', onUpdate: () => { metric.textContent = Math.round(state.value); } });
+      } else metric.textContent = data.metric;
+    }));
 
     qsa('[data-acquisition-tilt]', section).forEach((card) => {
       if (reduceMotion) return;
@@ -224,32 +242,12 @@
       if (reduceMotion) return;
       button.addEventListener('pointermove', (event) => {
         const rect = button.getBoundingClientRect();
-        const x = event.clientX - rect.left - rect.width / 2;
-        const y = event.clientY - rect.top - rect.height / 2;
-        button.style.transform = `translate(${x * .08}px, ${y * .12}px) translateY(-3px)`;
+        button.style.transform = `translate(${(event.clientX - rect.left - rect.width / 2) * .08}px, ${(event.clientY - rect.top - rect.height / 2) * .12}px) translateY(-3px)`;
       });
       button.addEventListener('pointerleave', () => { button.style.transform = ''; });
     });
 
-    const visual = qs('.acquisition__visual', section);
-    if (visual && !reduceMotion) {
-      let raf = 0;
-      visual.addEventListener('pointermove', (event) => {
-        const rect = visual.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width - .5) * 2;
-        const y = ((event.clientY - rect.top) / rect.height - .5) * 2;
-        cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(() => {
-          qsa('.parallax-layer', visual).forEach((layer) => {
-            const depth = Number(layer.dataset.depth || .05);
-            layer.style.translate = `${x * depth * 110}px ${y * depth * 70}px`;
-          });
-        });
-      });
-      visual.addEventListener('pointerleave', () => {
-        qsa('.parallax-layer', visual).forEach((layer) => layer.animate([{ translate: getComputedStyle(layer).translate }, { translate: '0px 0px' }], { duration: 650, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' }));
-      });
-    }
+    initParallax(qs('.acquisition__visual', section));
 
     let animated = false;
     const reveal = () => {
@@ -267,15 +265,36 @@
 
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            reveal();
-            observer.disconnect();
-          }
-        });
+        if (entries.some((entry) => entry.isIntersecting)) {
+          reveal();
+          observer.disconnect();
+        }
       }, { threshold: .2 });
       observer.observe(section);
     } else reveal();
+  };
+
+  const loadFunnel = () => {
+    if (qs('script[src="funnel.js"]')) return;
+    const script = document.createElement('script');
+    script.src = 'funnel.js';
+    script.defer = true;
+    document.body.append(script);
+  };
+
+  const mount = () => {
+    if (qs('#acquisition')) {
+      loadFunnel();
+      return;
+    }
+    const main = qs('main');
+    if (!main) return;
+    const course = qs('#course');
+    if (course) course.insertAdjacentHTML('afterend', sectionMarkup);
+    else main.insertAdjacentHTML('beforeend', sectionMarkup);
+    if (!qs('#acquisitionModal')) document.body.insertAdjacentHTML('beforeend', modalMarkup);
+    init();
+    loadFunnel();
   };
 
   if (qs('#course')) mount();
