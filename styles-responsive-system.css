@@ -1,0 +1,559 @@
+/* Deliberate responsive system.
+ * Each product keeps its own hierarchy instead of merely shrinking the desktop composition.
+ */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.hero,
+.conversion-lab-layout,
+.course-journey-layout,
+.acquisition-command-layout,
+.funnel-radial-layout,
+.hero__content,
+.hero__visual,
+.conversion-lab-copyrail,
+.conversion-lab-visual,
+.course-journey-copyrail,
+.course-journey-stage,
+.acquisition-command-copyrail,
+.acquisition-command-stage,
+.funnel-radial-copyrail,
+.funnel-radial-stage {
+  min-width: 0;
+}
+
+@media (max-width: 1180px) {
+  /* Header switches to its compact navigation before the links start colliding. */
+  .header-frame {
+    min-height: 82px;
+    padding-inline: 24px;
+  }
+
+  .desktop-nav,
+  .header-actions {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .mobile-menu {
+    top: 82px;
+  }
+
+  /* Concierge becomes a clear editorial block followed by its interactive demonstration. */
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 38px;
+    padding: 116px 24px 76px;
+  }
+
+  .hero__content {
+    width: min(850px, 100%);
+    max-width: none;
+    margin-inline: auto;
+  }
+
+  .hero__copy,
+  .hero__support,
+  .hero .price-spotlight,
+  .hero__actions,
+  .hero .benefits {
+    max-width: 720px;
+  }
+
+  .hero__visual {
+    width: min(900px, 100%);
+    height: 720px;
+    min-height: 720px;
+    margin-inline: auto;
+    align-self: auto;
+  }
+
+  .hero__halo--one,
+  .hero__halo--two {
+    right: 50%;
+    translate: 50% 0;
+  }
+
+  /* Product commerce stays readable at notebook and tablet widths. */
+  .conversion-lab-commerce,
+  .course-journey-commerce,
+  .acquisition-command-commerce,
+  .funnel-radial-commerce {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --responsive-inline: 20px;
+  }
+
+  .hero,
+  #conversion.conversion-section,
+  #course.course-section,
+  #acquisition.acquisition-section,
+  #prosperity-engine.funnel-section {
+    padding-inline: var(--responsive-inline);
+  }
+
+  .hero__actions,
+  .conversion__actions,
+  .course__actions,
+  .acquisition__actions,
+  .funnel__actions {
+    gap: 10px;
+  }
+
+  /* Technical captions remain legible and never push the viewport wider. */
+  [class$="-system-caption"] {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+
+  [class$="-system-caption"]::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Clínica Próspera stops reserving an arbitrary canvas height. Its cards define the height. */
+  #course .course-journey-stage {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  #course .course-journey-timeline,
+  #course .course-journey-insights {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* Acquisition console becomes a deliberate two-step command sequence. */
+  #acquisition .acquisition-command-console {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  #acquisition .acquisition-command-core,
+  #acquisition .acquisition-command-analysis,
+  #acquisition .acquisition-command-sources {
+    min-height: 0;
+  }
+
+  #acquisition .acquisition-command-core {
+    order: 1;
+    min-height: 620px;
+  }
+
+  #acquisition .acquisition-command-analysis {
+    order: 2;
+  }
+
+  #acquisition .acquisition-command-sources {
+    order: 3;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --responsive-inline: 16px;
+  }
+
+  .header-frame {
+    min-height: 74px;
+    padding-inline: 16px;
+  }
+
+  .mobile-menu {
+    top: 74px;
+    right: 12px;
+    width: calc(100% - 24px);
+  }
+
+  .brand__mark {
+    width: 40px;
+  }
+
+  .brand__name {
+    font-size: 28px;
+  }
+
+  .brand__tag {
+    display: none;
+  }
+
+  .button {
+    width: 100%;
+    min-height: 56px;
+    padding-inline: 18px;
+    justify-content: space-between;
+    font-size: 18px;
+  }
+
+  .hero__actions,
+  .conversion-lab-commerce .conversion__actions,
+  .course-journey-commerce .course__actions,
+  .acquisition-command-commerce .acquisition__actions,
+  .funnel-radial-commerce .funnel__actions {
+    display: grid;
+    grid-template-columns: 1fr !important;
+  }
+
+  .fold-index-label {
+    max-width: 100%;
+  }
+
+  .fold-index-label__name {
+    white-space: normal;
+  }
+
+  /* Concierge: interaction first, secondary analytics removed on small screens. */
+  .hero {
+    gap: 24px;
+    padding: 98px var(--responsive-inline) 62px;
+  }
+
+  .hero__content {
+    padding-top: 0;
+  }
+
+  .hero__title {
+    font-size: clamp(58px, 18vw, 86px);
+    line-height: .8;
+  }
+
+  .hero__actions {
+    margin-top: 26px;
+  }
+
+  .hero .benefits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    margin-top: 28px;
+  }
+
+  .hero .benefit-card {
+    min-height: 58px;
+    padding-inline: 12px;
+  }
+
+  .hero__visual {
+    height: 580px;
+    min-height: 580px;
+    overflow: hidden;
+    border: 1px solid rgba(216,173,95,.12);
+    border-radius: 22px;
+    background:
+      radial-gradient(circle at 50% 72%, rgba(125,17,29,.18), transparent 38%),
+      linear-gradient(155deg, rgba(22,16,12,.48), rgba(6,5,4,.72));
+  }
+
+  .hero .chat-card {
+    top: 18px;
+    right: 14px;
+    width: min(390px, calc(100% - 28px));
+  }
+
+  .hero .score-card,
+  .hero .journey-card {
+    display: none;
+  }
+
+  .hero .product-art {
+    left: 0;
+    right: 0;
+    bottom: -74px;
+    width: min(430px, 92%);
+    margin-inline: auto;
+  }
+
+  .hero .product-badge {
+    left: auto;
+    right: 24px;
+    bottom: 22px;
+  }
+
+  .hero .face-outline,
+  .hero .orbit {
+    opacity: .24;
+  }
+
+  /* Conversion Atelier: editorial, experiment, readout, commerce. */
+  #conversion .conversion-lab-stage {
+    min-height: 570px;
+    padding: 62px 12px 92px;
+  }
+
+  #conversion .conversion-lab-stage .ab-card {
+    width: 100% !important;
+    max-width: 520px;
+  }
+
+  #conversion .conversion-lab-readout {
+    gap: 12px;
+  }
+
+  #conversion .conversion-lab-readout .conversion-card__body {
+    min-height: 0;
+    padding: 16px;
+  }
+
+  #conversion .conversion-lab-readout .performance-chart {
+    min-height: 132px;
+  }
+
+  /* Clínica Próspera: real content flow instead of a 1420px canvas. */
+  #course .course-journey-stage {
+    padding: 64px 10px 24px;
+  }
+
+  #course .course-journey-timeline .plan-card {
+    min-height: 0;
+  }
+
+  #course .course-journey-insights {
+    margin-top: 12px;
+  }
+
+  #course .course-journey-insights .course-card,
+  #course .course-journey-insights .method-card {
+    min-height: 0;
+  }
+
+  #course .course-journey-insights .growth-card__body {
+    align-items: center;
+  }
+
+  #course .course-journey-stage .fortune-frog {
+    z-index: 3;
+    opacity: .18;
+  }
+
+  /* Acquisition OS: command core first, decisions second, integrations last. */
+  #acquisition .acquisition-command-core {
+    min-height: 540px;
+  }
+
+  #acquisition .acquisition-command-core .radar-card {
+    margin-top: 66px;
+  }
+
+  #acquisition .acquisition-command-core .radar-grid {
+    height: 230px;
+  }
+
+  #acquisition .acquisition-command-source-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #acquisition .acquisition-command-analysis .priority-card,
+  #acquisition .acquisition-command-analysis .procedure-card {
+    height: auto;
+  }
+
+  /* Prosperity Engine: core followed by four full-width operating modules. */
+  #prosperity-engine .funnel-radial-shell {
+    padding: 14px;
+  }
+
+  #prosperity-engine .funnel-radial-core {
+    height: 310px;
+  }
+
+  #prosperity-engine .funnel-radial-module {
+    min-width: 0;
+  }
+
+  /* Modals become usable on phones without clipping the submit controls. */
+  .modal__panel {
+    width: calc(100% - 20px);
+    max-height: calc(100svh - 20px);
+    padding: 26px 18px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+@media (max-width: 560px) {
+  .eyebrow {
+    gap: 10px;
+    letter-spacing: .11em;
+  }
+
+  .title-rule {
+    width: min(220px, 72vw);
+  }
+
+  .hero .benefits,
+  .conversion-lab-commerce .conversion-benefits,
+  .course-journey-commerce .course-benefits,
+  .acquisition-command-commerce .acquisition-benefits,
+  .funnel-radial-commerce .funnel-benefits {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero__visual {
+    height: 540px;
+    min-height: 540px;
+  }
+
+  .hero .chat-card {
+    width: calc(100% - 20px);
+    right: 10px;
+    transform: none !important;
+  }
+
+  .hero .product-art {
+    width: min(360px, 94%);
+    bottom: -48px;
+  }
+
+  #conversion .conversion-lab-stage {
+    min-height: 520px;
+  }
+
+  #conversion .conversion-lab-stage .heatmap-card {
+    display: none;
+  }
+
+  #conversion .conversion-lab-stage .lucky-cat {
+    left: -78px !important;
+    width: 330px !important;
+    opacity: .3;
+  }
+
+  #conversion .conversion-lab-readout .conversion-card__body {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #course .course-journey-insights .growth-card__body {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #course .course-journey-insights .method-pipeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 16px 8px;
+    overflow: visible;
+  }
+
+  #course .course-journey-insights .method-pipeline::before {
+    display: none;
+  }
+
+  #course .course-journey-stage .fortune-frog {
+    display: none;
+  }
+
+  #acquisition .acquisition-command-core {
+    min-height: 450px;
+  }
+
+  #acquisition .acquisition-command-core .acquisition-lion,
+  #acquisition .acquisition-command-core .acquisition-orbit,
+  #acquisition .acquisition-command-core .acquisition-glow {
+    display: none;
+  }
+
+  #acquisition .acquisition-command-core .radar-card {
+    width: calc(100% - 20px) !important;
+    margin-top: 62px;
+  }
+
+  #acquisition .acquisition-command-source-list {
+    grid-template-columns: 1fr;
+  }
+
+  #acquisition .acquisition-command-analysis .procedure-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  #prosperity-engine .funnel-radial-core {
+    height: 270px;
+  }
+
+  #prosperity-engine .funnel-radial-core-art {
+    width: 230px;
+    height: 230px;
+  }
+
+  #prosperity-engine .funnel-radial-core .funnel-orange {
+    width: 205px !important;
+  }
+
+  #prosperity-engine .funnel-radial-core .funnel-orbit {
+    display: none;
+  }
+
+  #prosperity-engine .funnel-radial-core .funnel-glow {
+    width: 290px !important;
+    height: 290px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero,
+  #conversion.conversion-section,
+  #course.course-section,
+  #acquisition.acquisition-section,
+  #prosperity-engine.funnel-section {
+    padding-inline: 12px;
+  }
+
+  .hero__title,
+  .conversion__title,
+  .course__title,
+  .acquisition__title,
+  .funnel__title {
+    overflow-wrap: anywhere;
+  }
+
+  .price-spotlight__amount strong {
+    font-size: 38px;
+  }
+
+  .hero__visual {
+    height: 520px;
+    min-height: 520px;
+  }
+
+  .hero .chat-card {
+    top: 10px;
+  }
+
+  .hero .concierge-card__messages {
+    height: 118px;
+  }
+
+  #conversion .conversion-lab-stage .ab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #conversion .conversion-lab-stage {
+    min-height: 680px;
+  }
+
+  #course .course-journey-timeline .plan-step {
+    padding-right: 4px;
+  }
+
+  #acquisition .acquisition-command-zone-label,
+  #prosperity-engine .funnel-card__header {
+    padding-inline: 12px;
+  }
+}
