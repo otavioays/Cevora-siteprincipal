@@ -196,3 +196,11 @@
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+(() => {
+  if (document.querySelector('script[src="technical-frames.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'technical-frames.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
