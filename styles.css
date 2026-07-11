@@ -8,7 +8,9 @@
 @import url('./styles-funnel.css');
 @import url('./styles-pricing.css');
 @import url('./styles-pricing-glass.css');
+@import url('./styles-pricing-reflection.css');
 @import url('./styles-modal.css');
+@import url('./styles-font-times.css');
 
 /* Compatibility bridge for legacy image paths in the first fold. */
 .product-art img,
