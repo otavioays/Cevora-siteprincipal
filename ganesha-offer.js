@@ -4,6 +4,8 @@
   if (window.__cevoraGaneshaOfferLoaded) return;
   window.__cevoraGaneshaOfferLoaded = true;
 
+  const OFFER_URL = 'oferta-gratis.html';
+
   const mount = () => {
     if (document.querySelector('#ganeshaOffer')) return;
 
@@ -21,6 +23,21 @@
 
     document.body.appendChild(widget);
 
+    const cta = widget.querySelector('.ganesha-offer__cta');
+    let offerPrefetched = false;
+
+    const prefetchOffer = () => {
+      if (offerPrefetched || document.querySelector('link[data-offer-prefetch]')) return;
+      offerPrefetched = true;
+
+      const link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = OFFER_URL;
+      link.as = 'document';
+      link.dataset.offerPrefetch = 'true';
+      document.head.appendChild(link);
+    };
+
     const show = () => {
       widget.classList.add('is-visible');
       widget.setAttribute('aria-hidden', 'false');
@@ -32,8 +49,12 @@
       if (window.scrollY / scrollable >= .2) show();
     };
 
-    widget.querySelector('.ganesha-offer__cta')?.addEventListener('click', () => {
-      window.location.href = 'oferta-gratis.html';
+    cta?.addEventListener('pointerenter', prefetchOffer, { once: true });
+    cta?.addEventListener('focus', prefetchOffer, { once: true });
+    cta?.addEventListener('touchstart', prefetchOffer, { once: true, passive: true });
+    cta?.addEventListener('click', () => {
+      prefetchOffer();
+      window.location.assign(OFFER_URL);
     });
 
     window.addEventListener('scroll', maybeShow, { passive: true });
