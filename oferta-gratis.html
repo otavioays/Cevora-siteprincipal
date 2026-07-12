@@ -29,7 +29,7 @@
     .segment-card{--angle:0deg;position:absolute;z-index:3;left:50%;top:50%;width:180px;height:126px;padding:12px 12px 10px;display:grid;grid-template-rows:36px auto auto;align-content:center;justify-items:center;gap:5px;border:1px solid rgba(223,174,85,.58);border-radius:16px;color:#ffe9ba;background:linear-gradient(180deg,rgba(22,15,10,.94),rgba(8,5,4,.9));box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 10px 28px rgba(0,0,0,.42);text-align:center;transform:translate(-50%,-50%) rotate(var(--angle)) translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle)))}.segment-card--hero{border-color:rgba(255,216,135,.9);background:linear-gradient(180deg,rgba(126,17,31,.98),rgba(58,5,13,.96));box-shadow:0 0 30px rgba(143,19,34,.32),0 12px 34px rgba(0,0,0,.5)}.segment-card--hero.is-winning{animation:winnerPulse 1.5s cubic-bezier(.16,1,.3,1) both}.segment-card__icon{width:36px;height:36px;display:grid;place-items:center;border:1px solid rgba(255,216,135,.55);border-radius:50%;color:var(--gold-light);background:radial-gradient(circle at 35% 28%,rgba(255,216,135,.15),rgba(9,5,3,.88));font-size:18px}.segment-card strong{max-width:156px;font-size:13px;line-height:1.12;text-transform:uppercase}.segment-card small{max-width:150px;color:rgba(245,238,228,.68);font-size:9px;line-height:1.28}.segment-card--hero small{color:#ffd887}.segment-card:nth-child(1){--angle:0deg}.segment-card:nth-child(2){--angle:45deg}.segment-card:nth-child(3){--angle:90deg}.segment-card:nth-child(4){--angle:135deg}.segment-card:nth-child(5){--angle:180deg}.segment-card:nth-child(6){--angle:225deg}.segment-card:nth-child(7){--angle:270deg}.segment-card:nth-child(8){--angle:315deg}
     .wheel-center{position:absolute;z-index:12;width:178px;aspect-ratio:1;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(255,216,135,.7);background:linear-gradient(145deg,#1a120d,#050302 68%);box-shadow:inset 0 0 44px rgba(0,0,0,.72),0 0 0 10px rgba(9,5,3,.9),0 0 0 12px rgba(223,174,85,.28),0 0 46px rgba(223,174,85,.22)}.wheel-center::before{content:"C";font:600 92px/1 "Cormorant Garamond",serif;color:var(--gold-light)}
     .spin-wrap{position:relative;z-index:8;margin-top:32px;display:grid;justify-items:center;gap:15px}.spin-console{position:relative;width:min(610px,92vw);padding:10px;border:1px solid rgba(255,216,135,.34);border-radius:24px;background:linear-gradient(180deg,rgba(31,16,11,.82),rgba(8,5,4,.94));box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 22px 60px rgba(0,0,0,.54),0 0 42px rgba(143,19,34,.18)}.spin-console::before{content:"";position:absolute;inset:5px;border:1px solid rgba(255,216,135,.09);border-radius:18px;pointer-events:none}
-    .spin-button{position:relative;width:100%;min-height:88px;padding:0 22px;display:grid;grid-template-columns:58px 1fr 58px;align-items:center;gap:16px;overflow:hidden;border:1px solid rgba(255,216,135,.76);border-radius:17px;color:#ffeab9;background:linear-gradient(180deg,#951426,#4d0710);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -14px 30px rgba(39,0,6,.44),0 14px 32px rgba(0,0,0,.44),0 0 36px rgba(143,19,34,.32);cursor:pointer;font-family:"Space Mono",monospace;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:transform .25s ease,filter .25s ease,box-shadow .25s ease}.spin-button::before{content:"";position:absolute;top:-120%;left:-24%;width:34%;height:340%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);transform:rotate(18deg);animation:sweep 5s ease-in-out infinite}.spin-button:hover{transform:translateY(-3px) scale(1.008);filter:brightness(1.08)}.spin-button:disabled{cursor:wait;filter:saturate(.65)}
+    .spin-button{position:relative;width:100%;min-height:88px;padding:0 22px;display:grid;grid-template-columns:58px 1fr 58px;align-items:center;gap:16px;overflow:hidden;border:1px solid rgba(255,216,135,.76);border-radius:17px;color:#ffeab9;background:linear-gradient(180deg,#951426,#4d0710);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -14px 30px rgba(39,0,6,.44),0 14px 32px rgba(0,0,0,.44),0 0 36px rgba(143,19,34,.32);cursor:pointer;font-family:"Space Mono",monospace;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:transform .25s ease,filter .25s ease,box-shadow .25s ease}.spin-button::before{content:"";position:absolute;top:-120%;left:-24%;width:34%;height:340%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);transform:rotate(18deg);animation:sweep 5s ease-in-out infinite}.spin-button:hover{transform:translateY(-3px) scale(1.008);filter:brightness(1.08)}.spin-button:disabled{cursor:default;filter:none}.spin-button.is-complete{background:linear-gradient(180deg,#6e4218,#2c1608);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 14px 34px rgba(0,0,0,.46),0 0 30px rgba(217,166,77,.22)}
     .spin-button__icon,.spin-button__arrow{position:relative;z-index:1;width:48px;height:48px;display:grid;place-items:center;border:1px solid rgba(255,216,135,.46);border-radius:50%;background:rgba(27,8,8,.52);color:var(--gold-light);font-size:22px}.spin-button__copy{position:relative;z-index:1;display:grid;gap:3px;text-align:center}.spin-button__copy strong{font-size:clamp(16px,2vw,24px)}.spin-button__copy small{color:rgba(255,232,185,.7);font:8px "Space Mono",monospace;letter-spacing:.12em}.spin-note{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border:1px solid rgba(255,216,135,.14);border-radius:999px;color:rgba(255,216,135,.68);background:rgba(8,5,4,.68);font:9px "Space Mono",monospace;letter-spacing:.08em;text-transform:uppercase}.spin-note::before{content:"▣";color:var(--gold-light)}
     .prize-reveal{position:relative;width:min(1120px,calc(100% - 10px));margin:72px auto 0;padding:14px;opacity:0;visibility:hidden;transform:translateY(48px) scale(.97);transition:opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1),visibility 0s linear .8s}.prize-reveal.is-visible{opacity:1;visibility:visible;transform:none;transition-delay:0s}.prize-reveal::before{content:"";position:absolute;inset:0;border:1px solid rgba(255,216,135,.34);border-radius:28px;background:linear-gradient(145deg,rgba(28,17,11,.78),rgba(7,4,3,.96));box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 34px 90px rgba(0,0,0,.58),0 0 62px rgba(143,19,34,.15);backdrop-filter:blur(20px)}
     .prize-reveal__inner{position:relative;z-index:1;min-height:330px;padding:42px;display:grid;grid-template-columns:230px minmax(0,1fr) 280px;align-items:center;gap:34px;border:1px solid rgba(255,216,135,.11);border-radius:20px;background:linear-gradient(90deg,rgba(255,216,135,.018),transparent 28%,rgba(143,19,34,.035));overflow:hidden}.prize-reveal__inner::before,.prize-reveal__inner::after{content:"✦";position:absolute;color:rgba(255,216,135,.48);font-size:10px}.prize-reveal__inner::before{top:13px;left:15px}.prize-reveal__inner::after{right:15px;bottom:13px}
@@ -44,7 +44,7 @@
 </head>
 <body>
   <div class="page">
-    <header class="topbar"><a class="brand" href="index.html">cevora</a><span class="status">Condição especial ativa</span></header>
+    <header class="topbar"><a class="brand" href="index.html">cevora</a><span class="status" id="offerStatus">Condição especial ativa</span></header>
     <main>
       <section class="hero" aria-labelledby="rouletteTitle">
         <div class="hero__hud" aria-hidden="true"><span>Sistema de recompensa</span><i></i><span>Acesso reservado</span></div>
@@ -68,7 +68,7 @@
       </section>
       <div class="spin-wrap">
         <div class="spin-console"><button class="spin-button" id="rouletteSpin" type="button"><span class="spin-button__icon">◌</span><span class="spin-button__copy"><strong id="spinLabel">Girar a roleta</strong><small id="spinSubLabel">Revelar minha condição exclusiva</small></span><span class="spin-button__arrow">→</span></button></div>
-        <span class="spin-note">Condição promocional previamente definida para esta experiência</span>
+        <span class="spin-note" id="spinNote">Condição promocional previamente definida para esta experiência</span>
       </div>
       <section class="prize-reveal" id="rouletteResult" aria-live="polite" aria-hidden="true">
         <div class="prize-reveal__inner">
@@ -83,6 +83,7 @@
   <script>
     (()=>{
       'use strict';
+      const storageKey='cevora-roulette-revealed-v1';
       const wheel=document.querySelector('#rouletteWheel');
       const button=document.querySelector('#rouletteSpin');
       const result=document.querySelector('#rouletteResult');
@@ -90,25 +91,42 @@
       const heroPrize=document.querySelector('.segment-card--hero');
       const label=document.querySelector('#spinLabel');
       const subLabel=document.querySelector('#spinSubLabel');
+      const note=document.querySelector('#spinNote');
+      const status=document.querySelector('#offerStatus');
       const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
       let rotation=0;
       let spinning=false;
 
-      const reveal=()=>{
-        wheel?.classList.remove('is-spinning');
-        pointer?.classList.remove('is-ticking');
+      const persist=()=>{try{localStorage.setItem(storageKey,'1')}catch{}}
+      const wasRevealed=()=>{try{return localStorage.getItem(storageKey)==='1'}catch{return false}}
+      const setCompletedState=(animate=false)=>{
         heroPrize?.classList.add('is-winning');
         result?.classList.add('is-visible');
         result?.setAttribute('aria-hidden','false');
-        if(label)label.textContent='Condição revelada';
+        button?.classList.add('is-complete');
+        if(button)button.disabled=true;
+        if(label)label.textContent='Condição já revelada';
         if(subLabel)subLabel.textContent='Todos os produtos por R$ 3.600';
+        if(note)note.textContent='Sua condição foi preservada neste navegador';
+        if(status)status.textContent='Condição revelada e preservada';
+        if(!animate){
+          heroPrize?.classList.remove('is-winning');
+          requestAnimationFrame(()=>heroPrize?.classList.add('is-winning'));
+        }
+      };
+      const reveal=()=>{
+        wheel?.classList.remove('is-spinning');
+        pointer?.classList.remove('is-ticking');
         spinning=false;
-        button.disabled=false;
+        persist();
+        setCompletedState(true);
         setTimeout(()=>result?.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'}),180);
       };
 
+      if(wasRevealed())setCompletedState(false);
+
       button?.addEventListener('click',()=>{
-        if(!wheel||spinning)return;
+        if(!wheel||spinning||wasRevealed())return;
         spinning=true;
         button.disabled=true;
         heroPrize?.classList.remove('is-winning');
@@ -118,7 +136,6 @@
         pointer?.classList.add('is-ticking');
         if(label)label.textContent='Calculando condição';
         if(subLabel)subLabel.textContent='Sincronizando o sistema de recompensa';
-
         const current=((rotation%360)+360)%360;
         const delta=(360-current)%360;
         rotation+=(reduce?1:7)*360+delta;
