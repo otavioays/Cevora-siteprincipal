@@ -30,21 +30,32 @@
       color:var(--cream);
       font-family:"Manrope",sans-serif;
       background:
-        radial-gradient(circle at 50% 38%,rgba(151,29,30,.16),transparent 30%),
-        radial-gradient(circle at 50% 58%,rgba(214,148,47,.08),transparent 42%),
+        radial-gradient(circle at 50% 23%,rgba(151,29,30,.18),transparent 28%),
+        radial-gradient(circle at 50% 56%,rgba(214,148,47,.08),transparent 42%),
         linear-gradient(rgba(223,174,85,.023) 1px,transparent 1px),
         linear-gradient(90deg,rgba(223,174,85,.023) 1px,transparent 1px),
         #050302;
       background-size:auto,auto,38px 38px,38px 38px,auto;
     }
 
-    body::before {
+    body::before,
+    body::after {
       content:"";
       position:fixed;
       inset:0;
       pointer-events:none;
+    }
+
+    body::before {
       opacity:.34;
       background:repeating-linear-gradient(-45deg,transparent 0 13px,rgba(255,255,255,.008) 13px 14px);
+    }
+
+    body::after {
+      opacity:.18;
+      background-image:radial-gradient(circle,rgba(255,216,135,.34) 0 1px,transparent 1.4px);
+      background-size:110px 110px;
+      mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 78%,transparent);
     }
 
     .page {
@@ -52,15 +63,16 @@
       z-index:1;
       width:min(1440px,calc(100% - 32px));
       margin:0 auto;
-      padding:24px 0 80px;
+      padding:22px 0 80px;
     }
 
     .topbar {
-      min-height:62px;
+      min-height:64px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:18px;
+      border-bottom:1px solid rgba(223,174,85,.12);
     }
 
     .brand {
@@ -74,6 +86,9 @@
     }
 
     .status {
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
       padding:11px 16px;
       border:1px solid rgba(223,174,85,.34);
       border-radius:999px;
@@ -86,48 +101,123 @@
       text-transform:uppercase;
     }
 
+    .status::before {
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:#d9273e;
+      box-shadow:0 0 14px rgba(217,39,62,.9);
+      animation:pulse 2.2s ease-in-out infinite;
+    }
+
     .hero {
-      padding:44px 0 18px;
+      position:relative;
+      max-width:1120px;
+      margin:0 auto;
+      padding:58px 70px 42px;
       text-align:center;
     }
+
+    .hero::before,
+    .hero::after {
+      content:"";
+      position:absolute;
+      top:104px;
+      width:26%;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(223,174,85,.34));
+    }
+
+    .hero::before { left:0; }
+    .hero::after { right:0; transform:scaleX(-1); }
+
+    .hero__hud {
+      width:min(740px,100%);
+      margin:0 auto 20px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:18px;
+      color:rgba(255,216,135,.58);
+      font-family:"Space Mono",monospace;
+      font-size:8px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .hero__hud span:first-child { text-align:right; }
+    .hero__hud span:last-child { text-align:left; }
+    .hero__hud i { width:7px; height:7px; border-radius:50%; background:#d9273e; box-shadow:0 0 14px rgba(217,39,62,.8); }
 
     .hero__kicker {
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:8px 16px;
-      border:1px solid rgba(223,174,85,.23);
+      padding:9px 17px;
+      border:1px solid rgba(223,174,85,.28);
       border-radius:999px;
-      color:rgba(255,216,135,.8);
-      background:rgba(13,8,6,.76);
+      color:rgba(255,216,135,.84);
+      background:linear-gradient(180deg,rgba(20,12,8,.88),rgba(8,5,4,.8));
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 0 24px rgba(143,19,34,.12);
       font-family:"Space Mono",monospace;
       font-size:10px;
-      letter-spacing:.08em;
+      letter-spacing:.1em;
       text-transform:uppercase;
     }
 
     .hero__kicker::before {
-      content:"";
-      width:7px;
-      height:7px;
-      border-radius:50%;
-      background:#db233a;
-      box-shadow:0 0 14px rgba(219,35,58,.9);
-      animation:pulse 2.2s ease-in-out infinite;
+      content:"✦";
+      color:var(--gold-light);
+      text-shadow:0 0 12px rgba(255,216,135,.35);
     }
 
     .hero h1 {
-      max-width:900px;
-      margin:22px auto 0;
+      max-width:940px;
+      margin:24px auto 0;
       font-family:"Cormorant Garamond",serif;
-      font-size:clamp(48px,6.3vw,94px);
+      font-size:clamp(52px,6.4vw,98px);
       font-weight:600;
-      line-height:.92;
-      letter-spacing:-.04em;
+      line-height:.9;
+      letter-spacing:-.045em;
     }
 
-    .hero h1 span { color:var(--gold-light); text-shadow:0 0 32px rgba(255,216,135,.12); }
-    .hero p { max-width:720px; margin:22px auto 0; color:var(--muted); font-size:clamp(14px,1.4vw,18px); line-height:1.7; }
+    .hero h1 span {
+      display:block;
+      color:var(--gold-light);
+      text-shadow:0 0 34px rgba(255,216,135,.14);
+    }
+
+    .hero p {
+      max-width:730px;
+      margin:24px auto 0;
+      color:var(--muted);
+      font-size:clamp(14px,1.35vw,18px);
+      line-height:1.72;
+    }
+
+    .hero__system-line {
+      width:min(660px,82%);
+      height:1px;
+      margin:30px auto 0;
+      background:linear-gradient(90deg,transparent,rgba(223,174,85,.5) 28%,rgba(143,19,34,.62) 50%,rgba(223,174,85,.5) 72%,transparent);
+      position:relative;
+    }
+
+    .hero__system-line::after {
+      content:"05 · CONDIÇÃO ESPECIAL";
+      position:absolute;
+      left:50%;
+      top:50%;
+      padding:0 13px;
+      color:rgba(255,216,135,.56);
+      background:#080504;
+      transform:translate(-50%,-50%);
+      font-family:"Space Mono",monospace;
+      font-size:7px;
+      letter-spacing:.13em;
+      white-space:nowrap;
+    }
 
     .wheel-stage {
       position:relative;
@@ -392,6 +482,8 @@
     @keyframes rotateSlow { to { transform:translateX(-50%) rotate(360deg); } }
 
     @media (max-width:900px) {
+      .hero { padding-inline:30px; }
+      .hero::before,.hero::after { width:17%; }
       .wheel-stage { min-height:800px; }
       .wheel { --radius:238px; }
       .segment-card { width:146px; height:108px; padding:10px 9px; grid-template-rows:32px auto auto; }
@@ -407,8 +499,11 @@
       .topbar { min-height:52px; }
       .brand { font-size:34px; }
       .status { display:none; }
-      .hero { padding-top:26px; }
+      .hero { padding:32px 8px 20px; }
+      .hero::before,.hero::after { display:none; }
+      .hero__hud { display:none; }
       .hero h1 { font-size:clamp(42px,14vw,66px); }
+      .hero__system-line { width:92%; }
       .wheel-stage { min-height:500px; padding-top:46px; }
       .pointer { top:10px; transform:translateX(-50%) scale(.7); }
       .wheel { --radius:124px; }
@@ -432,14 +527,16 @@
   <div class="page">
     <header class="topbar">
       <a class="brand" href="index.html">cevora</a>
-      <span class="status">Página em construção</span>
+      <span class="status">Condição especial ativa</span>
     </header>
 
     <main>
       <section class="hero" aria-labelledby="rouletteTitle">
-        <span class="hero__kicker">Condição exclusiva</span>
-        <h1 id="rouletteTitle">Prepare-se para uma condição <span>exclusiva da Cevora.</span></h1>
-        <p>Gire a roleta e descubra a condição que preparamos para acelerar o crescimento da sua clínica.</p>
+        <div class="hero__hud" aria-hidden="true"><span>Sistema de recompensa</span><i></i><span>Acesso reservado</span></div>
+        <span class="hero__kicker">Experiência promocional Cevora</span>
+        <h1 id="rouletteTitle">Sua condição especial está a <span>uma rotação de distância.</span></h1>
+        <p>Gire a roleta e revele a condição preparada para acelerar o crescimento da sua clínica com o ecossistema completo da Cevora.</p>
+        <div class="hero__system-line" aria-hidden="true"></div>
       </section>
 
       <section class="wheel-stage" aria-label="Roleta promocional Cevora">
