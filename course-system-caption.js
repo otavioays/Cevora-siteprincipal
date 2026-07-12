@@ -98,6 +98,14 @@
 })();
 
 (() => {
+  if (document.querySelector('script[src="image-intrinsics.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'image-intrinsics.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
+
+(() => {
   if (document.querySelector('script[src="course-journey-layout.js"]')) return;
   const script = document.createElement('script');
   script.src = 'course-journey-layout.js';
