@@ -44,6 +44,59 @@
   }
 })();
 
+/*
+ * Below-fold image policy.
+ * Keep the first product eager, while images injected later are decoded off the
+ * critical path and fetched with low priority when the browser supports it.
+ */
+(() => {
+  'use strict';
+
+  if (window.__cevoraImagePolicyLoaded) return;
+  window.__cevoraImagePolicyLoaded = true;
+
+  const belowFoldSelector = '#conversion img, #course img, #acquisition img, #prosperity-engine img';
+
+  const optimize = (scope = document) => {
+    const images = [];
+
+    if (scope instanceof HTMLImageElement && scope.matches(belowFoldSelector)) {
+      images.push(scope);
+    }
+
+    if (scope.querySelectorAll) {
+      images.push(...scope.querySelectorAll(belowFoldSelector));
+    }
+
+    images.forEach((image) => {
+      if (image.dataset.loadingOptimized === 'true') return;
+      image.dataset.loadingOptimized = 'true';
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      image.fetchPriority = 'low';
+    });
+  };
+
+  optimize();
+
+  const root = document.querySelector('main') || document.body;
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === Node.ELEMENT_NODE) optimize(node);
+      });
+    });
+
+    if (document.querySelector('#prosperity-engine')) {
+      optimize();
+      observer.disconnect();
+    }
+  });
+
+  observer.observe(root, { childList: true, subtree: true });
+  window.setTimeout(() => observer.disconnect(), 12000);
+})();
+
 (() => {
   if (document.querySelector('script[src="course-journey-layout.js"]')) return;
   const script = document.createElement('script');
