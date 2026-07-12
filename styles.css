@@ -26,6 +26,7 @@
 @import url('./styles-ganesha-offer.css');
 @import url('./styles-modal.css');
 @import url('./styles-typography-ds.css');
+@import url('./styles-funnel-orange-center.css');
 
 /* Compatibility bridge for legacy image paths in the first fold. */
 .product-art img,
