@@ -7,11 +7,11 @@
 
 #prosperity-engine[data-funnel-radial-layout="true"] .funnel-radial-core-art > .funnel-orange {
   position: absolute !important;
+  inset: auto !important;
   left: 50% !important;
   top: 50% !important;
   right: auto !important;
   bottom: auto !important;
-  inset: auto !important;
   margin: 0 !important;
   translate: none !important;
   transform: translate(-50%, -50%) !important;
@@ -31,8 +31,11 @@
 
 @media (max-width: 760px) {
   #prosperity-engine[data-funnel-radial-layout="true"] .funnel-radial-core-art > .funnel-orange {
+    inset: auto !important;
     left: 50% !important;
     top: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
     transform: translate(-50%, -50%) !important;
   }
 }
