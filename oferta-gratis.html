@@ -4,50 +4,75 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#090706" />
-  <meta name="description" content="Condição especial Cevora para clínicas selecionadas." />
-  <title>Oferta Especial | Cevora</title>
+  <meta name="description" content="Experiência especial Cevora para clínicas selecionadas." />
+  <title>Roleta Especial | Cevora</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #090706;
-      --panel: rgba(17, 12, 9, .74);
-      --cream: #f1eadf;
-      --muted: rgba(241, 234, 223, .55);
+      --bg: #070504;
+      --bg-deep: #030201;
+      --panel: rgba(18, 12, 8, .76);
+      --cream: #f4eee5;
+      --muted: rgba(244, 238, 229, .56);
       --gold: #d8ad5f;
-      --gold-bright: #f0cc82;
+      --gold-bright: #f3cf83;
+      --gold-deep: #8a5622;
       --red: #7d111d;
-      --red-bright: #b62737;
+      --red-bright: #be2a3b;
+      --red-deep: #33040a;
+      --line: rgba(216, 173, 95, .22);
     }
 
     * { box-sizing: border-box; }
 
-    html { background: var(--bg); }
+    html {
+      min-height: 100%;
+      background: var(--bg);
+    }
 
     body {
       min-height: 100vh;
       margin: 0;
       color: var(--cream);
       background:
-        radial-gradient(circle at 18% 22%, rgba(125, 17, 29, .2), transparent 34%),
-        radial-gradient(circle at 82% 76%, rgba(216, 173, 95, .08), transparent 34%),
-        linear-gradient(rgba(216, 173, 95, .025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(216, 173, 95, .025) 1px, transparent 1px),
+        radial-gradient(circle at 12% 18%, rgba(125, 17, 29, .23), transparent 34%),
+        radial-gradient(circle at 84% 28%, rgba(216, 173, 95, .11), transparent 32%),
+        radial-gradient(circle at 52% 78%, rgba(182, 39, 55, .09), transparent 38%),
+        linear-gradient(rgba(216, 173, 95, .026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(216, 173, 95, .026) 1px, transparent 1px),
         var(--bg);
-      background-size: auto, auto, 34px 34px, 34px 34px, auto;
+      background-size: auto, auto, auto, 36px 36px, 36px 36px, auto;
       font-family: "Manrope", sans-serif;
       overflow-x: hidden;
     }
 
-    body::before {
+    body::before,
+    body::after {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: .5;
-      background: repeating-linear-gradient(-45deg, transparent 0 12px, rgba(255,255,255,.01) 12px 13px);
+      z-index: 0;
     }
+
+    body::before {
+      opacity: .5;
+      background:
+        repeating-linear-gradient(-45deg, transparent 0 12px, rgba(255,255,255,.009) 12px 13px),
+        linear-gradient(112deg, transparent 0 46%, rgba(216,173,95,.025) 49%, transparent 52%);
+    }
+
+    body::after {
+      opacity: .3;
+      background-image: radial-gradient(circle, rgba(240,204,130,.24) 0 1px, transparent 1.5px);
+      background-size: 96px 96px;
+      mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+    }
+
+    button,
+    a { font: inherit; }
 
     .offer-page {
       position: relative;
@@ -58,9 +83,9 @@
     }
 
     .offer-header {
-      width: min(1180px, calc(100% - 36px));
+      width: min(1380px, calc(100% - 44px));
       margin: 0 auto;
-      padding: 24px 0;
+      padding: 20px 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -77,31 +102,32 @@
     }
 
     .offer-brand__mark {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       display: grid;
       place-items: center;
-      border: 1px solid rgba(240, 204, 130, .4);
+      border: 1px solid rgba(240, 204, 130, .44);
       border-radius: 50%;
       color: var(--gold-bright);
-      background: rgba(11, 8, 6, .66);
-      box-shadow: 0 0 24px rgba(125, 17, 29, .16);
+      background: radial-gradient(circle at 35% 28%, rgba(240,204,130,.18), rgba(11,8,6,.82));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 0 26px rgba(125,17,29,.2);
       font-family: "Cormorant Garamond", serif;
-      font-size: 18px;
+      font-size: 19px;
     }
 
     .offer-brand strong {
       font-family: "Cormorant Garamond", serif;
-      font-size: 24px;
+      font-size: 27px;
       font-weight: 600;
-      letter-spacing: .02em;
+      letter-spacing: .015em;
     }
 
     .offer-header__status {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      color: rgba(240, 204, 130, .66);
+      gap: 10px;
+      color: rgba(240, 204, 130, .72);
+      font-family: "Space Mono", monospace;
       font-size: 9px;
       letter-spacing: .14em;
       text-transform: uppercase;
@@ -113,130 +139,549 @@
       height: 7px;
       border-radius: 50%;
       background: var(--red-bright);
-      box-shadow: 0 0 14px rgba(182, 39, 55, .72);
+      box-shadow: 0 0 16px rgba(190, 42, 59, .86);
+      animation: statusPulse 2.4s ease-in-out infinite;
     }
 
     .offer-stage {
-      width: min(1180px, calc(100% - 36px));
+      width: min(1380px, calc(100% - 44px));
       margin: 0 auto;
-      padding: clamp(70px, 10vw, 140px) 0;
+      padding: clamp(44px, 6vw, 84px) 0 70px;
       display: grid;
       place-items: center;
     }
 
-    .offer-shell {
+    .roulette-shell {
       position: relative;
-      width: min(880px, 100%);
-      min-height: 420px;
-      padding: clamp(34px, 6vw, 72px);
+      width: min(1240px, 100%);
+      min-height: 680px;
+      padding: clamp(28px, 4.2vw, 56px);
       display: grid;
-      place-items: center;
-      text-align: center;
+      grid-template-columns: minmax(280px, .72fr) minmax(480px, 1.28fr);
+      align-items: center;
+      gap: clamp(34px, 5vw, 88px);
       overflow: hidden;
       border: 1px solid rgba(216, 173, 95, .28);
-      border-radius: 28px;
+      border-radius: 30px;
       background:
-        linear-gradient(145deg, rgba(24, 17, 12, .8), rgba(7, 5, 4, .92)),
+        linear-gradient(145deg, rgba(25, 17, 11, .82), rgba(7, 5, 4, .94)),
         repeating-linear-gradient(-45deg, transparent 0 10px, rgba(255,255,255,.012) 10px 11px);
-      backdrop-filter: blur(22px) saturate(126%);
+      backdrop-filter: blur(24px) saturate(126%);
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.05),
-        inset 0 0 60px rgba(0,0,0,.44),
-        0 30px 90px rgba(0,0,0,.48),
-        0 0 54px rgba(125,17,29,.12);
+        inset 0 1px 0 rgba(255,255,255,.055),
+        inset 0 0 80px rgba(0,0,0,.48),
+        0 36px 110px rgba(0,0,0,.52),
+        0 0 70px rgba(125,17,29,.12);
     }
 
-    .offer-shell::before {
+    .roulette-shell::before {
       content: "";
       position: absolute;
-      inset: 12px;
+      inset: 14px;
       pointer-events: none;
-      border: 1px solid rgba(216, 173, 95, .08);
-      border-radius: 20px;
+      border: 1px solid rgba(216,173,95,.08);
+      border-radius: 22px;
     }
 
-    .offer-shell::after {
+    .roulette-shell::after {
       content: "";
       position: absolute;
-      width: 360px;
-      height: 360px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(182,39,55,.17), transparent 68%);
-      filter: blur(12px);
+      inset: 0;
       pointer-events: none;
+      background:
+        linear-gradient(90deg, transparent 0 9%, rgba(216,173,95,.025) 9% 9.2%, transparent 9.2% 90.8%, rgba(216,173,95,.025) 90.8% 91%, transparent 91%),
+        linear-gradient(transparent 0 13%, rgba(216,173,95,.022) 13% 13.2%, transparent 13.2% 86.8%, rgba(216,173,95,.022) 86.8% 87%, transparent 87%);
     }
 
-    .offer-placeholder {
+    .roulette-copy {
       position: relative;
-      z-index: 1;
-      max-width: 620px;
+      z-index: 4;
+      padding-left: clamp(12px, 2vw, 26px);
+      border-left: 1px solid rgba(216,173,95,.2);
     }
 
-    .offer-placeholder__eyebrow {
+    .roulette-copy::before {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: 0;
+      width: 1px;
+      height: 124px;
+      background: linear-gradient(180deg, var(--gold-bright), var(--red-bright), transparent);
+      box-shadow: 0 0 26px rgba(216,173,95,.24);
+    }
+
+    .roulette-kicker {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 18px;
-      color: rgba(240, 204, 130, .7);
+      color: rgba(240,204,130,.72);
+      font-family: "Space Mono", monospace;
       font-size: 9px;
       letter-spacing: .16em;
       text-transform: uppercase;
     }
 
-    .offer-placeholder__eyebrow::before,
-    .offer-placeholder__eyebrow::after {
-      content: "";
-      width: 42px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(216,173,95,.42));
+    .roulette-kicker i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--red-bright);
+      box-shadow: 0 0 14px rgba(190,42,59,.82);
     }
 
-    .offer-placeholder__eyebrow::after {
-      transform: scaleX(-1);
-    }
-
-    .offer-placeholder h1 {
+    .roulette-copy h1 {
       margin: 0;
+      max-width: 530px;
       color: var(--cream);
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(44px, 8vw, 82px);
-      font-weight: 500;
-      line-height: .94;
-      letter-spacing: -.035em;
+      font-size: clamp(54px, 6vw, 92px);
+      font-weight: 600;
+      line-height: .86;
+      letter-spacing: -.04em;
     }
 
-    .offer-placeholder h1 strong {
+    .roulette-copy h1 span {
       display: block;
       color: var(--gold-bright);
-      font-weight: 600;
-      text-shadow: 0 0 28px rgba(240, 204, 130, .16);
+      text-shadow: 0 0 30px rgba(240,204,130,.13);
     }
 
-    .offer-placeholder p {
-      margin: 24px auto 0;
-      max-width: 520px;
+    .roulette-rule {
+      width: min(280px, 82%);
+      height: 1px;
+      margin: 24px 0;
+      background: linear-gradient(90deg, rgba(240,204,130,.76), rgba(190,42,59,.45), transparent);
+      position: relative;
+    }
+
+    .roulette-rule::after {
+      content: "✦";
+      position: absolute;
+      left: 44%;
+      top: 50%;
+      padding: 0 8px;
+      color: var(--gold-bright);
+      background: #100b08;
+      transform: translate(-50%, -50%);
+      font-size: 10px;
+    }
+
+    .roulette-copy p {
+      max-width: 470px;
+      margin: 0;
       color: var(--muted);
       font-size: 14px;
-      line-height: 1.7;
+      line-height: 1.75;
+    }
+
+    .roulette-meta {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .roulette-meta span {
+      min-height: 58px;
+      padding: 10px 11px;
+      display: grid;
+      align-content: center;
+      border: 1px solid rgba(216,173,95,.15);
+      border-radius: 12px;
+      background: rgba(8,6,4,.46);
+      color: rgba(244,238,229,.68);
+      font-family: "Space Mono", monospace;
+      font-size: 8px;
+      letter-spacing: .08em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .roulette-arena {
+      position: relative;
+      z-index: 3;
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .roulette-arena::before,
+    .roulette-arena::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .roulette-arena::before {
+      width: 560px;
+      height: 560px;
+      border: 1px solid rgba(216,173,95,.08);
+      box-shadow: inset 0 0 70px rgba(125,17,29,.08);
+      animation: orbitBreath 5.8s ease-in-out infinite;
+    }
+
+    .roulette-arena::after {
+      width: 470px;
+      height: 470px;
+      border: 1px dashed rgba(216,173,95,.13);
+      animation: slowOrbit 24s linear infinite;
+    }
+
+    .roulette-halo {
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(190,42,59,.23), rgba(216,173,95,.08) 38%, transparent 70%);
+      filter: blur(18px);
+      animation: haloPulse 3.8s ease-in-out infinite;
+    }
+
+    .roulette-pointer {
+      position: absolute;
+      z-index: 12;
+      top: 28px;
+      left: 50%;
+      width: 0;
+      height: 0;
+      transform: translateX(-50%);
+      border-left: 22px solid transparent;
+      border-right: 22px solid transparent;
+      border-top: 46px solid var(--gold-bright);
+      filter: drop-shadow(0 5px 9px rgba(0,0,0,.62)) drop-shadow(0 0 12px rgba(240,204,130,.36));
+    }
+
+    .roulette-pointer::after {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: -43px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #fff3bf, var(--gold) 52%, var(--gold-deep));
+      box-shadow: 0 0 18px rgba(240,204,130,.5);
+    }
+
+    .roulette-frame {
+      position: relative;
+      z-index: 5;
+      width: min(470px, 82vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        conic-gradient(from 0deg, rgba(240,204,130,.95), rgba(106,60,21,.94), rgba(240,204,130,.98), rgba(106,60,21,.94), rgba(240,204,130,.95));
+      box-shadow:
+        inset 0 0 0 2px rgba(255,244,206,.34),
+        inset 0 0 0 9px rgba(17,9,5,.82),
+        0 28px 80px rgba(0,0,0,.58),
+        0 0 42px rgba(216,173,95,.2);
+    }
+
+    .roulette-frame::before {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: inset 0 0 34px rgba(0,0,0,.52);
+      pointer-events: none;
+    }
+
+    .roulette-wheel {
+      position: relative;
+      width: calc(100% - 34px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      background:
+        conic-gradient(
+          from -22.5deg,
+          #74101c 0deg 45deg,
+          #160a08 45deg 90deg,
+          #a76d2c 90deg 135deg,
+          #2b090d 135deg 180deg,
+          #8b1724 180deg 225deg,
+          #100807 225deg 270deg,
+          #c18a40 270deg 315deg,
+          #3c0b11 315deg 360deg
+        );
+      transform: rotate(0deg);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.06),
+        inset 0 0 54px rgba(0,0,0,.5);
+      will-change: transform;
+    }
+
+    .roulette-wheel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        repeating-conic-gradient(from -22.5deg, rgba(240,204,130,.55) 0deg .6deg, transparent .6deg 45deg),
+        radial-gradient(circle at 34% 26%, rgba(255,255,255,.15), transparent 28%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .roulette-wheel::after {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border-radius: 50%;
+      border: 1px dashed rgba(240,204,130,.24);
+      box-shadow: 0 0 0 1px rgba(0,0,0,.42), inset 0 0 28px rgba(0,0,0,.48);
+      pointer-events: none;
+    }
+
+    .roulette-label {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      width: 44%;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 18px;
+      transform-origin: 0 50%;
+      color: #fff1d0;
+      font-family: "Space Mono", monospace;
+      font-size: clamp(8px, .72vw, 11px);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(0,0,0,.75);
+    }
+
+    .roulette-label span { transform: rotate(90deg); }
+    .roulette-label:nth-child(1) { transform: translateY(-50%) rotate(0deg); }
+    .roulette-label:nth-child(2) { transform: translateY(-50%) rotate(45deg); }
+    .roulette-label:nth-child(3) { transform: translateY(-50%) rotate(90deg); }
+    .roulette-label:nth-child(4) { transform: translateY(-50%) rotate(135deg); }
+    .roulette-label:nth-child(5) { transform: translateY(-50%) rotate(180deg); }
+    .roulette-label:nth-child(6) { transform: translateY(-50%) rotate(225deg); }
+    .roulette-label:nth-child(7) { transform: translateY(-50%) rotate(270deg); }
+    .roulette-label:nth-child(8) { transform: translateY(-50%) rotate(315deg); }
+
+    .roulette-center {
+      position: absolute;
+      z-index: 9;
+      width: 132px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(240,204,130,.54);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 36% 28%, rgba(240,204,130,.2), transparent 30%),
+        linear-gradient(145deg, #25080d, #080403 66%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        inset 0 0 34px rgba(0,0,0,.7),
+        0 0 0 8px rgba(8,4,3,.82),
+        0 0 0 9px rgba(216,173,95,.22),
+        0 0 40px rgba(190,42,59,.32);
+    }
+
+    .roulette-center::before {
+      content: "✦";
+      color: var(--gold-bright);
+      font-size: 34px;
+      text-shadow: 0 0 18px rgba(240,204,130,.45);
+      animation: centerPulse 2.8s ease-in-out infinite;
+    }
+
+    .roulette-spin {
+      position: absolute;
+      z-index: 14;
+      bottom: 14px;
+      left: 50%;
+      width: min(330px, 72%);
+      min-height: 66px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border: 1px solid rgba(240,204,130,.68);
+      border-radius: 16px;
+      color: #fff1d0;
+      background:
+        linear-gradient(180deg, rgba(190,42,59,.98), rgba(113,13,26,.98)),
+        linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.18),
+        inset 0 -8px 22px rgba(47,0,8,.4),
+        0 16px 34px rgba(0,0,0,.46),
+        0 0 28px rgba(190,42,59,.28);
+      cursor: pointer;
+      font-weight: 700;
+      letter-spacing: .02em;
+      transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+      overflow: hidden;
+    }
+
+    .roulette-spin::before {
+      content: "";
+      position: absolute;
+      top: -80%;
+      left: -22%;
+      width: 38%;
+      height: 250%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
+      transform: rotate(18deg);
+      animation: buttonSweep 5.6s ease-in-out infinite;
+    }
+
+    .roulette-spin:hover {
+      transform: translateY(-3px) scale(1.018);
+      filter: brightness(1.08);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.2),
+        inset 0 -8px 22px rgba(47,0,8,.38),
+        0 20px 42px rgba(0,0,0,.52),
+        0 0 38px rgba(190,42,59,.42);
+    }
+
+    .roulette-spin:disabled {
+      cursor: wait;
+      filter: saturate(.72);
+    }
+
+    .roulette-spin span,
+    .roulette-spin i { position: relative; z-index: 1; }
+    .roulette-spin i { color: var(--gold-bright); font-style: normal; }
+
+    .roulette-result {
+      position: absolute;
+      z-index: 16;
+      top: 50%;
+      left: 50%;
+      min-width: min(360px, 82%);
+      padding: 20px 24px;
+      border: 1px solid rgba(240,204,130,.5);
+      border-radius: 16px;
+      background: rgba(8,5,4,.92);
+      box-shadow: 0 24px 70px rgba(0,0,0,.58), 0 0 44px rgba(190,42,59,.24);
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -42%) scale(.92);
+      transition: opacity .35s ease, transform .35s cubic-bezier(.16,1,.3,1);
+      backdrop-filter: blur(18px);
+    }
+
+    .roulette-result.is-visible {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .roulette-result small {
+      display: block;
+      color: rgba(240,204,130,.68);
+      font-family: "Space Mono", monospace;
+      font-size: 8px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .roulette-result strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--gold-bright);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      font-weight: 600;
+    }
+
+    @keyframes statusPulse {
+      0%, 100% { opacity: .55; transform: scale(.82); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+
+    @keyframes orbitBreath {
+      0%, 100% { transform: scale(.97); opacity: .55; }
+      50% { transform: scale(1.02); opacity: .95; }
+    }
+
+    @keyframes slowOrbit { to { transform: rotate(360deg); } }
+
+    @keyframes haloPulse {
+      0%, 100% { opacity: .58; transform: scale(.94); }
+      50% { opacity: .96; transform: scale(1.05); }
+    }
+
+    @keyframes centerPulse {
+      0%, 100% { transform: scale(.92) rotate(0deg); opacity: .72; }
+      50% { transform: scale(1.08) rotate(12deg); opacity: 1; }
+    }
+
+    @keyframes buttonSweep {
+      0%, 64% { transform: translateX(-240%) rotate(18deg); opacity: 0; }
+      72% { opacity: 1; }
+      88%, 100% { transform: translateX(430%) rotate(18deg); opacity: 0; }
+    }
+
+    @media (max-width: 980px) {
+      .roulette-shell {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+
+      .roulette-copy {
+        max-width: 760px;
+      }
+
+      .roulette-copy h1 { max-width: 760px; }
+      .roulette-arena { min-height: 620px; }
     }
 
     @media (max-width: 640px) {
-      .offer-header {
-        width: min(100% - 24px, 1180px);
-        padding: 18px 0;
-      }
-
+      .offer-header,
+      .offer-stage { width: min(100% - 20px, 1380px); }
+      .offer-header { padding: 16px 0; }
       .offer-header__status { display: none; }
+      .offer-stage { padding: 24px 0 44px; }
 
-      .offer-stage {
-        width: min(100% - 20px, 1180px);
-        padding: 44px 0;
+      .roulette-shell {
+        padding: 22px 16px 28px;
+        border-radius: 22px;
+        gap: 24px;
       }
 
-      .offer-shell {
-        min-height: 360px;
-        padding: 28px 20px;
-        border-radius: 22px;
+      .roulette-copy {
+        padding-left: 16px;
+      }
+
+      .roulette-copy h1 {
+        font-size: clamp(48px, 15vw, 70px);
+      }
+
+      .roulette-meta { grid-template-columns: 1fr; }
+      .roulette-arena { min-height: 500px; }
+      .roulette-arena::before { width: 430px; height: 430px; }
+      .roulette-arena::after { width: 370px; height: 370px; }
+      .roulette-halo { width: 360px; height: 360px; }
+      .roulette-pointer { top: 26px; }
+      .roulette-spin { bottom: 0; min-height: 60px; }
+      .roulette-label { padding-right: 11px; font-size: 7px; }
+      .roulette-center { width: 104px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
@@ -248,18 +693,103 @@
         <span class="offer-brand__mark" aria-hidden="true">C</span>
         <strong>Cevora</strong>
       </a>
-      <span class="offer-header__status">Condição especial</span>
+      <span class="offer-header__status">Experiência especial ativa</span>
     </header>
 
     <main class="offer-stage">
-      <section class="offer-shell" aria-labelledby="offerPageTitle">
-        <div class="offer-placeholder">
-          <span class="offer-placeholder__eyebrow">Oferta exclusiva</span>
-          <h1 id="offerPageTitle">Página em <strong>construção</strong></h1>
-          <p>Esta página já está conectada ao CTA principal e pronta para receber a próxima etapa da oferta.</p>
+      <section class="roulette-shell" aria-labelledby="rouletteTitle">
+        <div class="roulette-copy">
+          <span class="roulette-kicker"><i aria-hidden="true"></i> Sistema de recompensa</span>
+          <h1 id="rouletteTitle">Roleta de <span>Prêmios</span></h1>
+          <div class="roulette-rule" aria-hidden="true"></div>
+          <p>Uma experiência visual premium preparada para receber as regras, prêmios e condições da oferta Cevora.</p>
+          <div class="roulette-meta" aria-label="Características da experiência">
+            <span>08 segmentos ativos</span>
+            <span>Animação física suave</span>
+            <span>Resultado instantâneo</span>
+          </div>
+        </div>
+
+        <div class="roulette-arena">
+          <div class="roulette-halo" aria-hidden="true"></div>
+          <div class="roulette-pointer" aria-hidden="true"></div>
+
+          <div class="roulette-frame">
+            <div class="roulette-wheel" id="rouletteWheel" aria-label="Roleta de prêmios Cevora">
+              <div class="roulette-label"><span>Prêmio 01</span></div>
+              <div class="roulette-label"><span>Prêmio 02</span></div>
+              <div class="roulette-label"><span>Prêmio 03</span></div>
+              <div class="roulette-label"><span>Prêmio 04</span></div>
+              <div class="roulette-label"><span>Prêmio 05</span></div>
+              <div class="roulette-label"><span>Prêmio 06</span></div>
+              <div class="roulette-label"><span>Prêmio 07</span></div>
+              <div class="roulette-label"><span>Prêmio 08</span></div>
+            </div>
+            <div class="roulette-center" aria-hidden="true"></div>
+          </div>
+
+          <button class="roulette-spin" id="rouletteSpin" type="button">
+            <span>Girar roleta</span>
+            <i aria-hidden="true">✦</i>
+          </button>
+
+          <div class="roulette-result" id="rouletteResult" aria-live="polite">
+            <small>Resultado selecionado</small>
+            <strong id="rouletteResultText">Prêmio 01</strong>
+          </div>
         </div>
       </section>
     </main>
   </div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const wheel = document.querySelector('#rouletteWheel');
+      const button = document.querySelector('#rouletteSpin');
+      const result = document.querySelector('#rouletteResult');
+      const resultText = document.querySelector('#rouletteResultText');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const prizes = ['Prêmio 01', 'Prêmio 02', 'Prêmio 03', 'Prêmio 04', 'Prêmio 05', 'Prêmio 06', 'Prêmio 07', 'Prêmio 08'];
+      let rotation = 0;
+      let spinning = false;
+      let hideTimer;
+
+      const spin = () => {
+        if (!wheel || !button || spinning) return;
+
+        spinning = true;
+        button.disabled = true;
+        result?.classList.remove('is-visible');
+        window.clearTimeout(hideTimer);
+
+        const selected = Math.floor(Math.random() * prizes.length);
+        const segment = 360 / prizes.length;
+        const centerOffset = selected * segment + segment / 2;
+        const extraTurns = reduceMotion ? 1 : 6 + Math.floor(Math.random() * 3);
+        const target = extraTurns * 360 + (360 - centerOffset);
+        rotation += target;
+
+        wheel.style.transition = reduceMotion
+          ? 'transform .25s ease-out'
+          : 'transform 5.6s cubic-bezier(.08,.72,.08,1)';
+        wheel.style.transform = `rotate(${rotation}deg)`;
+
+        window.setTimeout(() => {
+          if (resultText) resultText.textContent = prizes[selected];
+          result?.classList.add('is-visible');
+          spinning = false;
+          button.disabled = false;
+
+          hideTimer = window.setTimeout(() => {
+            result?.classList.remove('is-visible');
+          }, 3600);
+        }, reduceMotion ? 280 : 5700);
+      };
+
+      button?.addEventListener('click', spin);
+    })();
+  </script>
 </body>
 </html>
