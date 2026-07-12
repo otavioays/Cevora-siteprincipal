@@ -106,6 +106,14 @@
 })();
 
 (() => {
+  if (document.querySelector('script[src="course-metrics-motion.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'course-metrics-motion.js';
+  script.defer = true;
+  document.body.appendChild(script);
+})();
+
+(() => {
   if (document.querySelector('script[src="course-journey-layout.js"]')) return;
   const script = document.createElement('script');
   script.src = 'course-journey-layout.js';
