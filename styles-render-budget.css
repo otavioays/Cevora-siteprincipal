@@ -1,0 +1,45 @@
+/* Rendering budget for content below the initial viewport.
+ * The browser can skip paint/layout work until each product approaches the viewport,
+ * while preserving an intrinsic placeholder to avoid sudden document jumps.
+ */
+#conversion,
+#course,
+#acquisition,
+#prosperity-engine {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1180px;
+}
+
+/* The larger educational and radial compositions receive a closer initial estimate. */
+#course,
+#prosperity-engine {
+  contain-intrinsic-size: auto 1380px;
+}
+
+/* Do not keep expensive off-screen decorative layers promoted to their own compositor layer. */
+#conversion:not(.is-fold-active) > .fold-grid-surface,
+#course:not(.is-fold-active) > .fold-grid-surface,
+#acquisition:not(.is-fold-active) > .fold-grid-surface,
+#prosperity-engine:not(.is-fold-active) > .fold-grid-surface {
+  will-change: auto;
+}
+
+@media (max-width: 760px) {
+  #conversion,
+  #course,
+  #acquisition,
+  #prosperity-engine {
+    contain-intrinsic-size: auto 1500px;
+  }
+}
+
+/* Printing and reduced-resource modes should expose the complete document immediately. */
+@media print {
+  #conversion,
+  #course,
+  #acquisition,
+  #prosperity-engine {
+    content-visibility: visible;
+    contain-intrinsic-size: none;
+  }
+}
