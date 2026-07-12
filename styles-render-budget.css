@@ -24,51 +24,16 @@
   will-change: auto;
 }
 
-@media (max-width: 760px), (pointer: coarse) {
+@media (max-width: 760px) {
   #conversion,
   #course,
   #acquisition,
   #prosperity-engine {
     contain-intrinsic-size: auto 1500px;
   }
-
-  /* Mobile GPUs pay heavily for stacked glass, blur and oversized shadows.
-   * Keep the dark premium material, but remove the most expensive paint effects.
-   */
-  #conversion :is(.cro-card, .heatmap-card, .conversion-lab-stage),
-  #course :is(.course-card, .course-journey-stage, .course-journey-insights),
-  #acquisition :is(.acquisition-card, .acquisition-command-core, .acquisition-command-analysis),
-  #prosperity-engine :is(.funnel-card, .funnel-radial-shell, .funnel-radial-core) {
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-  }
-
-  #conversion :is(.cro-card, .heatmap-card),
-  #course .course-card,
-  #acquisition .acquisition-card,
-  #prosperity-engine .funnel-card {
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, .035),
-      0 14px 34px rgba(0, 0, 0, .36) !important;
-  }
-
-  #conversion :is(.conversion-glow, .lucky-cat::before, .lucky-cat::after),
-  #course :is(.course-glow, .fortune-frog::before, .fortune-frog::after),
-  #acquisition :is(.acquisition-glow, .acquisition-lion::before, .acquisition-lion::after),
-  #prosperity-engine :is(.funnel-glow, .funnel-orange::before, .funnel-orange::after) {
-    filter: none !important;
-  }
-
-  #conversion > .fold-grid-surface::before,
-  #course > .fold-grid-surface::before,
-  #acquisition > .fold-grid-surface::before,
-  #prosperity-engine > .fold-grid-surface::before {
-    filter: none !important;
-    opacity: .38 !important;
-  }
 }
 
-/* Printing should expose the complete document immediately. */
+/* Printing and reduced-resource modes should expose the complete document immediately. */
 @media print {
   #conversion,
   #course,
