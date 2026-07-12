@@ -35,16 +35,17 @@
     .prize-reveal__inner{position:relative;z-index:1;min-height:330px;padding:42px;display:grid;grid-template-columns:230px minmax(0,1fr) 280px;align-items:center;gap:34px;border:1px solid rgba(255,216,135,.11);border-radius:20px;background:linear-gradient(90deg,rgba(255,216,135,.018),transparent 28%,rgba(143,19,34,.035));overflow:hidden}.prize-reveal__inner::before,.prize-reveal__inner::after{content:"✦";position:absolute;color:rgba(255,216,135,.48);font-size:10px}.prize-reveal__inner::before{top:13px;left:15px}.prize-reveal__inner::after{right:15px;bottom:13px}
     .prize-medallion{position:relative;width:190px;aspect-ratio:1;margin:auto;display:grid;place-items:center;border-radius:50%;background:conic-gradient(from 0deg,#5c330d,#ffd887,#6e3c0d,#d99b36,#4d2908,#ffd887,#5c330d);box-shadow:0 0 0 7px rgba(8,4,3,.95),0 0 0 8px rgba(255,216,135,.32),0 0 45px rgba(143,19,34,.32)}.prize-reveal.is-visible .prize-medallion{animation:medallionReveal 1.1s .18s cubic-bezier(.16,1,.3,1) both}.prize-medallion::before{content:"★";width:154px;aspect-ratio:1;display:grid;place-items:center;border-radius:50%;color:var(--gold-light);background:radial-gradient(circle at 36% 28%,rgba(255,216,135,.2),transparent 30%),linear-gradient(145deg,#9b1426,#3b050c 72%);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),inset 0 0 38px rgba(0,0,0,.5);font-size:72px;text-shadow:0 0 24px rgba(255,216,135,.36)}
     .prize-copy__eyebrow{display:block;color:rgba(255,216,135,.72);font:9px "Space Mono",monospace;letter-spacing:.16em;text-transform:uppercase}.prize-copy h2{margin:10px 0 0;font:600 clamp(38px,5vw,66px)/.95 "Cormorant Garamond",serif;letter-spacing:-.035em}.prize-price{margin-top:16px;display:flex;align-items:baseline;gap:10px;color:var(--gold-light)}.prize-price small{font:600 20px "Cormorant Garamond",serif}.prize-price strong{font:600 clamp(52px,7vw,86px)/.85 "Cormorant Garamond",serif;letter-spacing:-.04em}.prize-term{display:inline-flex;margin-top:18px;padding:11px 17px;border:1px solid rgba(255,216,135,.28);border-radius:999px;color:#ffe6ad;background:linear-gradient(180deg,rgba(93,12,22,.68),rgba(35,5,9,.78));font:700 11px "Space Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
-    .prize-benefits{display:grid;gap:14px}.prize-benefits span{display:grid;grid-template-columns:30px 1fr;align-items:center;gap:11px;color:rgba(245,238,228,.82);font-size:13px}.prize-benefits i{width:30px;height:30px;display:grid;place-items:center;border:1px solid rgba(255,216,135,.36);border-radius:50%;color:var(--gold-light);font-style:normal;background:rgba(10,6,4,.7)}.prize-reveal.is-visible .prize-benefits span{animation:benefitReveal .55s both}.prize-reveal.is-visible .prize-benefits span:nth-child(2){animation-delay:.12s}.prize-reveal.is-visible .prize-benefits span:nth-child(3){animation-delay:.24s}.prize-reveal.is-visible .prize-benefits span:nth-child(4){animation-delay:.36s}.prize-footnote{position:relative;z-index:1;margin:14px 12px 0;padding:14px 18px;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid rgba(255,216,135,.1);border-radius:999px;color:rgba(245,238,228,.56);font-size:11px;text-align:center}.prize-footnote::before{content:"i";width:22px;height:22px;display:grid;place-items:center;border:1px solid rgba(255,216,135,.32);border-radius:50%;color:var(--gold-light);font:700 11px "Space Mono",monospace}
+    .prize-benefits{display:grid;gap:14px}.prize-benefits span{display:grid;grid-template-columns:30px 1fr;align-items:center;gap:11px;color:rgba(245,238,228,.82);font-size:13px}.prize-benefits i{width:30px;height:30px;display:grid;place-items:center;border:1px solid rgba(255,216,135,.36);border-radius:50%;color:var(--gold-light);font-style:normal;background:rgba(10,6,4,.7)}.prize-reveal.is-visible .prize-benefits span{animation:benefitReveal .55s both}.prize-reveal.is-visible .prize-benefits span:nth-child(2){animation-delay:.12s}.prize-reveal.is-visible .prize-benefits span:nth-child(3){animation-delay:.24s}.prize-reveal.is-visible .prize-benefits span:nth-child(4){animation-delay:.36s}
+    .claim-panel{position:relative;z-index:1;margin:14px 12px 0;padding:18px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:18px;border:1px solid rgba(255,216,135,.18);border-radius:20px;background:linear-gradient(180deg,rgba(22,12,8,.86),rgba(8,5,4,.92));box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}.claim-copy{display:grid;gap:4px}.claim-copy small{color:rgba(255,216,135,.6);font:8px "Space Mono",monospace;letter-spacing:.14em;text-transform:uppercase}.claim-code{color:var(--gold-light);font:700 clamp(18px,2.4vw,28px) "Space Mono",monospace;letter-spacing:.16em}.claim-action{min-height:58px;padding:0 22px;border:1px solid rgba(255,216,135,.58);border-radius:14px;color:#ffeab9;background:linear-gradient(180deg,#8f1322,#4a0710);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 12px 28px rgba(0,0,0,.34);cursor:pointer;font:700 10px "Space Mono",monospace;letter-spacing:.1em;text-transform:uppercase;transition:.25s ease}.claim-action:hover{transform:translateY(-2px);filter:brightness(1.08)}.claim-action.is-copied{background:linear-gradient(180deg,#6e4218,#2c1608);color:var(--gold-light)}.claim-note{grid-column:1/-1;margin:0;color:rgba(245,238,228,.48);font-size:10px;line-height:1.5}
     @keyframes pulse{0%,100%{opacity:.55;transform:scale(.84)}50%{opacity:1;transform:scale(1.14)}}@keyframes breath{0%,100%{opacity:.56;transform:translateX(-50%) scale(.97)}50%{opacity:1;transform:translateX(-50%) scale(1.015)}}@keyframes rotateSlow{to{transform:translateX(-50%) rotate(360deg)}}@keyframes sweep{0%,60%{transform:translateX(-260%) rotate(18deg);opacity:0}70%{opacity:1}90%,100%{transform:translateX(470%) rotate(18deg);opacity:0}}@keyframes pointerTick{from{transform:translateX(-50%) rotate(-4deg)}to{transform:translateX(-50%) rotate(5deg)}}@keyframes winnerPulse{0%{filter:brightness(1)}45%{filter:brightness(1.42);box-shadow:0 0 58px rgba(255,216,135,.62),0 0 84px rgba(143,19,34,.48)}100%{filter:brightness(1.08)}}@keyframes medallionReveal{from{opacity:0;transform:rotate(-22deg) scale(.72)}to{opacity:1;transform:none}}@keyframes benefitReveal{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
     @media(max-width:900px){.hero{padding-inline:30px}.hero::before,.hero::after{width:17%}.wheel-stage{min-height:800px}.wheel{--radius:238px}.segment-card{width:146px;height:108px}.segment-card strong{font-size:10px}.segment-card small{font-size:8px}.wheel-center{width:146px}.wheel-center::before{font-size:74px}.prize-reveal__inner{grid-template-columns:180px 1fr}.prize-benefits{grid-column:1/-1;grid-template-columns:repeat(2,1fr)}.prize-medallion{width:160px}}
-    @media(max-width:640px){.page{width:min(100% - 18px,1440px);padding-top:12px}.status{display:none}.hero{padding:32px 8px 20px}.hero::before,.hero::after,.hero__hud{display:none}.hero h1{font-size:clamp(42px,14vw,66px)}.wheel-stage{min-height:500px;padding-top:46px}.pointer{top:10px;transform:translateX(-50%) scale(.7)}.pointer.is-ticking{animation:none}.wheel{--radius:124px}.segment-card{width:88px;height:72px;padding:5px 4px;border-radius:9px;grid-template-rows:22px auto}.segment-card__icon{width:22px;height:22px;font-size:11px}.segment-card strong{font-size:6.8px}.segment-card small{display:none}.wheel-center{width:88px}.wheel-center::before{font-size:46px}.spin-console{width:min(100%,430px);padding:7px}.spin-button{min-height:74px;grid-template-columns:44px 1fr 44px;padding:0 12px}.spin-button__icon,.spin-button__arrow{width:38px;height:38px;font-size:17px}.spin-button__copy strong{font-size:14px}.spin-note{font-size:7px;padding:9px 11px}.prize-reveal{margin-top:48px;padding:9px}.prize-reveal__inner{padding:28px 18px;grid-template-columns:1fr;text-align:center}.prize-medallion{width:145px}.prize-copy h2{font-size:44px}.prize-price{justify-content:center}.prize-benefits{grid-template-columns:1fr;text-align:left}.prize-footnote{border-radius:16px}}
+    @media(max-width:640px){.page{width:min(100% - 18px,1440px);padding-top:12px}.status{display:none}.hero{padding:32px 8px 20px}.hero::before,.hero::after,.hero__hud{display:none}.hero h1{font-size:clamp(42px,14vw,66px)}.wheel-stage{min-height:500px;padding-top:46px}.pointer{top:10px;transform:translateX(-50%) scale(.7)}.pointer.is-ticking{animation:none}.wheel{--radius:124px}.segment-card{width:88px;height:72px;padding:5px 4px;border-radius:9px;grid-template-rows:22px auto}.segment-card__icon{width:22px;height:22px;font-size:11px}.segment-card strong{font-size:6.8px}.segment-card small{display:none}.wheel-center{width:88px}.wheel-center::before{font-size:46px}.spin-console{width:min(100%,430px);padding:7px}.spin-button{min-height:74px;grid-template-columns:44px 1fr 44px;padding:0 12px}.spin-button__icon,.spin-button__arrow{width:38px;height:38px;font-size:17px}.spin-button__copy strong{font-size:14px}.spin-note{font-size:7px;padding:9px 11px}.prize-reveal{margin-top:48px;padding:9px}.prize-reveal__inner{padding:28px 18px;grid-template-columns:1fr;text-align:center}.prize-medallion{width:145px}.prize-copy h2{font-size:44px}.prize-price{justify-content:center}.prize-benefits{grid-template-columns:1fr;text-align:left}.claim-panel{grid-template-columns:1fr;text-align:center}.claim-action{width:100%}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.wheel{transition-duration:.28s!important}}
   </style>
 </head>
 <body>
   <div class="page">
-    <header class="topbar"><a class="brand" href="index.html">cevora</a><span class="status" id="offerStatus">Condição especial ativa</span></header>
+    <header class="topbar"><a class="brand" href="index.html">cevora</a><span class="status" id="pageStatus">Condição especial ativa</span></header>
     <main>
       <section class="hero" aria-labelledby="rouletteTitle">
         <div class="hero__hud" aria-hidden="true"><span>Sistema de recompensa</span><i></i><span>Acesso reservado</span></div>
@@ -68,7 +69,7 @@
       </section>
       <div class="spin-wrap">
         <div class="spin-console"><button class="spin-button" id="rouletteSpin" type="button"><span class="spin-button__icon">◌</span><span class="spin-button__copy"><strong id="spinLabel">Girar a roleta</strong><small id="spinSubLabel">Revelar minha condição exclusiva</small></span><span class="spin-button__arrow">→</span></button></div>
-        <span class="spin-note" id="spinNote">Condição promocional previamente definida para esta experiência</span>
+        <span class="spin-note">Condição promocional previamente definida para esta experiência</span>
       </div>
       <section class="prize-reveal" id="rouletteResult" aria-live="polite" aria-hidden="true">
         <div class="prize-reveal__inner">
@@ -76,14 +77,17 @@
           <div class="prize-copy"><span class="prize-copy__eyebrow">Prêmio revelado</span><h2>Todos os produtos</h2><div class="prize-price"><small>R$</small><strong>3.600</strong></div><span class="prize-term">5 meses + 1 mês grátis</span></div>
           <div class="prize-benefits"><span><i>✓</i>Acesso a todos os produtos</span><span><i>✓</i>Implantação completa</span><span><i>✓</i>Concierge e suporte inclusos</span><span><i>✓</i>Execução integrada por 6 meses</span></div>
         </div>
-        <p class="prize-footnote">Esta é a condição especial preparada para o momento de crescimento da sua clínica.</p>
+        <div class="claim-panel">
+          <div class="claim-copy"><small>Código da condição</small><strong class="claim-code" id="claimCode">CEVORA3600</strong></div>
+          <button class="claim-action" id="copyCode" type="button">Copiar código</button>
+          <p class="claim-note" id="claimNote">Guarde este código para identificar a condição revelada durante o atendimento comercial.</p>
+        </div>
       </section>
     </main>
   </div>
   <script>
     (()=>{
       'use strict';
-      const storageKey='cevora-roulette-revealed-v1';
       const wheel=document.querySelector('#rouletteWheel');
       const button=document.querySelector('#rouletteSpin');
       const result=document.querySelector('#rouletteResult');
@@ -91,42 +95,39 @@
       const heroPrize=document.querySelector('.segment-card--hero');
       const label=document.querySelector('#spinLabel');
       const subLabel=document.querySelector('#spinSubLabel');
-      const note=document.querySelector('#spinNote');
-      const status=document.querySelector('#offerStatus');
+      const status=document.querySelector('#pageStatus');
+      const copyButton=document.querySelector('#copyCode');
+      const claimNote=document.querySelector('#claimNote');
+      const code='CEVORA3600';
       const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const storageKey='cevoraPrizeRevealed';
       let rotation=0;
       let spinning=false;
 
-      const persist=()=>{try{localStorage.setItem(storageKey,'1')}catch{}}
-      const wasRevealed=()=>{try{return localStorage.getItem(storageKey)==='1'}catch{return false}}
-      const setCompletedState=(animate=false)=>{
-        heroPrize?.classList.add('is-winning');
+      const completeState=({scroll=false}={})=>{
         result?.classList.add('is-visible');
         result?.setAttribute('aria-hidden','false');
+        heroPrize?.classList.add('is-winning');
         button?.classList.add('is-complete');
         if(button)button.disabled=true;
         if(label)label.textContent='Condição já revelada';
         if(subLabel)subLabel.textContent='Todos os produtos por R$ 3.600';
-        if(note)note.textContent='Sua condição foi preservada neste navegador';
-        if(status)status.textContent='Condição revelada e preservada';
-        if(!animate){
-          heroPrize?.classList.remove('is-winning');
-          requestAnimationFrame(()=>heroPrize?.classList.add('is-winning'));
-        }
+        if(status)status.textContent='Condição preservada';
+        if(scroll)setTimeout(()=>result?.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'}),180);
       };
+
       const reveal=()=>{
         wheel?.classList.remove('is-spinning');
         pointer?.classList.remove('is-ticking');
+        try{localStorage.setItem(storageKey,'true')}catch{}
+        completeState({scroll:true});
         spinning=false;
-        persist();
-        setCompletedState(true);
-        setTimeout(()=>result?.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'}),180);
       };
 
-      if(wasRevealed())setCompletedState(false);
+      try{if(localStorage.getItem(storageKey)==='true')completeState()}catch{}
 
       button?.addEventListener('click',()=>{
-        if(!wheel||spinning||wasRevealed())return;
+        if(!wheel||spinning||button.disabled)return;
         spinning=true;
         button.disabled=true;
         heroPrize?.classList.remove('is-winning');
@@ -142,6 +143,21 @@
         wheel.style.transition=reduce?'transform .28s ease-out':'transform 6s cubic-bezier(.08,.72,.08,1)';
         wheel.style.transform=`rotate(${rotation}deg)`;
         setTimeout(reveal,reduce?320:6100);
+      });
+
+      copyButton?.addEventListener('click',async()=>{
+        try{
+          await navigator.clipboard.writeText(code);
+          copyButton.textContent='Código copiado';
+          copyButton.classList.add('is-copied');
+          if(claimNote)claimNote.textContent='Código copiado. Ele já está pronto para ser enviado durante o atendimento.';
+        }catch{
+          const range=document.createRange();
+          const selection=window.getSelection();
+          const codeEl=document.querySelector('#claimCode');
+          if(codeEl&&selection){range.selectNodeContents(codeEl);selection.removeAllRanges();selection.addRange(range)}
+          copyButton.textContent='Selecione o código';
+        }
       });
     })();
   </script>
