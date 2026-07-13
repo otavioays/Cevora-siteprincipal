@@ -1,0 +1,15 @@
+@media (min-width: 901px) {
+  .brand-story--thesis .brand-story__split {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  }
+
+  .brand-story--thesis .leak-machine {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .brand-story--thesis .brand-story__split > div:first-child {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
