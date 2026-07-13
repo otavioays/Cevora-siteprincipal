@@ -1,6 +1,15 @@
 (() => {
   'use strict';
 
+  const pomegranateHref = 'pomegranate-symbol-v17.css?v=17.0';
+  if (!document.querySelector('link[data-cevora-pomegranate="v17"]')) {
+    const pomegranateStyle = document.createElement('link');
+    pomegranateStyle.rel = 'stylesheet';
+    pomegranateStyle.href = pomegranateHref;
+    pomegranateStyle.dataset.cevoraPomegranate = 'v17';
+    document.head.appendChild(pomegranateStyle);
+  }
+
   const PRICE = 'R$ 200';
 
   const style = document.createElement('style');
