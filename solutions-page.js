@@ -79,8 +79,8 @@
   window.setTimeout(() => observer.disconnect(), 8000);
 
   const pomegranate = document.createElement('script');
-  pomegranate.src = 'pomegranate-runtime.js';
-  pomegranate.dataset.pomegranateRuntime = 'true';
+  pomegranate.src = 'pomegranate-native-v15.js?v=15.1';
+  pomegranate.dataset.pomegranateNative = 'true';
   document.body.appendChild(pomegranate);
 
   const core = document.createElement('script');
