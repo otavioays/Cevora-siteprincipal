@@ -5,7 +5,7 @@
   window.__cevoraFoldIndexLoaded = true;
 
   const folds = [
-    { section: '#produto', content: '.hero__content', number: '01', name: 'Concierge 24/7' },
+    { section: '#produto', content: '.hero__content', number: '01', name: 'Sistema Cevora' },
     { section: '#conversion', content: '.conversion__content', number: '02', name: 'Conversion Atelier' },
     { section: '#course', content: '.course__content', number: '03', name: 'Clínica Próspera' },
     { section: '#acquisition', content: '.acquisition__content', number: '04', name: 'Acquisition OS' },
@@ -15,7 +15,7 @@
   const render = ({ number, name }) => {
     const marker = document.createElement('div');
     marker.className = 'fold-index-label';
-    marker.setAttribute('aria-label', `Produto ${Number(number)} de ${folds.length}: ${name}`);
+    marker.setAttribute('aria-label', `Seção ${Number(number)} de ${folds.length}: ${name}`);
     marker.innerHTML = `
       <span class="fold-index-label__number">${number}</span>
       <i class="fold-index-label__line" aria-hidden="true"></i>
