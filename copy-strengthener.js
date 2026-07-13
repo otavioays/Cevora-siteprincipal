@@ -31,7 +31,6 @@
     const candidates = [...button.querySelectorAll('span')].filter((span) => !span.classList.contains('button__icon') && !span.classList.contains('play-icon'));
     const label = candidates.at(-1);
     if (label) label.textContent = value;
-    else button.firstChild.textContent = value;
   };
 
   const applyStaticCopy = () => {
@@ -143,7 +142,7 @@
         'Organizamos mensagem, atendimento, próximos passos e automação para que a conversa tenha direção.',
         'Medimos passagem, continuidade e motivos de perda para melhorar a jornada com comportamento real.'
       ]);
-      setTexts(method, '.method-path__step ul', [
+      setHTMLs(method, '.method-path__step ul', [
         '<li>Onde o paciente perde segurança</li><li>Quando o preço assume o controle</li><li>Por que a conversa não avança</li>',
         '<li>Oferta e mensagem por procedimento</li><li>Pré-consulta e condução no WhatsApp</li><li>Automação com saída humana</li>',
         '<li>Contato transformado em avaliação</li><li>Follow-up realmente executado</li><li>Motivos de perda registrados</li>'
@@ -181,7 +180,8 @@
 
   const applySolutionsCopy = () => {
     const root = document.querySelector('#solucoes');
-    if (!root || root.dataset.copyV6 === 'true') return false;
+    if (!root) return false;
+    if (root.dataset.copyV6 === 'true') return true;
     root.dataset.copyV6 = 'true';
 
     setHTML(root, '.solutions-heading__copy h2', 'Automação sem diagnóstico só torna o erro <em>mais eficiente.</em>');
@@ -210,10 +210,7 @@
     const packageCtas = root.querySelectorAll('.package-panel__cta');
     ['Corrigir o primeiro contato', 'Impedir oportunidades esquecidas', 'Reconstruir a jornada inteira'].forEach((label, index) => {
       const button = packageCtas[index];
-      if (!button) return;
-      const arrow = button.querySelector('span');
-      button.childNodes[0].textContent = `${label} `;
-      if (arrow) arrow.textContent = '↗';
+      if (button) button.innerHTML = `${label} <span>↗</span>`;
     });
 
     setText(root, '.solution-layer--intelligence p', 'Sem dados, toda melhoria é opinião. A Intelligence mostra onde o paciente avança, trava e desaparece.');
@@ -227,7 +224,8 @@
 
   const applyAuthorityCopy = () => {
     const root = document.querySelector('#sobre');
-    if (!root || root.dataset.copyV6 === 'true') return false;
+    if (!root) return false;
+    if (root.dataset.copyV6 === 'true') return true;
     root.dataset.copyV6 = 'true';
 
     setHTML(root, '.authority-header h2', 'Confiança não se pede. <em>Constrói-se de forma verificável.</em>');
