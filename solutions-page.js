@@ -82,4 +82,9 @@
   core.src = 'solutions-page-core.js';
   core.dataset.solutionsCore = 'true';
   document.body.appendChild(core);
+
+  const pricing = document.createElement('script');
+  pricing.src = 'automation-pricing.js';
+  pricing.dataset.automationPricing = 'true';
+  document.body.appendChild(pricing);
 })();
