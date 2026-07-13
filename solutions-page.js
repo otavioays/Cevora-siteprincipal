@@ -78,6 +78,11 @@
   });
   window.setTimeout(() => observer.disconnect(), 8000);
 
+  const pomegranate = document.createElement('script');
+  pomegranate.src = 'pomegranate-runtime.js';
+  pomegranate.dataset.pomegranateRuntime = 'true';
+  document.body.appendChild(pomegranate);
+
   const core = document.createElement('script');
   core.src = 'solutions-page-core.js';
   core.dataset.solutionsCore = 'true';
