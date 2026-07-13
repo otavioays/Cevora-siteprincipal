@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles-brand-narrative.css" />
 </head>
 <body>
   <div class="page-noise" aria-hidden="true"></div>
@@ -53,8 +54,8 @@
       </a>
 
       <nav class="desktop-nav" aria-label="Navegação principal">
-        <a href="#top">O problema</a>
-        <a href="#metodo">Método</a>
+        <a href="#problema" data-nav-problem>O problema</a>
+        <a href="#metodo" data-nav-method>Método</a>
         <a href="#conversion">Soluções</a>
       </nav>
 
@@ -71,8 +72,8 @@
   </header>
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="#top">O problema</a>
-    <a href="#metodo">Método</a>
+    <a href="#problema" data-nav-problem>O problema</a>
+    <a href="#metodo" data-nav-method>Método</a>
     <a href="#conversion">Soluções</a>
     <button type="button" data-diagnostic-open>Diagnosticar minha clínica</button>
   </div>
@@ -226,6 +227,204 @@
 
       <div class="scroll-hint" aria-hidden="true"><span></span>Explore</div>
     </section>
+
+    <section class="brand-story brand-story--leak frame-corners" id="problema" aria-labelledby="problemTitle">
+      <div class="brand-story__shell">
+        <span class="brand-story__kicker" data-story-reveal>O intervalo invisível</span>
+        <h2 class="brand-story__title" id="problemTitle" data-story-reveal style="--story-delay: 80ms">
+          Sua clínica pode estar perdendo pacientes <em>antes da avaliação.</em>
+        </h2>
+        <p class="brand-story__lead" data-story-reveal style="--story-delay: 150ms">
+          O paciente viu seu conteúdo, chamou no WhatsApp, perguntou, comparou, esperou, esfriou e sumiu. Isso nem sempre é falta de interesse. Muitas vezes é uma <strong>quebra de confiança no caminho.</strong>
+        </p>
+
+        <div class="patient-path" aria-label="Caminho do paciente entre interesse e abandono">
+          <article class="patient-path__step" data-story-reveal style="--story-delay: 80ms">
+            <small>01</small>
+            <strong>Viu</strong>
+            <span>Encontrou a clínica por conteúdo, indicação ou anúncio.</span>
+          </article>
+          <article class="patient-path__step" data-story-reveal style="--story-delay: 140ms">
+            <small>02</small>
+            <strong>Chamou</strong>
+            <span>Abriu uma conversa tentando entender o próximo passo.</span>
+          </article>
+          <article class="patient-path__step" data-story-reveal style="--story-delay: 200ms">
+            <small>03</small>
+            <strong>Perguntou</strong>
+            <span>Buscou preço, segurança, contexto ou redução de incerteza.</span>
+          </article>
+          <article class="patient-path__step patient-path__step--break" data-story-reveal style="--story-delay: 260ms">
+            <small>04</small>
+            <strong>Comparou</strong>
+            <span>Sem contexto suficiente, a decisão começou a parecer commodity.</span>
+          </article>
+          <article class="patient-path__step patient-path__step--break" data-story-reveal style="--story-delay: 320ms">
+            <small>05</small>
+            <strong>Esfriou</strong>
+            <span>A conversa terminou sem condução, critério ou próximo passo claro.</span>
+          </article>
+          <article class="patient-path__step patient-path__step--break" data-story-reveal style="--story-delay: 380ms">
+            <small>06</small>
+            <strong>Sumiu</strong>
+            <span>A perda parece inexplicável porque ninguém registrou onde a confiança quebrou.</span>
+          </article>
+        </div>
+
+        <div class="brand-story__diagnosis" data-story-reveal>
+          <i aria-hidden="true">◎</i>
+          <div>
+            <strong>O paciente não some do nada.</strong>
+            <span>Em algum ponto, a clínica deixou de acumular confiança suficiente para a decisão avançar.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="brand-story brand-story--thesis" id="tese" aria-labelledby="thesisTitle">
+      <div class="brand-story__shell brand-story__split">
+        <div>
+          <span class="brand-story__kicker" data-story-reveal>A solução errada</span>
+          <h2 class="brand-story__title" id="thesisTitle" data-story-reveal style="--story-delay: 80ms">
+            Mais leads não corrigem uma jornada que <em>não transmite confiança.</em>
+          </h2>
+          <p class="brand-story__lead" data-story-reveal style="--story-delay: 150ms">
+            Se o atendimento não conduz, se o preço aparece antes do valor, se o follow-up não existe e se o posicionamento parece igual ao dos concorrentes, tráfego só leva mais pessoas até o mesmo vazamento.
+          </p>
+
+          <div class="enemy-grid" aria-label="Os três inimigos operacionais da Cevora">
+            <article class="enemy-card" data-story-reveal style="--story-delay: 220ms">
+              <span>01</span>
+              <div>
+                <strong>Marketing decorativo</strong>
+                <p>Visibilidade, posts e anúncios sem responsabilidade pelo que acontece depois do clique.</p>
+              </div>
+            </article>
+            <article class="enemy-card" data-story-reveal style="--story-delay: 280ms">
+              <span>02</span>
+              <div>
+                <strong>Atendimento improvisado</strong>
+                <p>Respostas educadas, porém genéricas, sem construção de contexto e sem condução de decisão.</p>
+              </div>
+            </article>
+            <article class="enemy-card" data-story-reveal style="--story-delay: 340ms">
+              <span>03</span>
+              <div>
+                <strong>Falta de mensuração</strong>
+                <p>A clínica suspeita do gargalo, mas não registra motivos de perda, follow-up ou passagem para avaliação.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="leak-machine" data-story-reveal aria-label="Visualização conceitual de um funil com vazamentos">
+          <div class="leak-machine__label"><span>Jornada atual</span><b>Entrada de interesse</b></div>
+          <div class="leak-machine__flow">
+            <span>Paciente demonstra interesse</span>
+            <span>Entra em contato com a clínica</span>
+            <span>Recebe informação sem contexto</span>
+            <span>Conversa termina sem próximo passo</span>
+            <span>Oportunidade deixa de ser acompanhada</span>
+          </div>
+          <div class="leak-machine__rupture">Mais tráfego acelera a perda.</div>
+          <div class="leak-machine__outcome">
+            <div><strong>Mais mensagens</strong><span>sem garantia de melhor condução</span></div>
+            <div><strong>Mais comparação</strong><span>quando o valor não foi construído</span></div>
+            <div><strong>Mais desperdício</strong><span>quando o motivo da perda não é medido</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="brand-story brand-story--belief" id="conflito" aria-labelledby="beliefTitle">
+      <div class="brand-story__shell">
+        <span class="brand-story__kicker" data-story-reveal>A injustiça que a Cevora combate</span>
+        <h2 class="brand-story__title" id="beliefTitle" data-story-reveal style="--story-delay: 80ms">
+          Cirurgiões sérios não deveriam precisar <em>parecer baratos para crescer.</em>
+        </h2>
+        <p class="brand-story__lead" data-story-reveal style="--story-delay: 150ms">
+          Competência clínica não se distribui sozinha. Antes da consulta, o paciente precisa encontrar, entender e confiar. A função da Cevora é organizar esse caminho sem transformar o médico em vendedor, influencer ou clínica de promoção.
+        </p>
+
+        <div class="identity-shift">
+          <article class="identity-shift__state" data-story-reveal style="--story-delay: 220ms">
+            <small>Estado atual</small>
+            <strong>Disputando atenção e sendo comparado por preço</strong>
+            <p>A clínica investe em presença, mas a jornada ainda deixa o paciente interpretar valor sozinho.</p>
+          </article>
+          <div class="identity-shift__arrow" data-story-reveal style="--story-delay: 280ms" aria-hidden="true">→</div>
+          <article class="identity-shift__state identity-shift__state--after" data-story-reveal style="--story-delay: 340ms">
+            <small>Transformação</small>
+            <strong>Autoridade escolhida com confiança</strong>
+            <p>Posicionamento, pré-consulta e mensuração trabalham juntos para tornar a escolha mais clara.</p>
+          </article>
+        </div>
+
+        <p class="guide-line" data-story-reveal>
+          <strong>Você entende de cirurgia.</strong> A Cevora entende o caminho que acontece antes de o paciente sentar na sua frente.
+        </p>
+      </div>
+    </section>
+
+    <section class="brand-story brand-story--method frame-corners" id="metodo" aria-labelledby="methodTitle">
+      <div class="brand-story__shell">
+        <span class="brand-story__kicker" data-story-reveal>Método Cevora</span>
+        <h2 class="brand-story__title" id="methodTitle" data-story-reveal style="--story-delay: 80ms">
+          Uma jornada complexa. <em>Um plano simples.</em>
+        </h2>
+        <p class="brand-story__lead" data-story-reveal style="--story-delay: 150ms">
+          A Cevora não começa vendendo uma ferramenta. Primeiro identifica o gargalo, depois estrutura a correção e só então mede se o sistema está fazendo o paciente avançar.
+        </p>
+
+        <div class="method-path">
+          <article class="method-path__step" data-step="01" data-story-reveal style="--story-delay: 180ms">
+            <small>Etapa 01</small>
+            <h3>Diagnosticar onde a confiança vaza</h3>
+            <p>Mapeamos o caminho atual para separar impressão de evidência e descobrir o ponto prioritário.</p>
+            <ul>
+              <li>Posicionamento e primeira impressão</li>
+              <li>WhatsApp e pergunta de preço</li>
+              <li>Follow-up, agendamento e motivos de perda</li>
+            </ul>
+          </article>
+          <article class="method-path__step" data-step="02" data-story-reveal style="--story-delay: 260ms">
+            <small>Etapa 02</small>
+            <h3>Estruturar a jornada de pré-consulta</h3>
+            <p>Criamos um caminho claro para acolher, educar, qualificar e conduzir sem transformar a experiência em um script frio.</p>
+            <ul>
+              <li>Mensagem e oferta por procedimento</li>
+              <li>Roteiros, páginas e próximos passos</li>
+              <li>Automação como proteção de padrão</li>
+            </ul>
+          </article>
+          <article class="method-path__step" data-step="03" data-story-reveal style="--story-delay: 340ms">
+            <small>Etapa 03</small>
+            <h3>Converter, medir e melhorar</h3>
+            <p>Acompanhamos a passagem entre interesse e avaliação para corrigir gargalos com base no comportamento real.</p>
+            <ul>
+              <li>Conversão de contatos em avaliações</li>
+              <li>Origem dos melhores pacientes</li>
+              <li>Prioridade de otimização da jornada</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="method-cta" data-story-reveal>
+          <div class="method-cta__copy">
+            <strong>Antes de buscar mais pacientes, descubra onde os atuais estão sumindo.</strong>
+            <span>O diagnóstico mostra qual parte da jornada precisa ser corrigida primeiro.</span>
+          </div>
+          <div class="method-cta__actions">
+            <button class="button button--primary magnetic" type="button" data-diagnostic-open>
+              <span>Diagnosticar minha clínica</span><i aria-hidden="true">↗</i>
+            </button>
+            <a class="button button--ghost magnetic" href="#conversion">
+              <span>Conhecer as soluções</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <div class="modal" id="demoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
@@ -291,6 +490,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="script.js"></script>
+  <script src="brand-narrative.js"></script>
   <script>
     (() => {
       'use strict';
