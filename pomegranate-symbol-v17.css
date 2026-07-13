@@ -1,0 +1,88 @@
+.system-console__symbol,
+.detail-console__symbol {
+  position: relative !important;
+  z-index: 5 !important;
+  display: block !important;
+  width: 118px !important;
+  height: 112px !important;
+  min-width: 118px !important;
+  min-height: 112px !important;
+  overflow: visible !important;
+  border: 1px solid rgba(240, 204, 130, .38) !important;
+  border-radius: 48% 52% 51% 49% / 41% 42% 58% 59% !important;
+  background:
+    radial-gradient(circle at 68% 23%, rgba(255, 154, 157, .98) 0 5%, rgba(213, 35, 59, .94) 18%, transparent 39%),
+    radial-gradient(circle at 27% 35%, rgba(255, 176, 169, .34), transparent 30%),
+    radial-gradient(circle at 53% 70%, #7d111d 0, #43060f 58%, #1b0106 100%),
+    linear-gradient(135deg, #d52440 0, #80101f 48%, #250208 100%) !important;
+  box-shadow:
+    inset 15px 10px 24px rgba(255, 197, 181, .14),
+    inset -20px -18px 34px rgba(12, 0, 3, .78),
+    inset 0 0 0 1px rgba(255, 255, 255, .04),
+    0 20px 34px rgba(0, 0, 0, .52),
+    0 0 48px rgba(125, 17, 29, .42) !important;
+  filter: none !important;
+  isolation: isolate;
+  transform-origin: 50% 72%;
+  animation: cevoraPomegranateFloatV17 5.6s ease-in-out infinite;
+}
+
+.system-console__symbol > *,
+.detail-console__symbol > * {
+  display: none !important;
+}
+
+.system-console__symbol::before,
+.detail-console__symbol::before {
+  content: '' !important;
+  position: absolute !important;
+  z-index: 6 !important;
+  left: 50% !important;
+  top: -39px !important;
+  width: 84px !important;
+  height: 49px !important;
+  transform: translateX(-50%) !important;
+  clip-path: polygon(0 100%, 11% 34%, 27% 78%, 37% 4%, 50% 70%, 63% 4%, 73% 78%, 89% 34%, 100% 100%, 72% 88%, 50% 100%, 28% 88%) !important;
+  background: linear-gradient(104deg, #4a2206 0, #d39b3d 25%, #fff0aa 45%, #b76c1d 68%, #321303 100%) !important;
+  filter: drop-shadow(0 5px 7px rgba(0, 0, 0, .62)) !important;
+  pointer-events: none !important;
+}
+
+.system-console__symbol::after,
+.detail-console__symbol::after {
+  content: '' !important;
+  position: absolute !important;
+  z-index: 3 !important;
+  left: 16px !important;
+  top: 13px !important;
+  width: 34px !important;
+  height: 67px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(105deg, rgba(255, 255, 255, .5), rgba(255, 190, 180, .13) 43%, transparent 74%) !important;
+  filter: blur(.7px) !important;
+  transform: rotate(18deg) !important;
+  opacity: .6 !important;
+  pointer-events: none !important;
+}
+
+@keyframes cevoraPomegranateFloatV17 {
+  0%, 100% { transform: translateY(1px) rotate(-.35deg); }
+  50% { transform: translateY(-5px) rotate(.45deg); }
+}
+
+@media (max-width: 560px) {
+  .system-console__symbol,
+  .detail-console__symbol {
+    width: 104px !important;
+    height: 100px !important;
+    min-width: 104px !important;
+    min-height: 100px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .system-console__symbol,
+  .detail-console__symbol {
+    animation: none !important;
+  }
+}
