@@ -9,7 +9,8 @@
     { section: '#problema', content: '.brand-story__shell', number: '02', name: 'O intervalo invisível' },
     { section: '#tese', content: '.brand-story__shell', number: '03', name: 'A solução errada' },
     { section: '#metodo', content: '.brand-story__shell', number: '04', name: 'Método Cevora' },
-    { section: '#solucoes', content: '.solutions-architecture__shell', number: '05', name: 'Arquitetura de soluções' }
+    { section: '#solucoes', content: '.solutions-architecture__shell', number: '05', name: 'Arquitetura de soluções' },
+    { section: '#sobre', content: '.trust-authority__shell', number: '06', name: 'Autoridade e processo' }
   ];
 
   const render = ({ number, name }) => {
@@ -55,5 +56,5 @@
   window.setTimeout(() => {
     mount();
     observer.disconnect();
-  }, 9000);
+  }, 10000);
 })();
