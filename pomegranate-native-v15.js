@@ -107,6 +107,7 @@
 
   const mount = () => {
     document.querySelectorAll(SELECTOR).forEach((container) => {
+      if (container.dataset.pomegranateRendered === 'v16' && container.children.length === 0) return;
       container.replaceChildren();
       container.setAttribute('role', 'img');
       container.setAttribute('aria-label', 'Romã, símbolo da Cevora');
