@@ -1,31 +1,45 @@
 (() => {
   'use strict';
 
-  const loadProductArchitecture = () => {
+  const loadModule = ({ name, styleHref, scriptSrc, delay = 1200 }) => {
+    const scriptSelector = `script[data-cevora-module="${name}"]`;
+    const styleSelector = `link[data-cevora-module="${name}"]`;
+
     const mountScript = () => {
-      if (document.querySelector('script[data-product-architecture]')) return;
+      if (document.querySelector(scriptSelector)) return;
       const script = document.createElement('script');
-      script.src = 'product-architecture.js';
-      script.dataset.productArchitecture = 'true';
+      script.src = scriptSrc;
+      script.dataset.cevoraModule = name;
       document.body.appendChild(script);
     };
 
-    const existingStyle = document.querySelector('link[data-product-architecture]');
-    if (existingStyle) {
+    if (document.querySelector(styleSelector)) {
       mountScript();
       return;
     }
 
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = 'styles-product-architecture.css';
-    style.dataset.productArchitecture = 'true';
+    style.href = styleHref;
+    style.dataset.cevoraModule = name;
     style.addEventListener('load', mountScript, { once: true });
     document.head.appendChild(style);
-    window.setTimeout(mountScript, 1200);
+    window.setTimeout(mountScript, delay);
   };
 
-  loadProductArchitecture();
+  loadModule({
+    name: 'product-architecture',
+    styleHref: 'styles-product-architecture.css',
+    scriptSrc: 'product-architecture.js'
+  });
+
+  loadModule({
+    name: 'trust-authority',
+    styleHref: 'styles-trust-authority.css',
+    scriptSrc: 'trust-authority.js',
+    delay: 1500
+  });
+
   document.documentElement.classList.add('story-motion-ready');
 
   document.querySelectorAll('[data-nav-problem]').forEach((link) => {
