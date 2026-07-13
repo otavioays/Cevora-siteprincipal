@@ -6,10 +6,10 @@
 
   const folds = [
     { section: '#produto', content: '.hero__content', number: '01', name: 'Sistema Cevora' },
-    { section: '#conversion', content: '.conversion__content', number: '02', name: 'Conversion Atelier' },
-    { section: '#course', content: '.course__content', number: '03', name: 'Clínica Próspera' },
-    { section: '#acquisition', content: '.acquisition__content', number: '04', name: 'Acquisition OS' },
-    { section: '#prosperity-engine', content: '.funnel__content', number: '05', name: 'Prosperity Engine' }
+    { section: '#problema', content: '.brand-story__shell', number: '02', name: 'O intervalo invisível' },
+    { section: '#tese', content: '.brand-story__shell', number: '03', name: 'A solução errada' },
+    { section: '#metodo', content: '.brand-story__shell', number: '04', name: 'Método Cevora' },
+    { section: '#solucoes', content: '.solutions-architecture__shell', number: '05', name: 'Arquitetura de soluções' }
   ];
 
   const render = ({ number, name }) => {
@@ -55,5 +55,5 @@
   window.setTimeout(() => {
     mount();
     observer.disconnect();
-  }, 7000);
+  }, 9000);
 })();
