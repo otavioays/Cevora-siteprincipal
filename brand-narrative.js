@@ -87,6 +87,44 @@
     link.setAttribute('href', '#metodo');
   });
 
+  const routeSolutionsNavigation = () => {
+    document.querySelectorAll('.desktop-nav a, .mobile-menu a').forEach((link) => {
+      const label = link.textContent.trim().toLowerCase();
+      if (!label.includes('soluções') && !label.includes('solucoes')) return;
+      link.setAttribute('href', 'solucoes.html');
+      link.removeAttribute('data-nav-solutions');
+    });
+  };
+
+  routeSolutionsNavigation();
+
+  const routeObserver = new MutationObserver(routeSolutionsNavigation);
+  routeObserver.observe(document.querySelector('main') || document.documentElement, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['href']
+  });
+
+  const routeInterval = window.setInterval(routeSolutionsNavigation, 350);
+  window.setTimeout(() => {
+    routeSolutionsNavigation();
+    routeObserver.disconnect();
+    window.clearInterval(routeInterval);
+  }, 11000);
+
+  const diagnosticRequest = new URLSearchParams(window.location.search).get('diagnostico');
+  if (diagnosticRequest === '1') {
+    const openRequestedDiagnostic = () => {
+      window.setTimeout(() => {
+        document.querySelector('[data-diagnostic-open]')?.click();
+      }, 700);
+    };
+
+    if (document.readyState === 'complete') openRequestedDiagnostic();
+    else window.addEventListener('load', openRequestedDiagnostic, { once: true });
+  }
+
   const revealItems = [...document.querySelectorAll('[data-story-reveal]')];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
