@@ -1,6 +1,16 @@
 (() => {
   'use strict';
 
+  const loadStylesheet = ({ name, href }) => {
+    const selector = `link[data-cevora-style="${name}"]`;
+    if (document.querySelector(selector)) return;
+    const style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.href = href;
+    style.dataset.cevoraStyle = name;
+    document.head.appendChild(style);
+  };
+
   const loadModule = ({ name, styleHref, scriptSrc, delay = 1200 }) => {
     const scriptSelector = `script[data-cevora-module="${name}"]`;
     const styleSelector = `link[data-cevora-module="${name}"]`;
@@ -26,6 +36,11 @@
     document.head.appendChild(style);
     window.setTimeout(mountScript, delay);
   };
+
+  loadStylesheet({
+    name: 'thesis-layout-fix',
+    href: 'styles-thesis-layout-fix.css'
+  });
 
   loadModule({
     name: 'product-architecture',
