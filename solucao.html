@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050403" />
+  <meta name="description" content="Entenda em profundidade como cada solução tecnológica Cevora funciona dentro de uma clínica de cirurgia plástica." />
+  <title>Solução Tecnológica Cevora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles-solution-detail.css" />
+</head>
+<body>
+  <div class="detail-noise" aria-hidden="true"></div>
+  <div class="detail-grid" aria-hidden="true"></div>
+  <div class="detail-glow detail-glow--gold" aria-hidden="true"></div>
+  <div class="detail-glow detail-glow--red" aria-hidden="true"></div>
+
+  <header class="detail-header">
+    <a class="detail-brand" href="index.html" aria-label="Cevora, página principal">
+      <span class="detail-brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><path d="M32 6c3 9 3 18 0 27C29 24 29 15 32 6Z"/><path d="M15 14c8 5 13 12 15 21-8-5-13-12-15-21Z"/><path d="M49 14c-8 5-13 12-15 21 8-5 13-12 15-21Z"/><path d="M8 29c9 1 16 5 21 13-9-1-16-5-21-13Z"/><path d="M56 29c-9 1-16 5-21 13 9-1 16-5 21-13Z"/><path d="M19 47c7 3 19 3 26 0" fill="none"/></svg>
+      </span>
+      <span><strong>CEVORA</strong><small>Tecnologia para a jornada da clínica</small></span>
+    </a>
+    <nav aria-label="Navegação da solução">
+      <a href="solucoes.html">Todas as soluções</a>
+      <a href="index.html?diagnostico=1&origem=detalhe-solucao">Diagnóstico</a>
+    </nav>
+  </header>
+
+  <main id="solutionDetail" aria-live="polite">
+    <section class="detail-hero">
+      <div class="detail-hero__copy">
+        <span class="detail-kicker"><i></i><b id="detailCode">MOD / 00</b><em id="detailCategory">Tecnologia</em></span>
+        <h1 id="detailTitle">Solução Cevora</h1>
+        <p class="detail-hero__subtitle" id="detailSubtitle">Carregando a explicação desta solução.</p>
+        <div class="detail-hero__actions">
+          <a class="detail-button detail-button--primary" id="detailDiagnostic" href="index.html?diagnostico=1"><span>Avaliar na minha clínica</span><i>↗</i></a>
+          <a class="detail-button" href="solucoes.html"><span>Voltar ao catálogo</span><i>←</i></a>
+        </div>
+      </div>
+
+      <div class="detail-console" aria-label="Resumo visual da solução">
+        <div class="detail-console__chrome"><span>CEVORA / MODULE EXPLAINER</span><b id="detailStatus">STATUS: MÓDULO OPERACIONAL</b></div>
+        <div class="detail-console__body">
+          <div class="detail-console__orbit" aria-hidden="true"><i></i><i></i></div>
+          <div class="detail-console__symbol"><img src="assets/pomegranate.webp" alt="Romã, símbolo da Cevora" /></div>
+          <div class="detail-console__signal detail-console__signal--one"><small>ENTRADA</small><strong id="detailInput">Contexto</strong></div>
+          <div class="detail-console__signal detail-console__signal--two"><small>PROCESSO</small><strong id="detailProcess">Automação</strong></div>
+          <div class="detail-console__signal detail-console__signal--three"><small>SAÍDA</small><strong id="detailOutput">Próximo passo</strong></div>
+        </div>
+        <div class="detail-console__footer"><span>Limite preservado</span><b>Automação administrativa com responsabilidade humana.</b></div>
+      </div>
+    </section>
+
+    <section class="detail-definition">
+      <div>
+        <span class="detail-kicker"><i></i> Em linguagem simples</span>
+        <h2>O que isso <em>significa na prática?</em></h2>
+      </div>
+      <p id="detailMeaning"></p>
+    </section>
+
+    <section class="detail-problem">
+      <article>
+        <small>O problema antes do sistema</small>
+        <h2 id="detailProblem"></h2>
+      </article>
+      <article>
+        <small>O que muda depois</small>
+        <h2 id="detailOutcome"></h2>
+      </article>
+    </section>
+
+    <section class="detail-flow">
+      <header>
+        <span class="detail-kicker"><i></i> Mecanismo operacional</span>
+        <h2>Como a solução <em>funciona por dentro.</em></h2>
+        <p>Não é uma caixa-preta que “usa IA”. É uma sequência clara de entrada, decisão operacional e passagem para o próximo responsável.</p>
+      </header>
+      <div class="detail-flow__steps" id="detailSteps"></div>
+    </section>
+
+    <section class="detail-implementation">
+      <div class="detail-implementation__copy">
+        <span class="detail-kicker"><i></i> Implantação</span>
+        <h2>Como isso entra <em>na clínica.</em></h2>
+        <p id="detailImplementation"></p>
+        <div class="detail-components">
+          <small>Componentes e integrações</small>
+          <div id="detailTags"></div>
+        </div>
+      </div>
+      <div class="detail-fit">
+        <small>Faz sentido quando</small>
+        <ul id="detailFit"></ul>
+      </div>
+    </section>
+
+    <section class="detail-guardrail">
+      <span>Limite operacional</span>
+      <div>
+        <h2>O que esta solução <em>não faz.</em></h2>
+        <p id="detailGuardrail"></p>
+      </div>
+    </section>
+
+    <section class="detail-related">
+      <header>
+        <span class="detail-kicker"><i></i> Arquitetura conectada</span>
+        <h2>Módulos que costumam trabalhar <em>ao lado deste.</em></h2>
+      </header>
+      <div class="detail-related__grid" id="detailRelated"></div>
+    </section>
+
+    <section class="detail-closing">
+      <div>
+        <span>Próximo passo</span>
+        <h2>Não comece pela tecnologia mais chamativa. <em>Comece pelo gargalo mais caro.</em></h2>
+        <p>O diagnóstico verifica se este módulo realmente é prioritário, quais integrações são necessárias e o que deve continuar humano.</p>
+      </div>
+      <a class="detail-button detail-button--primary detail-button--large" id="detailClosingCta" href="index.html?diagnostico=1"><span>Diagnosticar antes de implantar</span><i>↗</i></a>
+    </section>
+  </main>
+
+  <section class="detail-error" id="detailError" hidden>
+    <span>MOD / NÃO ENCONTRADO</span>
+    <h1>Essa solução não foi localizada.</h1>
+    <p>O endereço pode estar incompleto ou o módulo pode ter sido movido.</p>
+    <a class="detail-button detail-button--primary" href="solucoes.html"><span>Voltar ao catálogo</span><i>↗</i></a>
+  </section>
+
+  <footer class="detail-footer">
+    <span>CEVORA</span>
+    <p>Sistemas de confiança e conversão para clínicas de cirurgia plástica.</p>
+    <a href="solucoes.html">Todas as soluções ↑</a>
+  </footer>
+
+  <script src="solution-detail.js"></script>
+</body>
+</html>
