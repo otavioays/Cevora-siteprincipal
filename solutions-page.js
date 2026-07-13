@@ -1,6 +1,22 @@
 (() => {
   'use strict';
 
+  const visualFixes = document.createElement('style');
+  visualFixes.textContent = `
+    .hero-map__orbit { left:50%; top:50%; animation-name:orbit-center; }
+    .concierge-orbit { animation-name:orbit-center; }
+    .conversion-visual,.intelligence-visual { padding:0 28px 28px; }
+    .conversion-pipeline,.metric-wall { margin-top:28px; }
+    @keyframes orbit-center {
+      from { transform:translate(-50%,-50%) rotate(0deg); }
+      to { transform:translate(-50%,-50%) rotate(360deg); }
+    }
+    @media (max-width:560px) {
+      .conversion-visual,.intelligence-visual { padding-left:14px; padding-right:14px; }
+    }
+  `;
+  document.head.appendChild(visualFixes);
+
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.querySelector('.solutions-header');
   const menuButton = document.querySelector('.menu-toggle');
@@ -76,8 +92,6 @@
         const y = (event.clientY - bounds.top) / bounds.height - .5;
         cancelAnimationFrame(frame);
         frame = requestAnimationFrame(() => {
-          visual.style.setProperty('--pointer-x', `${x * 9}px`);
-          visual.style.setProperty('--pointer-y', `${y * 7}px`);
           visual.style.transform = `perspective(1200px) rotateX(${y * -1.2}deg) rotateY(${x * 1.5}deg)`;
         });
       });
