@@ -1,6 +1,31 @@
 (() => {
   'use strict';
 
+  const loadProductArchitecture = () => {
+    const mountScript = () => {
+      if (document.querySelector('script[data-product-architecture]')) return;
+      const script = document.createElement('script');
+      script.src = 'product-architecture.js';
+      script.dataset.productArchitecture = 'true';
+      document.body.appendChild(script);
+    };
+
+    const existingStyle = document.querySelector('link[data-product-architecture]');
+    if (existingStyle) {
+      mountScript();
+      return;
+    }
+
+    const style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.href = 'styles-product-architecture.css';
+    style.dataset.productArchitecture = 'true';
+    style.addEventListener('load', mountScript, { once: true });
+    document.head.appendChild(style);
+    window.setTimeout(mountScript, 1200);
+  };
+
+  loadProductArchitecture();
   document.documentElement.classList.add('story-motion-ready');
 
   document.querySelectorAll('[data-nav-problem]').forEach((link) => {
