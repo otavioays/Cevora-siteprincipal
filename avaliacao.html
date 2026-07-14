@@ -12,6 +12,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles-avaliacao.css?v=18.0" />
   <link rel="stylesheet" href="styles-avaliacao-v19.css?v=19.0" />
+  <link rel="stylesheet" href="styles-avaliacao-v20.css?v=20.0" />
 </head>
 <body>
   <div class="assessment-noise" aria-hidden="true"></div>
@@ -63,7 +64,7 @@
             <div class="assessment-intro__proof">
               <article><small>01</small><strong>Sem cadastro</strong><span>O resultado aparece imediatamente.</span></article>
               <article><small>02</small><strong>Sem julgamento</strong><span>O foco é o sistema, não culpar a equipe.</span></article>
-              <article><small>03</small><strong>Com direção</strong><span>Até três soluções recomendadas.</span></article>
+              <article><small>03</small><strong>Uma prioridade</strong><span>Uma solução principal e duas rotas secundárias.</span></article>
             </div>
 
             <button class="assessment-button assessment-button--primary" id="startAssessment" type="button">
@@ -115,14 +116,14 @@
 
             <div class="assessment-recommendations">
               <div class="assessment-recommendations__header">
-                <span>Soluções indicadas para começar</span>
-                <b>R$ 200 por automação</b>
+                <span>Prescrição tecnológica do diagnóstico</span>
+                <b>COMECE POR UMA</b>
               </div>
               <div class="assessment-recommendations__grid" id="recommendationGrid"></div>
             </div>
 
             <div class="assessment-result__actions">
-              <a class="assessment-button assessment-button--primary assessment-button--large" id="resultCta" href="solucoes.html"><span>Ver soluções para este gargalo</span><i aria-hidden="true">↗</i></a>
+              <a class="assessment-button assessment-button--primary assessment-button--large" id="resultCta" href="solucoes.html"><span>Conhecer a solução principal</span><i aria-hidden="true">↗</i></a>
               <button class="assessment-button assessment-button--ghost" id="restartAssessment" type="button"><span>Refazer avaliação</span><i aria-hidden="true">↻</i></button>
             </div>
           </div>
@@ -158,5 +159,6 @@
 
   <script src="avaliacao.js?v=18.0"></script>
   <script src="avaliacao-v19.js?v=19.0"></script>
+  <script src="avaliacao-v20.js?v=20.0"></script>
 </body>
 </html>
