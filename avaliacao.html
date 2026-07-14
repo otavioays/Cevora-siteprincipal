@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050403" />
+  <meta name="description" content="Avaliação rápida Cevora para identificar o principal gargalo entre interesse, atendimento e avaliação em clínicas de cirurgia plástica." />
+  <title>Avaliação Rápida | Cevora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles-avaliacao.css?v=18.0" />
+</head>
+<body>
+  <div class="assessment-noise" aria-hidden="true"></div>
+  <div class="assessment-grid" aria-hidden="true"></div>
+  <div class="assessment-glow assessment-glow--gold" aria-hidden="true"></div>
+  <div class="assessment-glow assessment-glow--red" aria-hidden="true"></div>
+
+  <header class="assessment-header">
+    <a class="assessment-brand" href="index.html" aria-label="Cevora, voltar ao site principal">
+      <span class="assessment-brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64">
+          <path d="M32 6c3 9 3 18 0 27C29 24 29 15 32 6Z" />
+          <path d="M15 14c8 5 13 12 15 21-8-5-13-12-15-21Z" />
+          <path d="M49 14c-8 5-13 12-15 21 8-5 13-12 15-21Z" />
+          <path d="M8 29c9 1 16 5 21 13-9-1-16-5-21-13Z" />
+          <path d="M56 29c-9 1-16 5-21 13 9-1 16-5 21-13Z" />
+          <path d="M19 47c7 3 19 3 26 0" fill="none" />
+        </svg>
+      </span>
+      <span class="assessment-brand__type">
+        <strong>CEVORA</strong>
+        <small>Sistemas de confiança e conversão</small>
+      </span>
+    </a>
+
+    <div class="assessment-header__meta">
+      <span>8 perguntas</span>
+      <i></i>
+      <span>Resultado imediato</span>
+    </div>
+
+    <a class="assessment-header__return" href="index.html"><span>Voltar ao site</span><i aria-hidden="true">↗</i></a>
+  </header>
+
+  <main class="assessment-main">
+    <section class="assessment-shell" aria-live="polite">
+      <div class="assessment-shell__chrome">
+        <span>CEVORA / QUICK DIAGNOSTIC</span>
+        <b id="assessmentStatus">STATUS: PRONTO PARA INICIAR</b>
+      </div>
+
+      <div class="assessment-layout">
+        <section class="assessment-stage" id="assessmentStage">
+          <div class="assessment-intro" id="assessmentIntro">
+            <span class="assessment-kicker"><i></i> Avaliação rápida de gargalos</span>
+            <h1>Descubra onde sua clínica perde oportunidades <em>antes da avaliação.</em></h1>
+            <p>Em cerca de dois minutos, o sistema identifica o vazamento dominante entre atendimento, continuidade, operação e dados. O resultado mostra por onde começar, não uma lista infinita de ferramentas.</p>
+
+            <div class="assessment-intro__proof">
+              <article><small>01</small><strong>Sem cadastro</strong><span>O resultado aparece imediatamente.</span></article>
+              <article><small>02</small><strong>Sem julgamento</strong><span>O foco é o sistema, não culpar a equipe.</span></article>
+              <article><small>03</small><strong>Com direção</strong><span>Até três soluções recomendadas.</span></article>
+            </div>
+
+            <button class="assessment-button assessment-button--primary" id="startAssessment" type="button">
+              <span>Começar avaliação</span><i aria-hidden="true">↗</i>
+            </button>
+            <small class="assessment-intro__note">Esta avaliação analisa processos administrativos e comerciais. Não avalia conduta médica.</small>
+          </div>
+
+          <div class="assessment-question" id="assessmentQuestion" hidden>
+            <div class="assessment-progress" aria-label="Progresso da avaliação">
+              <div class="assessment-progress__copy">
+                <span id="questionCounter">Pergunta 1 de 8</span>
+                <b id="progressPercent">12%</b>
+              </div>
+              <div class="assessment-progress__track"><span id="progressBar"></span></div>
+            </div>
+
+            <div class="assessment-question__header">
+              <span class="assessment-question__eyebrow" id="questionEyebrow">Primeiro sinal</span>
+              <h2 id="questionTitle"></h2>
+              <p id="questionHelp"></p>
+            </div>
+
+            <div class="assessment-options" id="assessmentOptions" role="group" aria-labelledby="questionTitle"></div>
+
+            <div class="assessment-question__footer">
+              <button class="assessment-button assessment-button--ghost" id="backQuestion" type="button"><i aria-hidden="true">←</i><span>Voltar</span></button>
+              <span id="selectionHint">Escolha uma resposta para continuar.</span>
+              <button class="assessment-button assessment-button--primary" id="nextQuestion" type="button" disabled><span>Continuar</span><i aria-hidden="true">↗</i></button>
+            </div>
+          </div>
+
+          <div class="assessment-result" id="assessmentResult" hidden>
+            <span class="assessment-kicker"><i></i> Diagnóstico concluído</span>
+            <div class="assessment-result__label">Seu principal gargalo é</div>
+            <h1 id="resultTitle"></h1>
+            <p class="assessment-result__lead" id="resultDescription"></p>
+
+            <div class="assessment-result__insight">
+              <span>Leitura Cevora</span>
+              <strong id="resultInsight"></strong>
+            </div>
+
+            <div class="assessment-result__secondary">
+              <small>Vazamento secundário</small>
+              <strong id="secondaryTitle"></strong>
+              <p id="secondaryDescription"></p>
+            </div>
+
+            <div class="assessment-recommendations">
+              <div class="assessment-recommendations__header">
+                <span>Soluções indicadas para começar</span>
+                <b>R$ 200 por automação</b>
+              </div>
+              <div class="assessment-recommendations__grid" id="recommendationGrid"></div>
+            </div>
+
+            <div class="assessment-result__actions">
+              <a class="assessment-button assessment-button--primary assessment-button--large" id="resultCta" href="solucoes.html"><span>Ver soluções para este gargalo</span><i aria-hidden="true">↗</i></a>
+              <button class="assessment-button assessment-button--ghost" id="restartAssessment" type="button"><span>Refazer avaliação</span><i aria-hidden="true">↻</i></button>
+            </div>
+          </div>
+        </section>
+
+        <aside class="diagnostic-map" aria-label="Mapa de gargalos da avaliação">
+          <div class="diagnostic-map__head">
+            <span>MAPA DE VAZAMENTO</span>
+            <b id="mapState">AGUARDANDO RESPOSTAS</b>
+          </div>
+
+          <div class="diagnostic-map__visual" aria-hidden="true">
+            <div class="diagnostic-map__orbit diagnostic-map__orbit--one"></div>
+            <div class="diagnostic-map__orbit diagnostic-map__orbit--two"></div>
+            <div class="diagnostic-map__core"><span>CEVORA</span><strong id="mapCore">MAPA</strong></div>
+          </div>
+
+          <div class="diagnostic-map__bars" id="diagnosticBars">
+            <article data-map-key="atendimento"><div><span>01</span><strong>Atendimento</strong><b id="score-atendimento">0</b></div><i><em id="bar-atendimento"></em></i></article>
+            <article data-map-key="continuidade"><div><span>02</span><strong>Continuidade</strong><b id="score-continuidade">0</b></div><i><em id="bar-continuidade"></em></i></article>
+            <article data-map-key="operacao"><div><span>03</span><strong>Operação</strong><b id="score-operacao">0</b></div><i><em id="bar-operacao"></em></i></article>
+            <article data-map-key="dados"><div><span>04</span><strong>Dados</strong><b id="score-dados">0</b></div><i><em id="bar-dados"></em></i></article>
+          </div>
+
+          <div class="diagnostic-map__footer">
+            <span>Princípio do diagnóstico</span>
+            <p>O melhor primeiro passo não é a automação mais impressionante. É a que elimina o gargalo mais caro.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="avaliacao.js?v=18.0"></script>
+</body>
+</html>
