@@ -106,6 +106,22 @@
     });
   };
 
+  const routeDiagnosticToAssessment = (event) => {
+    const trigger = event.target instanceof Element ? event.target.closest('[data-diagnostic-open]') : null;
+    if (!trigger) return;
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    const currentParams = new URLSearchParams(window.location.search);
+    const assessmentUrl = new URL('avaliacao.html', window.location.href);
+    const origin = currentParams.get('origem') || trigger.dataset.diagnosticOrigin || 'site-principal';
+    assessmentUrl.searchParams.set('origem', origin);
+    window.location.assign(`${assessmentUrl.pathname.split('/').pop()}${assessmentUrl.search}`);
+  };
+
+  document.addEventListener('click', routeDiagnosticToAssessment, true);
+
   routeSolutionsNavigation();
   removeStrategicFormation();
 
