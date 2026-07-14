@@ -48,15 +48,23 @@
   const next = document.querySelector('#nextQuestion');
   const result = document.querySelector('#assessmentResult');
   const actions = result?.querySelector('.assessment-result__actions');
+  const restart = document.querySelector('#restartAssessment');
   let autoAdvanceTimer = 0;
+  let enhancingResult = false;
 
   const enhanceResult = () => {
-    if (!result || result.hidden) return;
+    if (!result || result.hidden || enhancingResult) return;
 
     const title = document.querySelector('#resultTitle')?.textContent?.trim();
     const profile = impactByProfile[title];
     const cards = [...document.querySelectorAll('.assessment-recommendation')];
     if (!title || !profile || cards.length === 0) return;
+
+    const alreadyEnhanced = result.dataset.enhancedFor === title
+      && cards.every((card) => card.querySelector('.assessment-recommendation__link'));
+    if (alreadyEnhanced) return;
+
+    enhancingResult = true;
 
     let priority = result.querySelector('.assessment-priority');
     if (!priority) {
@@ -94,6 +102,7 @@
       const name = card.querySelector('strong')?.textContent?.trim();
       const id = moduleIds[name];
       if (!id) return;
+
       card.classList.toggle('is-primary', index === 0);
       if (index === 0 && !card.querySelector('.assessment-recommendation__priority')) {
         const badge = document.createElement('span');
@@ -101,12 +110,14 @@
         badge.textContent = 'PRIORIDADE 01';
         card.querySelector('div')?.prepend(badge);
       }
+
       let link = card.querySelector('.assessment-recommendation__link');
       if (!link) {
         link = document.createElement('a');
         link.className = 'assessment-recommendation__link';
         link.setAttribute('aria-label', `Entender ${name}`);
         card.appendChild(link);
+
         const arrow = document.createElement('i');
         arrow.className = 'assessment-recommendation__arrow';
         arrow.setAttribute('aria-hidden', 'true');
@@ -128,18 +139,16 @@
     if (actions && !actions.querySelector('.assessment-result__catalog')) {
       const catalog = document.createElement('a');
       catalog.className = 'assessment-button assessment-button--ghost assessment-result__catalog';
-      catalog.href = document.querySelector('#resultCta')?.dataset.catalogHref || 'solucoes.html#catalogo';
       catalog.innerHTML = '<span>Comparar soluções indicadas</span><i aria-hidden="true">↗</i>';
-      const restart = document.querySelector('#restartAssessment');
       actions.insertBefore(catalog, restart || null);
     }
 
-    const catalog = actions?.querySelector('.assessment-result__catalog');
     const resultTitle = title.toLowerCase();
     const category = resultTitle.includes('continuidade') ? 'continuidade'
       : resultTitle.includes('opera') ? 'operacao'
       : resultTitle.includes('escuro') ? 'dados'
       : 'atendimento';
+    const catalog = actions?.querySelector('.assessment-result__catalog');
     if (catalog) catalog.href = `solucoes.html?categoria=${category}#catalogo`;
 
     if (actions && !result.querySelector('.assessment-result__reassurance')) {
@@ -148,24 +157,39 @@
       note.innerHTML = '<i>✦</i><span>Vc não precisa automatizar toda a clínica. A recomendação começa pelo ponto que mais interfere na passagem entre interesse e avaliação.</span>';
       actions.insertAdjacentElement('afterend', note);
     }
+
+    result.dataset.enhancedFor = title;
+    window.requestAnimationFrame(() => { enhancingResult = false; });
   };
 
   options?.addEventListener('click', (event) => {
     const option = event.target.closest('.assessment-option[data-mode="single"]');
     if (!option) return;
+
+    const counterBefore = document.querySelector('#questionCounter')?.textContent;
     window.clearTimeout(autoAdvanceTimer);
     autoAdvanceTimer = window.setTimeout(() => {
-      if (!question?.hidden && next && !next.disabled && option.classList.contains('is-selected')) next.click();
+      const counterNow = document.querySelector('#questionCounter')?.textContent;
+      if (!question?.hidden && next && !next.disabled && counterNow === counterBefore) next.click();
     }, 520);
   });
 
   document.addEventListener('keydown', (event) => {
     if (!question || question.hidden || event.ctrlKey || event.metaKey || event.altKey) return;
+
     const key = event.key.toUpperCase();
-    const index = key.charCodeAt(0) - 65;
     const available = [...document.querySelectorAll('.assessment-option')];
-    if (index >= 0 && index < available.length) available[index].click();
+    if (/^[A-H]$/.test(key)) {
+      const index = key.charCodeAt(0) - 65;
+      if (index < available.length) available[index].click();
+      return;
+    }
     if (event.key === 'Enter' && next && !next.disabled) next.click();
+  });
+
+  restart?.addEventListener('click', () => {
+    delete result?.dataset.enhancedFor;
+    window.clearTimeout(autoAdvanceTimer);
   });
 
   const resultObserver = new MutationObserver(() => window.setTimeout(enhanceResult, 20));
